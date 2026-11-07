@@ -20,7 +20,7 @@ npm run build:data
 
 ## Cangjie execution
 
-The local Cangjie 1.0.5 compiler is detected, but the sample executable compiled during setup crashed when launched on this Windows environment. Docker is also not installed here, so real submissions are currently disabled. The app reports this directly, saves the code, and does not create test results or mark problems complete.
+The app compiles and runs submitted Cangjie code inside an isolated Docker container using the configured Linux Cangjie SDK image. Windows Cangjie is not used for submitted code.
 
 Execution is only enabled when all of the following are available:
 
@@ -28,10 +28,21 @@ Execution is only enabled when all of the following are available:
 - The image contains `cjc`, the Cangjie runtime libraries, and `/bin/sh`.
 - `CANGJIE_RUNNER_IMAGE` names the image before starting the server.
 
-Example PowerShell setup:
+### Build the runner image
+
+Install Docker Desktop with its WSL 2 backend, then download the official Linux x64 Cangjie 1.0.5 SDK archive (`cangjie-sdk-linux-x64-1.0.5.tar.gz`) from the [Cangjie download center](https://cangjie-lang.cn/download/1.0.5) into this project folder. Build the runner image from PowerShell:
 
 ```powershell
-$env:CANGJIE_RUNNER_IMAGE = "your-local-cangjie-runner:tag"
+docker build -f Dockerfile.runner --build-arg SDK_ARCHIVE=cangjie-sdk-linux-x64-1.0.5.tar.gz -t cangchum-cangjie:1.0.5 .
+docker run --rm cangchum-cangjie:1.0.5 cjc --version
+```
+
+The image loads the SDK's `envsetup.sh` for each container process so compiler and runtime library paths are available to both compilation and execution. The runner image name is `cangchum-cangjie:1.0.5`.
+
+Start the API with that image configured:
+
+```powershell
+$env:CANGJIE_RUNNER_IMAGE = "cangchum-cangjie:1.0.5"
 npm start
 ```
 

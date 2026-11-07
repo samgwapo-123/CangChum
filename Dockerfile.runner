@@ -1,0 +1,33 @@
+# Build with the official Linux x64 Cangjie SDK 1.0.5 archive in the build context.
+FROM debian:bookworm-slim
+
+ARG SDK_ARCHIVE=cangjie-sdk-linux-x64-1.0.5.tar.gz
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        bash \
+        binutils \
+        ca-certificates \
+        libffi8 \
+        libgcc-s1 \
+        libc6-dev \
+        libssl3 \
+        libstdc++6 \
+        libtinfo6 \
+        libxml2 \
+        gcc \
+        zlib1g \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY ${SDK_ARCHIVE} /tmp/cangjie-sdk.tar.gz
+RUN tar -xzf /tmp/cangjie-sdk.tar.gz -C /opt \
+    && rm /tmp/cangjie-sdk.tar.gz \
+    && chmod -R a+rX /opt/cangjie \
+    && test -x /opt/cangjie/bin/cjc \
+    && bash -c 'source /opt/cangjie/envsetup.sh && cjc --version'
+
+ENV CANGJIE_HOME=/opt/cangjie
+
+# The API invokes /bin/sh directly. Load the SDK's supported environment setup
+# for that process and every child process, including the compiled executable.
+ENTRYPOINT ["/bin/bash", "-c", "source /opt/cangjie/envsetup.sh && exec \"$@\"", "--"]

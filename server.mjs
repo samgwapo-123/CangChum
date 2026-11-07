@@ -7,7 +7,6 @@ import { randomUUID } from 'node:crypto';
 
 const ROOT = process.cwd();
 const PORT = Number(process.env.PORT || 4173);
-const COMPILER = process.env.CANGJIE_COMPILER || 'cjc';
 const RUNNER_IMAGE = process.env.CANGJIE_RUNNER_IMAGE || '';
 const MAX_CODE_LENGTH = 50_000;
 const MAX_REQUEST_BYTES = 100_000;
@@ -30,22 +29,26 @@ const publicFiles = new Set([
   'assets/layout/layout.css', 'assets/layout/layout.js', 'assets/icons/icon.css'
 ]);
 
-function runVersion(command, args) {
-  const result = spawnSync(command, args, { encoding: 'utf8', windowsHide: true, timeout: 2500 });
+function runVersion(command, args, timeout = 2500) {
+  const result = spawnSync(command, args, { encoding: 'utf8', windowsHide: true, timeout });
   if (result.error || result.status !== 0) return null;
   return `${result.stdout || ''}${result.stderr || ''}`.trim().split('\n')[0] || null;
 }
 
 function runnerHealth() {
-  const compilerVersion = runVersion(COMPILER, ['--version']);
   const dockerVersion = runVersion('docker', ['--version']);
-  if (!compilerVersion) return { runnerAvailable: false, compilerInstalled: false, compilerVersion: null, message: 'The Cangjie compiler was not found. Install the Cangjie SDK and set CANGJIE_COMPILER if it is outside PATH.' };
-  if (!dockerVersion) return { runnerAvailable: false, compilerInstalled: true, compilerVersion, message: 'The Cangjie compiler is installed, but Docker is not available. Code stays saved; no program has been executed.' };
-  if (!RUNNER_IMAGE) return { runnerAvailable: false, compilerInstalled: true, compilerVersion, message: 'No isolated runner image is configured. Set CANGJIE_RUNNER_IMAGE to a local image containing the Cangjie compiler and runtime.' };
+  if (!dockerVersion) return { runnerAvailable: false, compilerInstalled: false, compilerVersion: null, message: 'Docker is not available. Code stays saved; no program has been executed.' };
+  if (!RUNNER_IMAGE) return { runnerAvailable: false, compilerInstalled: false, compilerVersion: null, message: 'No isolated runner image is configured. Set CANGJIE_RUNNER_IMAGE to a local image containing the Cangjie compiler and runtime.' };
   const daemon = spawnSync('docker', ['info', '--format', '{{.ServerVersion}}'], { encoding: 'utf8', windowsHide: true, timeout: 3000 });
-  if (daemon.error || daemon.status !== 0) return { runnerAvailable: false, compilerInstalled: true, compilerVersion, message: 'Docker is installed, but its container service is not running.' };
+  if (daemon.error || daemon.status !== 0) return { runnerAvailable: false, compilerInstalled: false, compilerVersion: null, message: 'Docker is installed, but its container service is not running.' };
   const image = spawnSync('docker', ['image', 'inspect', '--format', '{{.Id}}', RUNNER_IMAGE], { encoding: 'utf8', windowsHide: true, timeout: 3000 });
-  if (image.error || image.status !== 0) return { runnerAvailable: false, compilerInstalled: true, compilerVersion, message: `The configured runner image “${RUNNER_IMAGE}” is not available locally. Build or load it before running code.` };
+  if (image.error || image.status !== 0) return { runnerAvailable: false, compilerInstalled: false, compilerVersion: null, message: `The configured runner image “${RUNNER_IMAGE}” is not available locally. Build or load it before running code.` };
+  const compilerVersion = runVersion('docker', [
+    'run', '--rm', '--network=none', '--read-only', '--cpus=1', '--memory=512m', '--pids-limit=32',
+    '--user=65534:65534', '--cap-drop=ALL', '--security-opt=no-new-privileges',
+    '--tmpfs=/tmp:rw,nosuid,nodev,noexec,size=16m', RUNNER_IMAGE, 'cjc', '--version'
+  ], 8000);
+  if (!compilerVersion) return { runnerAvailable: false, compilerInstalled: false, compilerVersion: null, message: `The Cangjie compiler is not accessible in the configured runner image “${RUNNER_IMAGE}”.` };
   return { runnerAvailable: true, compilerInstalled: true, compilerVersion, runnerImage: RUNNER_IMAGE, message: '' };
 }
 
@@ -90,7 +93,7 @@ function runInContainer(sourceDirectory, input, cidPath, marker) {
     const args = [
       'run', '--rm', '--interactive', '--network=none', '--read-only', '--cpus=1', '--memory=512m', '--pids-limit=32',
       '--user=65534:65534', '--cap-drop=ALL', '--security-opt=no-new-privileges', '--stop-timeout=0',
-      '--ulimit=cpu=8:8', '--ulimit=fsize=4194304:4194304', '--tmpfs=/work:rw,nosuid,nodev,size=32m',
+      '--ulimit=cpu=8:8', '--ulimit=fsize=4194304:4194304', '--tmpfs=/work:rw,nosuid,nodev,exec,size=32m',
       '--tmpfs=/tmp:rw,nosuid,nodev,noexec,size=16m', `--cidfile=${cidPath}`,
       '--mount', `type=bind,source=${sourceDirectory},target=/input,readonly`, RUNNER_IMAGE,
       '/bin/sh', '-c', containerCommand

@@ -1,0 +1,5 @@
+# Downloaded only as the local Docker build input.
+cangjie-sdk-linux-x64-1.0.5.tar.gz
+
+# Temporary sources created for local runner smoke checks.
+.runner-smoke/
