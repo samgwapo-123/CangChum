@@ -48,7 +48,7 @@ npm start
 
 The backend passes each program to a fresh container. Containers have no network, a read-only root filesystem, a read-only source mount, a non-root user, dropped Linux capabilities, 512 MB memory, one CPU, process, file-size and 256 KB combined output limits, and an eight-second wall timeout. At most two runs execute at once. Source and input files are temporary and removed after the run. The host compiler is never used to execute browser-submitted code.
 
-Use `Run code` for the sample or a selected source test case. Use `Submit` for the full test suite. A problem is completed only after a real isolated run passes every required case.
+`Run code` sends the contents of the Custom Input field to the program's standard input and displays stdout, stderr, compile errors, runtime errors, or timeouts. Custom input is saved per problem in this browser for reruns. `Submit` ignores Custom Input and runs the official test suite. A problem is completed only after a real isolated submission passes every required case.
 
 ## What's included
 

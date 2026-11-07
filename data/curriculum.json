@@ -68,31 +68,31 @@
               "number": 1,
               "label": "normal",
               "input": "Hack Night\nLab 2",
-              "expectedOutput": "=== WELCOME ==="
+              "expectedOutput": "=== WELCOME ===\nEvent: Hack Night\nVenue: Lab 2"
             },
             {
               "number": 2,
               "label": "minimum",
               "input": "A\nB",
-              "expectedOutput": "=== WELCOME ==="
+              "expectedOutput": "=== WELCOME ===\nEvent: A\nVenue: B"
             },
             {
               "number": 3,
               "label": "maximum, 40-char event",
               "input": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmn\nRoom 101",
-              "expectedOutput": "=== WELCOME ==="
+              "expectedOutput": "=== WELCOME ===\nEvent: ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmn\nVenue: Room 101"
             },
             {
               "number": 4,
               "label": "symbols",
               "input": "Hack#2026 Finals!\nGym (2F)",
-              "expectedOutput": "=== WELCOME ==="
+              "expectedOutput": "=== WELCOME ===\nEvent: Hack#2026 Finals!\nVenue: Gym (2F)"
             },
             {
               "number": 5,
               "label": "double space must be kept",
               "input": "Code  Camp\nLab",
-              "expectedOutput": "=== WELCOME ==="
+              "expectedOutput": "=== WELCOME ===\nEvent: Code  Camp\nVenue: Lab"
             }
           ],
           "concepts": "`println`, reading several lines, keeping text exactly as read.",
@@ -114,31 +114,31 @@
               "number": 1,
               "label": "normal",
               "input": "Go\nto\nCebu\nnow",
-              "expectedOutput": "Go"
+              "expectedOutput": "Go\nGo to\nGo to Cebu\nGo to Cebu now"
             },
             {
               "number": 2,
               "label": "single-letter words",
               "input": "A\nB\nC\nD",
-              "expectedOutput": "A"
+              "expectedOutput": "A\nA B\nA B C\nA B C D"
             },
             {
               "number": 3,
               "label": "maximum, 15-char words",
               "input": "abcdefghijklmno\npqrstuvwxyzabcd\nefghijklmnopqrs\ntuvwxyzabcdefgh",
-              "expectedOutput": "abcdefghijklmno"
+              "expectedOutput": "abcdefghijklmno\nabcdefghijklmno pqrstuvwxyzabcd\nabcdefghijklmno pqrstuvwxyzabcd efghijklmnopqrs\nabcdefghijklmno pqrstuvwxyzabcd efghijklmnopqrs tuvwxyzabcdefgh"
             },
             {
               "number": 4,
               "label": "digits and mixed case",
               "input": "Go\n2\nMars\n99",
-              "expectedOutput": "Go"
+              "expectedOutput": "Go\nGo 2\nGo 2 Mars\nGo 2 Mars 99"
             },
             {
               "number": 5,
               "label": "repeated words",
               "input": "no\nno\nno\nyes",
-              "expectedOutput": "no"
+              "expectedOutput": "no\nno no\nno no no\nno no no yes"
             }
           ],
           "concepts": "`print` vs `println`, reading multiple inputs, building lines step by step, no trailing spaces.",
@@ -160,31 +160,31 @@
               "number": 1,
               "label": "normal",
               "input": "apple\nbanana\ncherry",
-              "expectedOutput": "3. cherry"
+              "expectedOutput": "3. cherry\n2. banana\n1. apple\n--- END ---"
             },
             {
               "number": 2,
               "label": "minimum",
               "input": "a\nb\nc",
-              "expectedOutput": "3. c"
+              "expectedOutput": "3. c\n2. b\n1. a\n--- END ---"
             },
             {
               "number": 3,
               "label": "maximum length",
               "input": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmn\nmid\nend",
-              "expectedOutput": "3. end"
+              "expectedOutput": "3. end\n2. mid\n1. ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmn\n--- END ---"
             },
             {
               "number": 4,
               "label": "input already looks numbered",
               "input": "1. one\n2. two\n3. three",
-              "expectedOutput": "3. 3. three"
+              "expectedOutput": "3. 3. three\n2. 2. two\n1. 1. one\n--- END ---"
             },
             {
               "number": 5,
               "label": "identical lines",
               "input": "same\nsame\nsame",
-              "expectedOutput": "3. same"
+              "expectedOutput": "3. same\n2. same\n1. same\n--- END ---"
             }
           ],
           "concepts": "Reading multiple lines, storing them, controlling output order, string interpolation or concatenation.",
@@ -206,31 +206,31 @@
               "number": 1,
               "label": "normal",
               "input": "2026-12-01\nGrace Hopper\nDebugging is fun\nShip it",
-              "expectedOutput": "+------------------------------+"
+              "expectedOutput": "+------------------------------+\n QUOTE BOARD - 2026-12-01\n 1) \"Debugging is fun\"\n 2) \"Ship it\"\n by Grace Hopper\n+------------------------------+"
             },
             {
               "number": 2,
               "label": "minimum",
               "input": "D\nA\nQ\nR",
-              "expectedOutput": "+------------------------------+"
+              "expectedOutput": "+------------------------------+\n QUOTE BOARD - D\n 1) \"Q\"\n 2) \"R\"\n by A\n+------------------------------+"
             },
             {
               "number": 3,
               "label": "maximum 40-char quotes",
               "input": "2026-01-01\nAnon\nABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmn\nabcdefghijklmnABCDEFGHIJKLMNOPQRSTUVWXYZ",
-              "expectedOutput": "+------------------------------+"
+              "expectedOutput": "+------------------------------+\n QUOTE BOARD - 2026-01-01\n 1) \"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmn\"\n 2) \"abcdefghijklmnABCDEFGHIJKLMNOPQRSTUVWXYZ\"\n by Anon\n+------------------------------+"
             },
             {
               "number": 4,
               "label": "apostrophes and punctuation",
               "input": "Nov 7\nDr. Who\nIt's done, finally!\nDon't stop",
-              "expectedOutput": "+------------------------------+"
+              "expectedOutput": "+------------------------------+\n QUOTE BOARD - Nov 7\n 1) \"It's done, finally!\"\n 2) \"Don't stop\"\n by Dr. Who\n+------------------------------+"
             },
             {
               "number": 5,
               "label": "author with periods",
               "input": "2027-02-14\nJ. K. Rowling\nWords are magic\nRead more",
-              "expectedOutput": "+------------------------------+"
+              "expectedOutput": "+------------------------------+\n QUOTE BOARD - 2027-02-14\n 1) \"Words are magic\"\n 2) \"Read more\"\n by J. K. Rowling\n+------------------------------+"
             }
           ],
           "concepts": "Multi-line output, literal double quotes in output, exact spacing, reading four inputs.",
@@ -351,31 +351,31 @@
               "number": 1,
               "label": "normal",
               "input": "18\n3\n20",
-              "expectedOutput": "Tuition: 31575"
+              "expectedOutput": "Tuition: 31575\nDiscount: 6315\nMisc: 3250\nTotal: 28510"
             },
             {
               "number": 2,
               "label": "minimum",
               "input": "0\n0\n0",
-              "expectedOutput": "Tuition: 0"
+              "expectedOutput": "Tuition: 0\nDiscount: 0\nMisc: 3250\nTotal: 3250"
             },
             {
               "number": 3,
               "label": "maximum, full scholarship",
               "input": "30\n10\n100",
-              "expectedOutput": "Tuition: 62500"
+              "expectedOutput": "Tuition: 62500\nDiscount: 62500\nMisc: 3250\nTotal: 3250"
             },
             {
               "number": 4,
               "label": "integer division drops .5",
               "input": "1\n0\n10",
-              "expectedOutput": "Tuition: 1425"
+              "expectedOutput": "Tuition: 1425\nDiscount: 142\nMisc: 3250\nTotal: 4533"
             },
             {
               "number": 5,
               "label": "drops .75",
               "input": "7\n2\n99",
-              "expectedOutput": "Tuition: 13925"
+              "expectedOutput": "Tuition: 13925\nDiscount: 13785\nMisc: 3250\nTotal: 3390"
             }
           ],
           "concepts": "Several `let` constants, `Int64` arithmetic, integer division, multi-line output.",
@@ -397,31 +397,31 @@
               "number": 1,
               "label": "normal",
               "input": "300\n20",
-              "expectedOutput": "Efficiency: 15.00 km/L"
+              "expectedOutput": "Efficiency: 15.00 km/L\nFuel cost: 1250.00"
             },
             {
               "number": 2,
               "label": "minimum",
               "input": "0\n1",
-              "expectedOutput": "Efficiency: 0.00 km/L"
+              "expectedOutput": "Efficiency: 0.00 km/L\nFuel cost: 62.50"
             },
             {
               "number": 3,
               "label": "maximum",
               "input": "100000\n1000",
-              "expectedOutput": "Efficiency: 100.00 km/L"
+              "expectedOutput": "Efficiency: 100.00 km/L\nFuel cost: 62500.00"
             },
             {
               "number": 4,
               "label": "repeating decimal",
               "input": "100\n3",
-              "expectedOutput": "Efficiency: 33.33 km/L"
+              "expectedOutput": "Efficiency: 33.33 km/L\nFuel cost: 187.50"
             },
             {
               "number": 5,
               "label": "tiny efficiency",
               "input": "1\n1000",
-              "expectedOutput": "Efficiency: 0.00 km/L"
+              "expectedOutput": "Efficiency: 0.00 km/L\nFuel cost: 62500.00"
             }
           ],
           "concepts": "`Float64` constant, `Float64(...)` conversion, float division, 2-decimal formatting.",
@@ -443,37 +443,37 @@
               "number": 1,
               "label": "normal, 3-4-5 triangle",
               "input": "0\n0\n3\n4",
-              "expectedOutput": "Distance: 2.50 km"
+              "expectedOutput": "Distance: 2.50 km\nFare: 41.25"
             },
             {
               "number": 2,
               "label": "same point",
               "input": "0\n0\n0\n0",
-              "expectedOutput": "Distance: 0.00 km"
+              "expectedOutput": "Distance: 0.00 km\nFare: 20.00"
             },
             {
               "number": 3,
               "label": "maximum span",
               "input": "-1000\n-1000\n1000\n1000",
-              "expectedOutput": "Distance: 1414.21 km"
+              "expectedOutput": "Distance: 1414.21 km\nFare: 12040.82"
             },
             {
               "number": 4,
               "label": "vertical line",
               "input": "5\n5\n5\n17",
-              "expectedOutput": "Distance: 6.00 km"
+              "expectedOutput": "Distance: 6.00 km\nFare: 71.00"
             },
             {
               "number": 5,
               "label": "non-integer distance",
               "input": "1\n2\n2\n3",
-              "expectedOutput": "Distance: 0.71 km"
+              "expectedOutput": "Distance: 0.71 km\nFare: 26.01"
             },
             {
               "number": 6,
               "label": "negative coordinates",
               "input": "-3\n-4\n0\n0",
-              "expectedOutput": "Distance: 2.50 km"
+              "expectedOutput": "Distance: 2.50 km\nFare: 41.25"
             }
           ],
           "concepts": "Mixed `Int64`/`Float64` constants, type conversion, `import std.math.*` and `sqrt`, multi-step float calculation.",
@@ -548,31 +548,31 @@
               "number": 1,
               "label": "normal",
               "input": "10\n20\n30",
-              "expectedOutput": "10"
+              "expectedOutput": "10\n30\n60"
             },
             {
               "number": 2,
               "label": "all zero",
               "input": "0\n0\n0",
-              "expectedOutput": "0"
+              "expectedOutput": "0\n0\n0"
             },
             {
               "number": 3,
               "label": "minimum values",
               "input": "-100\n-100\n-100",
-              "expectedOutput": "-100"
+              "expectedOutput": "-100\n-200\n-300"
             },
             {
               "number": 4,
               "label": "total returns to zero",
               "input": "100\n-100\n50",
-              "expectedOutput": "100"
+              "expectedOutput": "100\n0\n50"
             },
             {
               "number": 5,
               "label": "alternating",
               "input": "1\n-1\n1",
-              "expectedOutput": "1"
+              "expectedOutput": "1\n0\n1"
             }
           ],
           "concepts": "`var`, compound assignment (`+=`), reusing one variable.",
@@ -594,37 +594,37 @@
               "number": 1,
               "label": "normal",
               "input": "8\n2\n6\n4\n10",
-              "expectedOutput": "Min: 2"
+              "expectedOutput": "Min: 2\nMax: 10\nTotal: 30"
             },
             {
               "number": 2,
               "label": "all equal",
               "input": "4\n4\n4\n4\n4",
-              "expectedOutput": "Min: 4"
+              "expectedOutput": "Min: 4\nMax: 4\nTotal: 20"
             },
             {
               "number": 3,
               "label": "all negative",
               "input": "-5\n-2\n-9\n-1\n-7",
-              "expectedOutput": "Min: -9"
+              "expectedOutput": "Min: -9\nMax: -1\nTotal: -24"
             },
             {
               "number": 4,
               "label": "extremes cancel out",
               "input": "1000\n-1000\n0\n1000\n-1000",
-              "expectedOutput": "Min: -1000"
+              "expectedOutput": "Min: -1000\nMax: 1000\nTotal: 0"
             },
             {
               "number": 5,
               "label": "ascending order",
               "input": "1\n2\n3\n4\n5",
-              "expectedOutput": "Min: 1"
+              "expectedOutput": "Min: 1\nMax: 5\nTotal: 15"
             },
             {
               "number": 6,
               "label": "descending order, min last",
               "input": "5\n4\n3\n2\n1",
-              "expectedOutput": "Min: 1"
+              "expectedOutput": "Min: 1\nMax: 5\nTotal: 15"
             }
           ],
           "concepts": "`var` tracking variables, initializing from the first input, `if` comparisons, accumulation.",
@@ -646,37 +646,37 @@
               "number": 1,
               "label": "normal",
               "input": "200\n20\n10",
-              "expectedOutput": "After coupon: 180"
+              "expectedOutput": "After coupon: 180\nAfter tax: 198"
             },
             {
               "number": 2,
               "label": "coupon equals price",
               "input": "100\n100\n10",
-              "expectedOutput": "After coupon: 0"
+              "expectedOutput": "After coupon: 0\nAfter tax: 0"
             },
             {
               "number": 3,
               "label": "coupon larger than price",
               "input": "100\n500\n10",
-              "expectedOutput": "After coupon: 0"
+              "expectedOutput": "After coupon: 0\nAfter tax: 0"
             },
             {
               "number": 4,
               "label": "tax drops decimals",
               "input": "999\n1\n7",
-              "expectedOutput": "After coupon: 998"
+              "expectedOutput": "After coupon: 998\nAfter tax: 1067"
             },
             {
               "number": 5,
               "label": "maximum price, 100% tax",
               "input": "100000\n0\n100",
-              "expectedOutput": "After coupon: 100000"
+              "expectedOutput": "After coupon: 100000\nAfter tax: 200000"
             },
             {
               "number": 6,
               "label": "tax too small to count",
               "input": "33\n0\n1",
-              "expectedOutput": "After coupon: 33"
+              "expectedOutput": "After coupon: 33\nAfter tax: 33"
             }
           ],
           "concepts": "One `var` reassigned several times, clamping with `if`, integer division.",
@@ -757,37 +757,37 @@
               "number": 1,
               "label": "a larger",
               "input": "5\n3",
-              "expectedOutput": "a > b: true"
+              "expectedOutput": "a > b: true\na == b: false\na < b: false"
             },
             {
               "number": 2,
               "label": "a smaller",
               "input": "3\n5",
-              "expectedOutput": "a > b: false"
+              "expectedOutput": "a > b: false\na == b: false\na < b: true"
             },
             {
               "number": 3,
               "label": "equal",
               "input": "4\n4",
-              "expectedOutput": "a > b: false"
+              "expectedOutput": "a > b: false\na == b: true\na < b: false"
             },
             {
               "number": 4,
               "label": "extreme values",
               "input": "-1000000000\n1000000000",
-              "expectedOutput": "a > b: false"
+              "expectedOutput": "a > b: false\na == b: false\na < b: true"
             },
             {
               "number": 5,
               "label": "negatives",
               "input": "-7\n-8",
-              "expectedOutput": "a > b: true"
+              "expectedOutput": "a > b: true\na == b: false\na < b: false"
             },
             {
               "number": 6,
               "label": "zeros",
               "input": "0\n0",
-              "expectedOutput": "a > b: false"
+              "expectedOutput": "a > b: false\na == b: true\na < b: false"
             }
           ],
           "concepts": "`Bool` values, comparison operators, string interpolation of expressions.",
@@ -809,37 +809,37 @@
               "number": 1,
               "label": "positive, odd",
               "input": "7",
-              "expectedOutput": "positive: true"
+              "expectedOutput": "positive: true\neven: false\npositive and even: false\npositive or even: true\nnot positive: false"
             },
             {
               "number": 2,
               "label": "negative, odd",
               "input": "-3",
-              "expectedOutput": "positive: false"
+              "expectedOutput": "positive: false\neven: false\npositive and even: false\npositive or even: false\nnot positive: true"
             },
             {
               "number": 3,
               "label": "zero",
               "input": "0",
-              "expectedOutput": "positive: false"
+              "expectedOutput": "positive: false\neven: true\npositive and even: false\npositive or even: true\nnot positive: true"
             },
             {
               "number": 4,
               "label": "negative, even",
               "input": "-4",
-              "expectedOutput": "positive: false"
+              "expectedOutput": "positive: false\neven: true\npositive and even: false\npositive or even: true\nnot positive: true"
             },
             {
               "number": 5,
               "label": "maximum",
               "input": "1000000000",
-              "expectedOutput": "positive: true"
+              "expectedOutput": "positive: true\neven: true\npositive and even: true\npositive or even: true\nnot positive: false"
             },
             {
               "number": 6,
               "label": "positive, small odd",
               "input": "1",
-              "expectedOutput": "positive: true"
+              "expectedOutput": "positive: true\neven: false\npositive and even: false\npositive or even: true\nnot positive: false"
             }
           ],
           "concepts": "`&&`, `||`, `!`, `%`, Boolean output.",
@@ -913,37 +913,37 @@
               "number": 1,
               "label": "small order",
               "input": "Eraser\n4\n25",
-              "expectedOutput": "Eraser x4 @ 25 = 100"
+              "expectedOutput": "Eraser x4 @ 25 = 100\nBig order: false"
             },
             {
               "number": 2,
               "label": "zero quantity",
               "input": "Gum\n0\n100",
-              "expectedOutput": "Gum x0 @ 100 = 0"
+              "expectedOutput": "Gum x0 @ 100 = 0\nBig order: false"
             },
             {
               "number": 3,
               "label": "exact boundary 1000",
               "input": "Rice\n20\n50",
-              "expectedOutput": "Rice x20 @ 50 = 1000"
+              "expectedOutput": "Rice x20 @ 50 = 1000\nBig order: true"
             },
             {
               "number": 4,
               "label": "just below boundary",
               "input": "Candy\n3\n333",
-              "expectedOutput": "Candy x3 @ 333 = 999"
+              "expectedOutput": "Candy x3 @ 333 = 999\nBig order: false"
             },
             {
               "number": 5,
               "label": "maximum",
               "input": "Gold\n1000\n100000",
-              "expectedOutput": "Gold x1000 @ 100000 = 100000000"
+              "expectedOutput": "Gold x1000 @ 100000 = 100000000\nBig order: true"
             },
             {
               "number": 6,
               "label": "single expensive item",
               "input": "Laptop\n1\n45000",
-              "expectedOutput": "Laptop x1 @ 45000 = 45000"
+              "expectedOutput": "Laptop x1 @ 45000 = 45000\nBig order: true"
             }
           ],
           "concepts": "Mixing `String` and `Int64` values, converting text input to a number, `Bool` from a comparison.",
@@ -965,43 +965,43 @@
               "number": 1,
               "label": "palindrome",
               "input": "121",
-              "expectedOutput": "Sign: positive"
+              "expectedOutput": "Sign: positive\nParity: odd\nDivisible by 3: false\nDivisible by 5: false\nLast digit: 1\nDigit count: 3\nPalindrome: true"
             },
             {
               "number": 2,
               "label": "zero",
               "input": "0",
-              "expectedOutput": "Sign: zero"
+              "expectedOutput": "Sign: zero\nParity: even\nDivisible by 3: true\nDivisible by 5: true\nLast digit: 0\nDigit count: 1\nPalindrome: true"
             },
             {
               "number": 3,
               "label": "negative",
               "input": "-15",
-              "expectedOutput": "Sign: negative"
+              "expectedOutput": "Sign: negative\nParity: odd\nDivisible by 3: true\nDivisible by 5: true\nLast digit: 5\nDigit count: 2\nPalindrome: false"
             },
             {
               "number": 4,
               "label": "maximum",
               "input": "1000000000",
-              "expectedOutput": "Sign: positive"
+              "expectedOutput": "Sign: positive\nParity: even\nDivisible by 3: false\nDivisible by 5: true\nLast digit: 0\nDigit count: 10\nPalindrome: false"
             },
             {
               "number": 5,
               "label": "minimum",
               "input": "-1000000000",
-              "expectedOutput": "Sign: negative"
+              "expectedOutput": "Sign: negative\nParity: even\nDivisible by 3: false\nDivisible by 5: true\nLast digit: 0\nDigit count: 10\nPalindrome: false"
             },
             {
               "number": 6,
               "label": "odd-length palindrome",
               "input": "12321",
-              "expectedOutput": "Sign: positive"
+              "expectedOutput": "Sign: positive\nParity: odd\nDivisible by 3: true\nDivisible by 5: false\nLast digit: 1\nDigit count: 5\nPalindrome: true"
             },
             {
               "number": 7,
               "label": "negative single digit",
               "input": "-7",
-              "expectedOutput": "Sign: negative"
+              "expectedOutput": "Sign: negative\nParity: odd\nDivisible by 3: false\nDivisible by 5: false\nLast digit: 7\nDigit count: 1\nPalindrome: true"
             }
           ],
           "concepts": "`Int64`, `Bool`, `if`/`else`, `while`, `%` and `/`, handling negative input, string output.",
@@ -1122,37 +1122,37 @@
               "number": 1,
               "label": "normal",
               "input": "95\n85\n75",
-              "expectedOutput": "Score 95: A"
+              "expectedOutput": "Score 95: A\nScore 85: B\nScore 75: C\nAverage: 85 (B)"
             },
             {
               "number": 2,
               "label": "minimum",
               "input": "0\n0\n0",
-              "expectedOutput": "Score 0: F"
+              "expectedOutput": "Score 0: F\nScore 0: F\nScore 0: F\nAverage: 0 (F)"
             },
             {
               "number": 3,
               "label": "maximum",
               "input": "100\n100\n100",
-              "expectedOutput": "Score 100: A"
+              "expectedOutput": "Score 100: A\nScore 100: A\nScore 100: A\nAverage: 100 (A)"
             },
             {
               "number": 4,
               "label": "boundaries 90, 89, 60",
               "input": "90\n89\n60",
-              "expectedOutput": "Score 90: A"
+              "expectedOutput": "Score 90: A\nScore 89: B\nScore 60: D\nAverage: 79 (C)"
             },
             {
               "number": 5,
               "label": "boundaries 59, 70, 80",
               "input": "59\n70\n80",
-              "expectedOutput": "Score 59: F"
+              "expectedOutput": "Score 59: F\nScore 70: C\nScore 80: B\nAverage: 69 (D)"
             },
             {
               "number": 6,
               "label": "just below each cutoff",
               "input": "69\n79\n89",
-              "expectedOutput": "Score 69: D"
+              "expectedOutput": "Score 69: D\nScore 79: C\nScore 89: B\nAverage: 79 (C)"
             }
           ],
           "concepts": "Functions returning `String`, `if`/`else if`/`else` as the last expression, calling one function several times.",
@@ -1174,37 +1174,37 @@
               "number": 1,
               "label": "normal",
               "input": "3\n4",
-              "expectedOutput": "3^4 = 81"
+              "expectedOutput": "3^4 = 81\nDigit sum: 9"
             },
             {
               "number": 2,
               "label": "exponent zero",
               "input": "5\n0",
-              "expectedOutput": "5^0 = 1"
+              "expectedOutput": "5^0 = 1\nDigit sum: 1"
             },
             {
               "number": 3,
               "label": "maximum",
               "input": "20\n12",
-              "expectedOutput": "20^12 = 4096000000000000"
+              "expectedOutput": "20^12 = 4096000000000000\nDigit sum: 19"
             },
             {
               "number": 4,
               "label": "base one",
               "input": "1\n12",
-              "expectedOutput": "1^12 = 1"
+              "expectedOutput": "1^12 = 1\nDigit sum: 1"
             },
             {
               "number": 5,
               "label": "five-digit result",
               "input": "7\n5",
-              "expectedOutput": "7^5 = 16807"
+              "expectedOutput": "7^5 = 16807\nDigit sum: 22"
             },
             {
               "number": 6,
               "label": "six-digit result",
               "input": "9\n6",
-              "expectedOutput": "9^6 = 531441"
+              "expectedOutput": "9^6 = 531441\nDigit sum: 18"
             }
           ],
           "concepts": "Multiple functions, calling one function with another's result, `while` loops inside functions, `Int64` range.",
@@ -1226,49 +1226,49 @@
               "number": 1,
               "label": "normal",
               "input": "1\n10",
-              "expectedOutput": "Count: 4"
+              "expectedOutput": "Count: 4\nFirst: 2\nLast: 7\nNext after R: 11"
             },
             {
               "number": 2,
               "label": "no primes",
               "input": "14\n16",
-              "expectedOutput": "Count: 0"
+              "expectedOutput": "Count: 0\nFirst: -1\nLast: -1\nNext after R: 17"
             },
             {
               "number": 3,
               "label": "only 1, not prime",
               "input": "1\n1",
-              "expectedOutput": "Count: 0"
+              "expectedOutput": "Count: 0\nFirst: -1\nLast: -1\nNext after R: 2"
             },
             {
               "number": 4,
               "label": "no primes near the maximum",
               "input": "9990\n10000",
-              "expectedOutput": "Count: 0"
+              "expectedOutput": "Count: 0\nFirst: -1\nLast: -1\nNext after R: 10007"
             },
             {
               "number": 5,
               "label": "single prime",
               "input": "2\n2",
-              "expectedOutput": "Count: 1"
+              "expectedOutput": "Count: 1\nFirst: 2\nLast: 2\nNext after R: 3"
             },
             {
               "number": 6,
               "label": "full range",
               "input": "1\n10000",
-              "expectedOutput": "Count: 1229"
+              "expectedOutput": "Count: 1229\nFirst: 2\nLast: 9973\nNext after R: 10007"
             },
             {
               "number": 7,
               "label": "primes at both ends",
               "input": "89\n97",
-              "expectedOutput": "Count: 2"
+              "expectedOutput": "Count: 2\nFirst: 89\nLast: 97\nNext after R: 101"
             },
             {
               "number": 8,
               "label": "first 100 numbers",
               "input": "1\n100",
-              "expectedOutput": "Count: 25"
+              "expectedOutput": "Count: 25\nFirst: 2\nLast: 97\nNext after R: 101"
             }
           ],
           "concepts": "Several cooperating functions, `Bool` return type, loops, early return, edge cases for 1 and 2.",
@@ -1297,31 +1297,31 @@
               "number": 1,
               "label": "negative and positive",
               "input": "-5\n5",
-              "expectedOutput": "Min: -5"
+              "expectedOutput": "Min: -5\nMax: 5"
             },
             {
               "number": 2,
               "label": "equal",
               "input": "4\n4",
-              "expectedOutput": "Min: 4"
+              "expectedOutput": "Min: 4\nMax: 4"
             },
             {
               "number": 3,
               "label": "extremes, a is smaller",
               "input": "-1000000000\n1000000000",
-              "expectedOutput": "Min: -1000000000"
+              "expectedOutput": "Min: -1000000000\nMax: 1000000000"
             },
             {
               "number": 4,
               "label": "extremes, a is larger",
               "input": "1000000000\n-1000000000",
-              "expectedOutput": "Min: -1000000000"
+              "expectedOutput": "Min: -1000000000\nMax: 1000000000"
             },
             {
               "number": 5,
               "label": "zero and negative",
               "input": "0\n-1",
-              "expectedOutput": "Min: -1"
+              "expectedOutput": "Min: -1\nMax: 0"
             }
           ],
           "concepts": "Tuple return type `(Int64, Int64)`, returning a tuple, tuple destructuring.",
@@ -1343,37 +1343,37 @@
               "number": 1,
               "label": "normal",
               "input": "17\n5",
-              "expectedOutput": "Quotient: 3"
+              "expectedOutput": "Quotient: 3\nRemainder: 2"
             },
             {
               "number": 2,
               "label": "zero dividend",
               "input": "0\n7",
-              "expectedOutput": "Quotient: 0"
+              "expectedOutput": "Quotient: 0\nRemainder: 0"
             },
             {
               "number": 3,
               "label": "divide by one",
               "input": "1000000000\n1",
-              "expectedOutput": "Quotient: 1000000000"
+              "expectedOutput": "Quotient: 1000000000\nRemainder: 0"
             },
             {
               "number": 4,
               "label": "dividend smaller",
               "input": "5\n10",
-              "expectedOutput": "Quotient: 0"
+              "expectedOutput": "Quotient: 0\nRemainder: 5"
             },
             {
               "number": 5,
               "label": "exact division",
               "input": "100\n10",
-              "expectedOutput": "Quotient: 10"
+              "expectedOutput": "Quotient: 10\nRemainder: 0"
             },
             {
               "number": 6,
               "label": "maximum divisor",
               "input": "999999999\n1000000000",
-              "expectedOutput": "Quotient: 0"
+              "expectedOutput": "Quotient: 0\nRemainder: 999999999"
             }
           ],
           "concepts": "Returning a tuple of two values, `/` and `%`, destructuring with `var (q, r) = ...`.",
@@ -1395,37 +1395,37 @@
               "number": 1,
               "label": "3-4-5",
               "input": "3\n4",
-              "expectedOutput": "Area: 12"
+              "expectedOutput": "Area: 12\nPerimeter: 14\nDiagonal squared: 25"
             },
             {
               "number": 2,
               "label": "minimum",
               "input": "0\n0",
-              "expectedOutput": "Area: 0"
+              "expectedOutput": "Area: 0\nPerimeter: 0\nDiagonal squared: 0"
             },
             {
               "number": 3,
               "label": "maximum",
               "input": "1000\n1000",
-              "expectedOutput": "Area: 1000000"
+              "expectedOutput": "Area: 1000000\nPerimeter: 4000\nDiagonal squared: 2000000"
             },
             {
               "number": 4,
               "label": "long and thin",
               "input": "1\n10",
-              "expectedOutput": "Area: 10"
+              "expectedOutput": "Area: 10\nPerimeter: 22\nDiagonal squared: 101"
             },
             {
               "number": 5,
               "label": "square",
               "input": "7\n7",
-              "expectedOutput": "Area: 49"
+              "expectedOutput": "Area: 49\nPerimeter: 28\nDiagonal squared: 98"
             },
             {
               "number": 6,
               "label": "one side zero",
               "input": "0\n500",
-              "expectedOutput": "Area: 0"
+              "expectedOutput": "Area: 0\nPerimeter: 1000\nDiagonal squared: 250000"
             }
           ],
           "concepts": "Three-element tuples, destructuring all three, one function computing several results.",
@@ -1447,43 +1447,43 @@
               "number": 1,
               "label": "normal",
               "input": "10\n20\n30",
-              "expectedOutput": "Min: 10"
+              "expectedOutput": "Min: 10\nMax: 30\nSum: 60\nRange: 20\nAverage: 20"
             },
             {
               "number": 2,
               "label": "all zero",
               "input": "0\n0\n0",
-              "expectedOutput": "Min: 0"
+              "expectedOutput": "Min: 0\nMax: 0\nSum: 0\nRange: 0\nAverage: 0"
             },
             {
               "number": 3,
               "label": "all equal",
               "input": "5\n5\n5",
-              "expectedOutput": "Min: 5"
+              "expectedOutput": "Min: 5\nMax: 5\nSum: 15\nRange: 0\nAverage: 5"
             },
             {
               "number": 4,
               "label": "extremes",
               "input": "1000\n0\n500",
-              "expectedOutput": "Min: 0"
+              "expectedOutput": "Min: 0\nMax: 1000\nSum: 1500\nRange: 1000\nAverage: 500"
             },
             {
               "number": 5,
               "label": "average drops decimals",
               "input": "1\n2\n2",
-              "expectedOutput": "Min: 1"
+              "expectedOutput": "Min: 1\nMax: 2\nSum: 5\nRange: 1\nAverage: 1"
             },
             {
               "number": 6,
               "label": "maximum with a close value",
               "input": "1000\n1000\n999",
-              "expectedOutput": "Min: 999"
+              "expectedOutput": "Min: 999\nMax: 1000\nSum: 2999\nRange: 1\nAverage: 999"
             },
             {
               "number": 7,
               "label": "unordered",
               "input": "3\n9\n1",
-              "expectedOutput": "Min: 1"
+              "expectedOutput": "Min: 1\nMax: 9\nSum: 13\nRange: 8\nAverage: 4"
             }
           ],
           "concepts": "Three-value tuple return, destructuring, the wildcard `_` to ignore a value, combining returned values.",
@@ -1505,37 +1505,37 @@
               "number": 1,
               "label": "mixed signs",
               "input": "5\n4\n-2\n7\n10\n-5",
-              "expectedOutput": "Sum: 14"
+              "expectedOutput": "Sum: 14\nMin: -5\nMax: 10\nEven count: 3\nOdd count: 2"
             },
             {
               "number": 2,
               "label": "single number",
               "input": "1\n7",
-              "expectedOutput": "Sum: 7"
+              "expectedOutput": "Sum: 7\nMin: 7\nMax: 7\nEven count: 0\nOdd count: 1"
             },
             {
               "number": 3,
               "label": "maximum N, values 1 to 20",
               "input": "20\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20",
-              "expectedOutput": "Sum: 210"
+              "expectedOutput": "Sum: 210\nMin: 1\nMax: 20\nEven count: 10\nOdd count: 10"
             },
             {
               "number": 4,
               "label": "all negative odd",
               "input": "3\n-1\n-3\n-5",
-              "expectedOutput": "Sum: -9"
+              "expectedOutput": "Sum: -9\nMin: -5\nMax: -1\nEven count: 0\nOdd count: 3"
             },
             {
               "number": 5,
               "label": "all zero",
               "input": "4\n0\n0\n0\n0",
-              "expectedOutput": "Sum: 0"
+              "expectedOutput": "Sum: 0\nMin: 0\nMax: 0\nEven count: 4\nOdd count: 0"
             },
             {
               "number": 6,
               "label": "extremes",
               "input": "2\n-1000\n1000",
-              "expectedOutput": "Sum: 0"
+              "expectedOutput": "Sum: 0\nMin: -1000\nMax: 1000\nEven count: 2\nOdd count: 0"
             }
           ],
           "concepts": "Tuples as function parameters and return values, destructuring, state passed through a function, `while` loop reading input.",
@@ -1702,31 +1702,31 @@
               "number": 1,
               "label": "long distance, below free-delivery threshold",
               "input": "1200\n8",
-              "expectedOutput": "Delivery fee: 100"
+              "expectedOutput": "Delivery fee: 100\nTotal payment: 1300"
             },
             {
               "number": 2,
               "label": "short distance, below threshold",
               "input": "1200\n5",
-              "expectedOutput": "Delivery fee: 50"
+              "expectedOutput": "Delivery fee: 50\nTotal payment: 1250"
             },
             {
               "number": 3,
               "label": "exactly free-delivery threshold",
               "input": "1500\n10",
-              "expectedOutput": "Delivery fee: 0"
+              "expectedOutput": "Delivery fee: 0\nTotal payment: 1500"
             },
             {
               "number": 4,
               "label": "zero order total",
               "input": "0\n1",
-              "expectedOutput": "Delivery fee: 50"
+              "expectedOutput": "Delivery fee: 50\nTotal payment: 50"
             },
             {
               "number": 5,
               "label": "maximum order total",
               "input": "1000000\n100",
-              "expectedOutput": "Delivery fee: 0"
+              "expectedOutput": "Delivery fee: 0\nTotal payment: 1000000"
             }
           ],
           "concepts": "Nested `if`/`else`, `else if`, Boolean conditions, arithmetic, branching order.",
@@ -1748,19 +1748,19 @@
               "number": 1,
               "label": "valid scalene, largest side short",
               "input": "3\n4\n5",
-              "expectedOutput": "Type: Scalene"
+              "expectedOutput": "Type: Scalene\nLargest side: Short"
             },
             {
               "number": 2,
               "label": "valid equilateral, long side",
               "input": "10\n10\n10",
-              "expectedOutput": "Type: Equilateral"
+              "expectedOutput": "Type: Equilateral\nLargest side: Long"
             },
             {
               "number": 3,
               "label": "valid isosceles",
               "input": "7\n7\n10",
-              "expectedOutput": "Type: Isosceles"
+              "expectedOutput": "Type: Isosceles\nLargest side: Long"
             },
             {
               "number": 4,
@@ -1847,31 +1847,31 @@
               "number": 1,
               "label": "ordinary countdown",
               "input": "3",
-              "expectedOutput": "3"
+              "expectedOutput": "3\n2\n1\n0\nGo!"
             },
             {
               "number": 2,
               "label": "zero",
               "input": "0",
-              "expectedOutput": "0"
+              "expectedOutput": "0\nGo!"
             },
             {
               "number": 3,
               "label": "maximum",
               "input": "20",
-              "expectedOutput": "20"
+              "expectedOutput": "20\n19\n18\n17\n16\n15\n14\n13\n12\n11\n10\n9\n8\n7\n6\n5\n4\n3\n2\n1\n0\nGo!"
             },
             {
               "number": 4,
               "label": "one",
               "input": "1",
-              "expectedOutput": "1"
+              "expectedOutput": "1\n0\nGo!"
             },
             {
               "number": 5,
               "label": "middle value",
               "input": "10",
-              "expectedOutput": "10"
+              "expectedOutput": "10\n9\n8\n7\n6\n5\n4\n3\n2\n1\n0\nGo!"
             }
           ],
           "concepts": "`while`, decrementing a mutable variable, loop termination, sequential output.",
@@ -1939,31 +1939,31 @@
               "number": 1,
               "label": "includes a value divisible by both",
               "input": "6",
-              "expectedOutput": "Numbers: 2 3 4 6"
+              "expectedOutput": "Numbers: 2 3 4 6\nCount: 4\nSum: 15"
             },
             {
               "number": 2,
               "label": "no selected values",
               "input": "1",
-              "expectedOutput": "Numbers: None"
+              "expectedOutput": "Numbers: None\nCount: 0\nSum: 0"
             },
             {
               "number": 3,
               "label": "all values from 1 to 3",
               "input": "3",
-              "expectedOutput": "Numbers: 2 3"
+              "expectedOutput": "Numbers: 2 3\nCount: 2\nSum: 5"
             },
             {
               "number": 4,
               "label": "multiple selected values",
               "input": "10",
-              "expectedOutput": "Numbers: 2 3 4 6 8 9 10"
+              "expectedOutput": "Numbers: 2 3 4 6 8 9 10\nCount: 7\nSum: 42"
             },
             {
               "number": 5,
               "label": "larger range",
               "input": "30",
-              "expectedOutput": "Numbers: 2 3 4 6 8 9 10 12 14 15 16 18 20 21 22 24 26 27 28 30"
+              "expectedOutput": "Numbers: 2 3 4 6 8 9 10 12 14 15 16 18 20 21 22 24 26 27 28 30\nCount: 20\nSum: 315"
             }
           ],
           "concepts": "`for-in`, `where`-style filtering or `if` inside a loop, `||`, avoiding duplicate counting, accumulation, output formatting.",
@@ -1979,13 +1979,13 @@
           "outputFormat": "One line: `<A> <B> <C>`.",
           "constraints": "- `-100 ≤ A, B, C ≤ 100`\n- `0 ≤ K ≤ 20`\n- All intermediate results fit in `Int64`.",
           "sampleInput": "1\n2\n3\n2",
-          "sampleOutput": "8 9 6",
+          "sampleOutput": "8 9 7",
           "testCases": [
             {
               "number": 1,
               "label": "two steps",
               "input": "1\n2\n3\n2",
-              "expectedOutput": "8 9 6"
+              "expectedOutput": "8 9 7"
             },
             {
               "number": 2,
@@ -2013,7 +2013,7 @@
             }
           ],
           "concepts": "`while` or `for-in`, mutable variables, preserving old values during simultaneous updates, repeated state transitions.",
-          "sourceMarkdown": "**Difficulty:** Hard\n\n**Description:** Read three integers `A`, `B`, and `C`, followed by a non-negative number of steps `K`. For each step, update all three values simultaneously using the old values:\n- new A = old A + old B\n- new B = old B + old C\n- new C = old C + old A\n\nAfter `K` steps, print the three final values separated by spaces.\n\n**Input Format:** Four lines: `A`, `B`, `C`, and `K`.\n\n**Output Format:** One line: `<A> <B> <C>`.\n\n**Constraints:**\n- `-100 ≤ A, B, C ≤ 100`\n- `0 ≤ K ≤ 20`\n- All intermediate results fit in `Int64`.\n\n**Sample Input**\n```text\n1\n2\n3\n2\n```\n\n**Sample Output**\n```text\n8 9 6\n```\n\n**Test Cases**\n```text\n# T1 - two steps\nIN:\n1\n2\n3\n2\nOUT:\n8 9 6\n\n# T2 - zero steps\nIN:\n4\n5\n6\n0\nOUT:\n4 5 6\n\n# T3 - one step\nIN:\n1\n2\n3\n1\nOUT:\n3 5 4\n\n# T4 - negative values\nIN:\n-1\n-2\n-3\n1\nOUT:\n-3 -5 -4\n\n# T5 - all zero\nIN:\n0\n0\n0\n20\nOUT:\n0 0 0\n```\n\n**Concepts Practiced:** `while` or `for-in`, mutable variables, preserving old values during simultaneous updates, repeated state transitions.\n\n---"
+          "sourceMarkdown": "**Difficulty:** Hard\n\n**Description:** Read three integers `A`, `B`, and `C`, followed by a non-negative number of steps `K`. For each step, update all three values simultaneously using the old values:\n- new A = old A + old B\n- new B = old B + old C\n- new C = old C + old A\n\nAfter `K` steps, print the three final values separated by spaces.\n\n**Input Format:** Four lines: `A`, `B`, `C`, and `K`.\n\n**Output Format:** One line: `<A> <B> <C>`.\n\n**Constraints:**\n- `-100 ≤ A, B, C ≤ 100`\n- `0 ≤ K ≤ 20`\n- All intermediate results fit in `Int64`.\n\n**Sample Input**\n```text\n1\n2\n3\n2\n```\n\n**Sample Output**\n```text\n8 9 7\n```\n\n**Test Cases**\n```text\n# T1 - two steps\nIN:\n1\n2\n3\n2\nOUT:\n8 9 7\n\n# T2 - zero steps\nIN:\n4\n5\n6\n0\nOUT:\n4 5 6\n\n# T3 - one step\nIN:\n1\n2\n3\n1\nOUT:\n3 5 4\n\n# T4 - negative values\nIN:\n-1\n-2\n-3\n1\nOUT:\n-3 -5 -4\n\n# T5 - all zero\nIN:\n0\n0\n0\n20\nOUT:\n0 0 0\n```\n\n**Concepts Practiced:** `while` or `for-in`, mutable variables, preserving old values during simultaneous updates, repeated state transitions.\n\n---"
         }
       ]
     },
@@ -2176,31 +2176,31 @@
               "number": 1,
               "label": "positive number",
               "input": "7",
-              "expectedOutput": "7 x 1 = 7"
+              "expectedOutput": "7 x 1 = 7\n7 x 2 = 14\n7 x 3 = 21\n7 x 4 = 28\n7 x 5 = 35\n7 x 6 = 42\n7 x 7 = 49\n7 x 8 = 56\n7 x 9 = 63\n7 x 10 = 70"
             },
             {
               "number": 2,
               "label": "zero",
               "input": "0",
-              "expectedOutput": "0 x 1 = 0"
+              "expectedOutput": "0 x 1 = 0\n0 x 2 = 0\n0 x 3 = 0\n0 x 4 = 0\n0 x 5 = 0\n0 x 6 = 0\n0 x 7 = 0\n0 x 8 = 0\n0 x 9 = 0\n0 x 10 = 0"
             },
             {
               "number": 3,
               "label": "negative number",
               "input": "-3",
-              "expectedOutput": "-3 x 1 = -3"
+              "expectedOutput": "-3 x 1 = -3\n-3 x 2 = -6\n-3 x 3 = -9\n-3 x 4 = -12\n-3 x 5 = -15\n-3 x 6 = -18\n-3 x 7 = -21\n-3 x 8 = -24\n-3 x 9 = -27\n-3 x 10 = -30"
             },
             {
               "number": 4,
               "label": "one",
               "input": "1",
-              "expectedOutput": "1 x 1 = 1"
+              "expectedOutput": "1 x 1 = 1\n1 x 2 = 2\n1 x 3 = 3\n1 x 4 = 4\n1 x 5 = 5\n1 x 6 = 6\n1 x 7 = 7\n1 x 8 = 8\n1 x 9 = 9\n1 x 10 = 10"
             },
             {
               "number": 5,
               "label": "upper constraint",
               "input": "100",
-              "expectedOutput": "100 x 1 = 100"
+              "expectedOutput": "100 x 1 = 100\n100 x 2 = 200\n100 x 3 = 300\n100 x 4 = 400\n100 x 5 = 500\n100 x 6 = 600\n100 x 7 = 700\n100 x 8 = 800\n100 x 9 = 900\n100 x 10 = 1000"
             }
           ],
           "concepts": "Inclusive range, `for-in`, multiplication, formatted output.",
@@ -2222,35 +2222,35 @@
               "number": 1,
               "label": "step does not land on endpoint",
               "input": "2\n10\n3",
-              "expectedOutput": "Count: 3"
+              "expectedOutput": "Count: 3\nSum: 15\nLast: 8"
             },
             {
               "number": 2,
               "label": "step lands on endpoint",
               "input": "1\n10\n3",
-              "expectedOutput": "Count: 4"
+              "expectedOutput": "Count: 4\nSum: 22\nLast: 10"
             },
             {
               "number": 3,
               "label": "one generated value",
               "input": "5\n5\n7",
-              "expectedOutput": "Count: 1"
+              "expectedOutput": "Count: 1\nSum: 5\nLast: 5"
             },
             {
               "number": 4,
               "label": "negative start",
               "input": "-8\n2\n2",
-              "expectedOutput": "Count: 6"
+              "expectedOutput": "Count: 6\nSum: -18\nLast: 2"
             },
             {
               "number": 5,
               "label": "maximum span, step 1000",
               "input": "-10000\n10000\n1000",
-              "expectedOutput": "Count: 21"
+              "expectedOutput": "Count: 21\nSum: 0\nLast: 10000"
             }
           ],
           "concepts": "Explicit range step, inclusive endpoint, iteration, accumulation, count tracking, boundary conditions.",
-          "sourceMarkdown": "**Difficulty:** Hard\n\n**Description:** Read `START`, `END`, and `STEP`. Generate the arithmetic sequence beginning at `START`, repeatedly adding `STEP`, and stop before passing `END`. The step is always positive and `START ≤ END`. Calculate the number of generated values, their sum, and the final generated value.\n\n**Input Format:** Three lines containing `START`, `END`, and `STEP`.\n\n**Output Format:** Three lines:\n```text\nCount: <count>\nSum: <sum>\nLast: <last value>\n```\n\n**Constraints:**\n- `-10,000 ≤ START ≤ END ≤ 10,000`\n- `1 ≤ STEP ≤ 1,000`\n\n**Sample Input**\n```text\n2\n10\n3\n```\n\n**Sample Output**\n```text\nCount: 3\nSum: 15\nLast: 8\n```\n\n**Test Cases**\n```text\n# T1 - step does not land on endpoint\nIN:\n2\n10\n3\nOUT:\nCount: 3\nSum: 15\nLast: 8\n\n# T2 - step lands on endpoint\nIN:\n1\n10\n3\nOUT:\nCount: 4\nSum: 16\nLast: 10\n\n# T3 - one generated value\nIN:\n5\n5\n7\nOUT:\nCount: 1\nSum: 5\nLast: 5\n\n# T4 - negative start\nIN:\n-8\n2\n2\nOUT:\nCount: 6\nSum: -18\nLast: 2\n\n# T5 - maximum span, step 1000\nIN:\n-10000\n10000\n1000\nOUT:\nCount: 21\nSum: 0\nLast: 10000\n```\n\n**Concepts Practiced:** Explicit range step, inclusive endpoint, iteration, accumulation, count tracking, boundary conditions.\n\n---"
+          "sourceMarkdown": "**Difficulty:** Hard\n\n**Description:** Read `START`, `END`, and `STEP`. Generate the arithmetic sequence beginning at `START`, repeatedly adding `STEP`, and stop before passing `END`. The step is always positive and `START ≤ END`. Calculate the number of generated values, their sum, and the final generated value.\n\n**Input Format:** Three lines containing `START`, `END`, and `STEP`.\n\n**Output Format:** Three lines:\n```text\nCount: <count>\nSum: <sum>\nLast: <last value>\n```\n\n**Constraints:**\n- `-10,000 ≤ START ≤ END ≤ 10,000`\n- `1 ≤ STEP ≤ 1,000`\n\n**Sample Input**\n```text\n2\n10\n3\n```\n\n**Sample Output**\n```text\nCount: 3\nSum: 15\nLast: 8\n```\n\n**Test Cases**\n```text\n# T1 - step does not land on endpoint\nIN:\n2\n10\n3\nOUT:\nCount: 3\nSum: 15\nLast: 8\n\n# T2 - step lands on endpoint\nIN:\n1\n10\n3\nOUT:\nCount: 4\nSum: 22\nLast: 10\n\n# T3 - one generated value\nIN:\n5\n5\n7\nOUT:\nCount: 1\nSum: 5\nLast: 5\n\n# T4 - negative start\nIN:\n-8\n2\n2\nOUT:\nCount: 6\nSum: -18\nLast: 2\n\n# T5 - maximum span, step 1000\nIN:\n-10000\n10000\n1000\nOUT:\nCount: 21\nSum: 0\nLast: 10000\n```\n\n**Concepts Practiced:** Explicit range step, inclusive endpoint, iteration, accumulation, count tracking, boundary conditions.\n\n---"
         }
       ]
     },
@@ -2367,31 +2367,31 @@
               "number": 1,
               "label": "two values above average",
               "input": "4\n1\n2\n3\n4",
-              "expectedOutput": "Average: 2.50"
+              "expectedOutput": "Average: 2.50\nAbove average: 2"
             },
             {
               "number": 2,
               "label": "all equal",
               "input": "3\n5\n5\n5",
-              "expectedOutput": "Average: 5.00"
+              "expectedOutput": "Average: 5.00\nAbove average: 0"
             },
             {
               "number": 3,
               "label": "negative average",
               "input": "3\n-5\n-2\n-2",
-              "expectedOutput": "Average: -3.00"
+              "expectedOutput": "Average: -3.00\nAbove average: 2"
             },
             {
               "number": 4,
               "label": "average is a whole number",
               "input": "4\n1\n3\n5\n7",
-              "expectedOutput": "Average: 4.00"
+              "expectedOutput": "Average: 4.00\nAbove average: 2"
             },
             {
               "number": 5,
               "label": "one element",
               "input": "1\n-9",
-              "expectedOutput": "Average: -9.00"
+              "expectedOutput": "Average: -9.00\nAbove average: 0"
             }
           ],
           "concepts": "Array traversal, sum accumulation, `.size`, comparisons, derived calculations.",
@@ -2459,31 +2459,31 @@
               "number": 1,
               "label": "middle slice",
               "input": "5\n4\n8\n2\n9\n6\n1\n4",
-              "expectedOutput": "Slice: 8 2 9"
+              "expectedOutput": "Slice: 8 2 9\nSum: 19\nLength: 3"
             },
             {
               "number": 2,
               "label": "first element only",
               "input": "3\n7\n8\n9\n0\n1",
-              "expectedOutput": "Slice: 7"
+              "expectedOutput": "Slice: 7\nSum: 7\nLength: 1"
             },
             {
               "number": 3,
               "label": "slice reaches the final element",
               "input": "4\n1\n2\n3\n4\n2\n4",
-              "expectedOutput": "Slice: 3 4"
+              "expectedOutput": "Slice: 3 4\nSum: 7\nLength: 2"
             },
             {
               "number": 4,
               "label": "full array slice",
               "input": "4\n-2\n0\n5\n-1\n0\n4",
-              "expectedOutput": "Slice: -2 0 5 -1"
+              "expectedOutput": "Slice: -2 0 5 -1\nSum: 2\nLength: 4"
             },
             {
               "number": 5,
               "label": "negative values in a middle slice",
               "input": "6\n10\n-5\n-4\n-3\n20\n30\n1\n4",
-              "expectedOutput": "Slice: -5 -4 -3"
+              "expectedOutput": "Slice: -5 -4 -3\nSum: -12\nLength: 3"
             }
           ],
           "concepts": "`Array<T>`, indexing, `.size`, array slicing with `[L..R]`, iterating over a slice, accumulation, valid index boundaries.",

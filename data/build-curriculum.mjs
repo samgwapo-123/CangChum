@@ -35,12 +35,17 @@ const lessons = topics.map((topic, index) => {
     const casesAt = markdown.indexOf('**Test Cases**');
     const conceptsAt = markdown.indexOf('**Concepts Practiced:**');
     const casesText = casesAt < 0 ? '' : markdown.slice(casesAt + '**Test Cases**'.length, conceptsAt < 0 ? undefined : conceptsAt).replace(/^\s*```[^\n]*\n/, '').replace(/\n```\s*$/, '').trim();
-    const cases = [...casesText.matchAll(/^# T(\d+)(?: \(([^)]+)\)| - (.+))\nIN:\n([\s\S]*?)\nOUT:\n([\s\S]*?)(?=\n\n# T\d+(?: \(| - )|$)/gm)].map((test) => ({
-      number: Number(test[1]),
-      label: (test[2] ?? test[3]).trim(),
-      input: test[4].replace(/\n$/, ''),
-      expectedOutput: test[5].replace(/\n```\s*$/, '').replace(/\n$/, '')
-    }));
+    const caseHeaders = [...casesText.matchAll(/^# T(\d+)(?: \(([^)]+)\)| - (.+))\nIN:\n([\s\S]*?)\nOUT:\n/gm)];
+    const cases = caseHeaders.map((test, caseIndex) => {
+      const outputStart = test.index + test[0].length;
+      const outputEnd = caseHeaders[caseIndex + 1]?.index ?? casesText.length;
+      return {
+        number: Number(test[1]),
+        label: (test[2] ?? test[3]).trim(),
+        input: test[4].replace(/\n$/, ''),
+        expectedOutput: casesText.slice(outputStart, outputEnd).replace(/\n+$/, '')
+      };
+    });
     const num = Number(match[1]);
     return {
       id: `${num}.${match[2]}`,

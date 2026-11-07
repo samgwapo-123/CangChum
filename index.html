@@ -131,8 +131,9 @@
           <pre class="syntax-layer" id="syntax-layer" aria-hidden="true"><code id="highlighted-code"></code></pre>
           <textarea id="code-editor" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" aria-label="Cangjie source code" wrap="off" placeholder="Write your Cangjie program here"></textarea>
         </div>
-        <div class="editor-controls"><label class="case-picker">Run against<select id="case-select"><option value="sample">Sample case</option></select></label><div class="run-actions"><button class="btn btn--secondary run-button" id="run-code" type="button">Run code</button><button class="btn btn--primary submit-button" id="submit-code" type="button">Submit</button></div></div>
-        <section class="results-pane" id="results-pane" aria-live="polite" aria-label="Execution results"><div class="results-empty"><span class="results-empty__icon" aria-hidden="true">⌘</span><strong>Run your code to see results</strong><span>Sample run checks the example. Submit checks every listed test case.</span></div></section>
+        <section class="custom-input"><div class="custom-input__heading"><label for="custom-input">Custom Input</label><span>Sent to stdin for Run code</span></div><textarea id="custom-input" aria-label="Custom input for standard input" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" placeholder="Enter program input here"></textarea></section>
+        <div class="editor-controls"><div class="run-actions"><button class="btn btn--secondary run-button" id="run-code" type="button">Run code</button><button class="btn btn--primary submit-button" id="submit-code" type="button">Submit</button></div></div>
+        <section class="results-pane" id="results-pane" aria-live="polite" aria-label="Execution results"><div class="results-empty"><span class="results-empty__icon" aria-hidden="true">⌘</span><strong>Run your code to see results</strong><span>Run code sends Custom Input to stdin. Submit checks the official test cases.</span></div></section>
       </section>
     </div>
   </section>

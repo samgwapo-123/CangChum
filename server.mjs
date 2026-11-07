@@ -9,6 +9,7 @@ const ROOT = process.cwd();
 const PORT = Number(process.env.PORT || 4173);
 const RUNNER_IMAGE = process.env.CANGJIE_RUNNER_IMAGE || '';
 const MAX_CODE_LENGTH = 50_000;
+const MAX_INPUT_LENGTH = 50_000;
 const MAX_REQUEST_BYTES = 100_000;
 const MAX_OUTPUT_BYTES = 256_000;
 const RUN_TIMEOUT_MS = 8_000;
@@ -143,10 +144,10 @@ function runInContainer(sourceDirectory, input, cidPath, marker) {
       if (timedOut) { finish({ kind: 'timeout' }); return; }
       if (outputLimited) { finish({ kind: 'output-limit' }); return; }
       const compiledAt = stdout.indexOf(marker);
-      if (exitCode === 86 && compiledAt < 0) { finish({ kind: 'compile-error', message: stderr.trim() || 'Compilation failed without a diagnostic.' }); return; }
+      if (exitCode === 86 && compiledAt < 0) { finish({ kind: 'compile-error', message: stderr.trim() || 'Compilation failed without a diagnostic.', stderr: stderr.trim() }); return; }
       if (compiledAt < 0) { finish({ kind: 'runner-error', message: stderr.trim() || `The isolated runner exited with code ${exitCode ?? 'unknown'}.` }); return; }
       const actual = stdout.slice(compiledAt + marker.length);
-      if (exitCode !== 0) { finish({ kind: 'runtime-error', message: stderr.trim() || `Program exited with code ${exitCode}.`, actual }); return; }
+      if (exitCode !== 0) { finish({ kind: 'runtime-error', message: stderr.trim() || `Program exited with code ${exitCode}.`, actual, stderr: stderr.trim() }); return; }
       finish({ kind: 'finished', actual, stderr: stderr.trim() });
     });
     child.stdin.on('error', () => {});
@@ -176,11 +177,11 @@ async function executeTests({ problem, code, tests }) {
         break;
       }
       if (execution.kind === 'compile-error') {
-        results.push({ label: test.label, status: 'Compilation Error', message: execution.message, input: test.input, expectedOutput: test.expectedOutput, actualOutput: '' });
+        results.push({ label: test.label, status: 'Compilation Error', message: execution.message, stderr: execution.stderr, input: test.input, expectedOutput: test.expectedOutput, actualOutput: '' });
         break;
       }
       if (execution.kind === 'runtime-error') {
-        results.push({ label: test.label, status: 'Runtime Error', message: execution.message, input: test.input, expectedOutput: test.expectedOutput, actualOutput: execution.actual || '' });
+        results.push({ label: test.label, status: 'Runtime Error', message: execution.message, stderr: execution.stderr, input: test.input, expectedOutput: test.expectedOutput, actualOutput: execution.actual || '' });
         break;
       }
       const passed = compareOutput(execution.actual, test.expectedOutput);
@@ -192,6 +193,26 @@ async function executeTests({ problem, code, tests }) {
   const failure = results.find((result) => result.status !== 'Passed');
   const status = !failure ? 'All Passed' : failure.status === 'Failed' ? 'Wrong Answer' : failure.status;
   return { status, results };
+}
+
+async function executeCustomInput({ code, input }) {
+  const tempRoot = await mkdtemp(resolve(tmpdir(), 'cangchum-run-'));
+  const inputDirectory = resolve(tempRoot, 'input');
+  await mkdir(inputDirectory, { recursive: true });
+  await writeFile(resolve(tempRoot, 'main.cj'), code, 'utf8');
+  try {
+    const cidPath = resolve(tempRoot, `container-${randomUUID()}.cid`);
+    const execution = await runInContainer(tempRoot, input, cidPath, `__CJ_COMPILED_${randomUUID()}__`);
+    if (execution.kind === 'unavailable') return { errorCode: 'runner_unavailable', message: execution.message };
+    if (execution.kind === 'runner-error') return { errorCode: 'runner_error', message: execution.message };
+    if (execution.kind === 'timeout') return { status: 'Time Limit Exceeded', results: [{ label: 'Custom run', status: 'Time Limit Exceeded', input, actualOutput: '', stderr: '' }] };
+    if (execution.kind === 'output-limit') return { status: 'Output Limit Exceeded', results: [{ label: 'Custom run', status: 'Output Limit Exceeded', input, actualOutput: '', stderr: '' }] };
+    if (execution.kind === 'compile-error') return { status: 'Compilation Error', results: [{ label: 'Custom run', status: 'Compilation Error', input, actualOutput: '', stderr: execution.stderr, message: execution.message }] };
+    if (execution.kind === 'runtime-error') return { status: 'Runtime Error', results: [{ label: 'Custom run', status: 'Runtime Error', input, actualOutput: execution.actual || '', stderr: execution.stderr, message: execution.message }] };
+    return { status: 'Program Executed', results: [{ label: 'Custom run', status: 'Executed', input, actualOutput: execution.actual, stderr: execution.stderr }] };
+  } finally {
+    await rm(tempRoot, { recursive: true, force: true });
+  }
 }
 
 async function handleRun(request, response) {
@@ -210,22 +231,26 @@ async function handleRun(request, response) {
   if (typeof input.code !== 'string' || !input.code.trim() || input.code.length > MAX_CODE_LENGTH) {
     sendJson(response, 400, { errorCode: 'validation_error', message: `Code must contain between 1 and ${MAX_CODE_LENGTH.toLocaleString()} characters.` }); return;
   }
+  const customInput = input.customInput === undefined ? '' : input.customInput;
+  if (input.mode === 'run' && (typeof customInput !== 'string' || customInput.length > MAX_INPUT_LENGTH)) {
+    sendJson(response, 400, { errorCode: 'validation_error', message: `Custom input must be text no longer than ${MAX_INPUT_LENGTH.toLocaleString()} characters.` }); return;
+  }
   if (!['run', 'submit'].includes(input.mode)) { sendJson(response, 400, { errorCode: 'validation_error', message: 'Choose Run code or Submit.' }); return; }
   const health = runnerHealth();
   if (!health.runnerAvailable) { sendJson(response, 503, { errorCode: 'runner_unavailable', message: health.message }); return; }
   if (activeRuns >= MAX_CONCURRENT_RUNS) { sendJson(response, 429, { errorCode: 'runner_busy', message: 'The isolated runner is busy. Try again in a moment.' }); return; }
-  let tests;
-  if (input.mode === 'submit') tests = problem.testCases;
-  else if (input.caseIndex === 'sample') tests = [{ label: 'Sample case', input: problem.sampleInput, expectedOutput: problem.sampleOutput }];
-  else if (Number.isInteger(input.caseIndex) && problem.testCases[input.caseIndex]) tests = [problem.testCases[input.caseIndex]];
-  else { sendJson(response, 400, { errorCode: 'validation_error', message: 'Choose a sample or listed test case.' }); return; }
-  if (tests.length > MAX_CASES) { sendJson(response, 400, { errorCode: 'validation_error', message: `This run exceeds the ${MAX_CASES}-case suite limit.` }); return; }
   activeRuns += 1;
   let result;
-  try { result = await executeTests({ problem, code: input.code, tests }); }
+  try {
+    if (input.mode === 'run') result = await executeCustomInput({ code: input.code, input: customInput });
+    else if (problem.testCases.length > MAX_CASES) {
+      sendJson(response, 400, { errorCode: 'validation_error', message: `This submission exceeds the ${MAX_CASES}-case suite limit.` });
+      return;
+    } else result = await executeTests({ problem, code: input.code, tests: problem.testCases });
+  }
   finally { activeRuns -= 1; }
   if (result.errorCode) { sendJson(response, 503, result); return; }
-  const status = input.mode === 'submit' ? (result.status === 'All Passed' ? 'Accepted' : result.status) : (result.status === 'All Passed' ? (tests[0].label === 'Sample case' ? 'Sample Passed' : 'Case Passed') : result.status);
+  const status = input.mode === 'submit' ? (result.status === 'All Passed' ? 'Accepted' : result.status) : result.status;
   sendJson(response, 200, { ...result, status });
 }
 

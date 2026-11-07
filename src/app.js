@@ -252,7 +252,9 @@ function renderWorkspace() {
   $('#problem-source').innerHTML = renderMarkdown(problemMarkdown(activeProblem));
   $('#testcases-count').textContent = `${activeProblem.testCases.length} cases`;
   $('#testcases-list').innerHTML = activeProblem.testCases.map((test, index) => `<article class="testcase-item"><div class="testcase-item__head"><span>Test ${index + 1}</span><span>${escapeHtml(test.label)}</span></div><div class="testcase-item__columns"><div><span>Input</span><pre>${escapeHtml(test.input)}</pre></div><div><span>Expected output</span><pre>${escapeHtml(test.expectedOutput)}</pre></div></div></article>`).join('');
-  $('#case-select').innerHTML = `<option value="sample">Sample case</option>${activeProblem.testCases.map((test, index) => `<option value="${index}">Test ${index + 1} · ${escapeHtml(test.label)}</option>`).join('')}`;
+  const customInput = $('#custom-input');
+  try { customInput.value = localStorage.getItem(`cangchum-custom-input:${activeProblem.id}`) || ''; }
+  catch { customInput.value = ''; }
   $('#review-button').setAttribute('aria-pressed', String(Boolean(pState.review)));
   $('#review-button').classList.toggle('is-reviewing', Boolean(pState.review));
   $('#review-button').querySelector('[aria-hidden="true"]').textContent = pState.review ? '★' : '☆';
@@ -385,16 +387,26 @@ function resultTemplate(result, mode) {
   }
   if (result.errorCode === 'runner_busy') return `<div class="runner-unavailable"><span class="runner-unavailable__icon" aria-hidden="true">…</span><div><strong>Runner busy</strong><p>${escapeHtml(result.message || 'Try again in a moment.')}</p></div></div>`;
   if (result.errorCode === 'validation_error') return `<div class="result-banner result-banner--error"><strong>Cannot run code</strong><span>${escapeHtml(result.message || 'The code request could not be processed.')}</span></div>`;
-  const bannerClass = ['Accepted', 'Sample Passed', 'Case Passed'].includes(overall) ? 'result-banner--accepted' : overall === 'Compilation Error' ? 'result-banner--compile' : overall === 'Runtime Error' || overall === 'Time Limit Exceeded' ? 'result-banner--error' : 'result-banner--wrong';
-  const meta = caseCount ? `<span>${passed}/${caseCount} tests passed</span><span>${failed} failed</span>` : '';
-  const body = (result.results || []).map((item, index) => `<article class="result-case ${item.status === 'Passed' ? 'is-passed' : 'is-failed'}"><div class="result-case__heading"><span class="result-case__check" aria-hidden="true">${item.status === 'Passed' ? '✓' : item.status === 'Compilation Error' ? '!' : '×'}</span><strong>${escapeHtml(item.label || `Test ${index + 1}`)}</strong><span>${escapeHtml(item.status)}</span></div>${item.message ? `<pre class="result-error">${escapeHtml(item.message)}</pre>` : ''}${item.status === 'Failed' ? `<div class="result-case__outputs"><div><span>Expected</span><pre>${escapeHtml(item.expectedOutput)}</pre></div><div><span>Actual</span><pre>${escapeHtml(item.actualOutput)}</pre></div></div>` : ''}</article>`).join('');
+  const bannerClass = ['Accepted', 'Sample Passed', 'Case Passed', 'Program Executed'].includes(overall) ? 'result-banner--accepted' : overall === 'Compilation Error' ? 'result-banner--compile' : overall === 'Runtime Error' || overall === 'Time Limit Exceeded' ? 'result-banner--error' : 'result-banner--wrong';
+  const meta = mode === 'run' ? '<span>Custom input</span>' : caseCount ? `<span>${passed}/${caseCount} tests passed</span><span>${failed} failed</span>` : '';
+  const body = (result.results || []).map((item, index) => {
+    const okay = item.status === 'Passed' || item.status === 'Executed';
+    const output = item.status === 'Failed'
+      ? `<div><span>Expected</span><pre>${escapeHtml(item.expectedOutput)}</pre></div><div><span>Actual</span><pre>${escapeHtml(item.actualOutput)}</pre></div>`
+      : item.actualOutput !== undefined
+        ? `<div><span>stdout</span><pre>${escapeHtml(item.actualOutput)}</pre></div>${item.stderr ? `<div><span>stderr</span><pre>${escapeHtml(item.stderr)}</pre></div>` : ''}`
+        : '';
+    const message = item.message && item.message !== item.stderr ? `<pre class="result-error">${escapeHtml(item.message)}</pre>` : '';
+    return `<article class="result-case ${okay ? 'is-passed' : 'is-failed'}"><div class="result-case__heading"><span class="result-case__check" aria-hidden="true">${okay ? '✓' : item.status === 'Compilation Error' ? '!' : '×'}</span><strong>${escapeHtml(item.label || `Test ${index + 1}`)}</strong><span>${escapeHtml(item.status)}</span></div>${message}${output ? `<div class="result-case__outputs">${output}</div>` : ''}</article>`;
+  }).join('');
   return `<div class="result-summary"><div class="result-banner ${bannerClass}"><strong>${escapeHtml(overall)}</strong><div>${meta}</div></div>${result.message ? `<pre class="result-error">${escapeHtml(result.message)}</pre>` : ''}<div class="result-cases">${body}</div></div>`;
 }
 
 async function execute(mode) {
   if (!activeProblem || busy) return;
   const code = $('#code-editor').value;
-  const selected = $('#case-select').value;
+  const payload = { problemId: activeProblem.id, code, mode };
+  if (mode === 'run') payload.customInput = $('#custom-input').value;
   busy = true;
   $('#run-code').disabled = true;
   $('#submit-code').disabled = true;
@@ -403,7 +415,7 @@ async function execute(mode) {
     const response = await fetch('/api/run', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ problemId: activeProblem.id, code, mode, caseIndex: selected === 'sample' ? 'sample' : Number(selected) })
+      body: JSON.stringify(payload)
     });
     const result = await response.json();
     $('#results-pane').innerHTML = resultTemplate(result, mode);
@@ -492,6 +504,10 @@ function bindEvents() {
   $('#run-code').addEventListener('click', () => execute('run'));
   $('#submit-code').addEventListener('click', () => execute('submit'));
   $('#code-editor').addEventListener('input', () => { highlightCode(); saveCode(); });
+  $('#custom-input').addEventListener('input', () => {
+    if (!activeProblem) return;
+    try { localStorage.setItem(`cangchum-custom-input:${activeProblem.id}`, $('#custom-input').value); } catch {}
+  });
   $('#code-editor').addEventListener('scroll', syncEditorScroll);
   $('#code-editor').addEventListener('click', highlightCode);
   $('#code-editor').addEventListener('keyup', highlightCode);

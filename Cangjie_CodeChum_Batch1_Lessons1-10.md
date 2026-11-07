@@ -3509,7 +3509,7 @@ After `K` steps, print the three final values separated by spaces.
 
 **Sample Output**
 ```text
-8 9 6
+8 9 7
 ```
 
 **Test Cases**
@@ -3521,7 +3521,7 @@ IN:
 3
 2
 OUT:
-8 9 6
+8 9 7
 
 # T2 - zero steps
 IN:
@@ -3921,7 +3921,7 @@ IN:
 3
 OUT:
 Count: 4
-Sum: 16
+Sum: 22
 Last: 10
 
 # T3 - one generated value
