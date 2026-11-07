@@ -24,7 +24,7 @@ const mimeTypes = {
   '.png': 'image/png', '.woff2': 'font/woff2', '.txt': 'text/plain; charset=utf-8'
 };
 const publicFiles = new Set([
-  'index.html', 'src/app.js', 'src/styles.css', 'data/curriculum.json',
+  'index.html', 'src/app.js', 'src/output-diff.js', 'src/styles.css', 'data/curriculum.json',
   'assets/system.css', 'assets/system.js', 'assets/ui/cards.css', 'assets/ui/base.css', 'assets/ui/ui.js',
   'assets/motion/motion.css', 'assets/motion/motion.js', 'assets/backgrounds/backgrounds.css', 'assets/backgrounds/backgrounds.js',
   'assets/layout/layout.css', 'assets/layout/layout.js', 'assets/icons/icon.css'

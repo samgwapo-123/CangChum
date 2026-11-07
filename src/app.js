@@ -1,3 +1,5 @@
+import { renderOutputDiff } from './output-diff.js';
+
 const STORAGE_KEY = 'cangchum-progress-v1';
 const initialCode = 'main() {\n    \n}';
 const $ = (selector, root = document) => root.querySelector(selector);
@@ -270,6 +272,10 @@ function renderWorkspace() {
   $('#problem-source').innerHTML = renderMarkdown(problemMarkdown(activeProblem));
   $('#testcases-count').textContent = `${activeProblem.testCases.length} cases`;
   $('#testcases-list').innerHTML = activeProblem.testCases.map((test, index) => `<article class="testcase-item"><div class="testcase-item__head"><span>Test ${index + 1}</span><span>${escapeHtml(test.label)}</span></div><div class="testcase-item__columns"><div><span>Input</span><pre>${escapeHtml(test.input)}</pre></div><div><span>Expected output</span><pre>${escapeHtml(test.expectedOutput)}</pre></div></div></article>`).join('');
+  $('#custom-input-guide-format').textContent = activeProblem.inputFormat?.trim()
+    ? activeProblem.inputFormat.replaceAll('`', '')
+    : 'The problem does not specify a separate input format. Refer to its statement and the example below; no extra fields are assumed.';
+  $('#custom-input-guide-sample').textContent = activeProblem.sampleInput || 'No sample input is provided.';
   const customInput = $('#custom-input');
   try { customInput.value = localStorage.getItem(`cangchum-custom-input:${activeProblem.id}`) || ''; }
   catch { customInput.value = ''; }
@@ -410,12 +416,12 @@ function resultTemplate(result, mode) {
   const body = (result.results || []).map((item, index) => {
     const okay = item.status === 'Passed' || item.status === 'Executed';
     const output = item.status === 'Failed'
-      ? `<div><span>Expected</span><pre>${escapeHtml(item.expectedOutput)}</pre></div><div><span>Actual</span><pre>${escapeHtml(item.actualOutput)}</pre></div>`
+      ? renderOutputDiff(item.actualOutput ?? '', item.expectedOutput ?? '')
       : item.actualOutput !== undefined
         ? `<div><span>stdout</span><pre>${escapeHtml(item.actualOutput)}</pre></div>${item.stderr ? `<div><span>stderr</span><pre>${escapeHtml(item.stderr)}</pre></div>` : ''}`
         : '';
     const message = item.message && item.message !== item.stderr ? `<pre class="result-error">${escapeHtml(item.message)}</pre>` : '';
-    return `<article class="result-case ${okay ? 'is-passed' : 'is-failed'}"><div class="result-case__heading"><span class="result-case__check" aria-hidden="true">${okay ? '✓' : item.status === 'Compilation Error' ? '!' : '×'}</span><strong>${escapeHtml(item.label || `Test ${index + 1}`)}</strong><span>${escapeHtml(item.status)}</span></div>${message}${output ? `<div class="result-case__outputs">${output}</div>` : ''}</article>`;
+    return `<article class="result-case ${okay ? 'is-passed' : 'is-failed'}"><div class="result-case__heading"><span class="result-case__check" aria-hidden="true">${okay ? '✓' : item.status === 'Compilation Error' ? '!' : '×'}</span><strong>${escapeHtml(item.label || `Test ${index + 1}`)}</strong><span>${escapeHtml(item.status)}</span></div>${message}${output ? `<div class="result-case__outputs${item.status === 'Failed' ? ' result-case__outputs--diff' : ''}">${output}</div>` : ''}</article>`;
   }).join('');
   return `<div class="result-summary"><div class="result-banner ${bannerClass}"><strong>${escapeHtml(overall)}</strong><div>${meta}</div></div>${result.message ? `<pre class="result-error">${escapeHtml(result.message)}</pre>` : ''}<div class="result-cases">${body}</div></div>`;
 }
