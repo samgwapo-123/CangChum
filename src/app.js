@@ -27,6 +27,24 @@ function saveProgress() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
 }
 
+function syncThemeToggle() {
+  const isDark = document.documentElement.dataset.theme === 'dark';
+  $$('[data-theme-toggle]').forEach((toggle) => {
+    toggle.setAttribute('aria-pressed', String(isDark));
+    toggle.setAttribute('aria-label', `Switch to ${isDark ? 'light' : 'dark'} mode`);
+    toggle.querySelector('.theme-toggle__label').textContent = isDark ? 'Light mode' : 'Dark mode';
+    toggle.querySelector('[aria-hidden="true"]').textContent = isDark ? '☀' : '☾';
+  });
+}
+
+function toggleTheme() {
+  const nextTheme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+  if (nextTheme === 'dark') document.documentElement.dataset.theme = 'dark';
+  else delete document.documentElement.dataset.theme;
+  try { localStorage.setItem('cangchum-theme', nextTheme); } catch {}
+  syncThemeToggle();
+}
+
 function allProblems() {
   return lessons.flatMap((lesson) => lesson.problems.map((problem) => ({ ...problem, lessonId: lesson.id, lessonTitle: lesson.title })));
 }
@@ -481,6 +499,8 @@ function handleEditorKeydown(event) {
 }
 
 function bindEvents() {
+  syncThemeToggle();
+  $$('[data-theme-toggle]').forEach((toggle) => toggle.addEventListener('click', toggleTheme));
   document.addEventListener('click', (event) => {
     const openProblem = event.target.closest('[data-open-problem]');
     if (openProblem) { goToWorkspace(openProblem.dataset.openProblem); return; }

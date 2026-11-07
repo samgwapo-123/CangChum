@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <script>try { if (localStorage.getItem('cangchum-theme') === 'dark') document.documentElement.dataset.theme = 'dark'; } catch {}</script>
   <meta name="page-type" content="software">
   <meta name="site-kind" content="software">
   <meta name="description" content="A Cangjie programming course with ten lessons, 50 source problems, a coding workspace, and saved study progress.">
@@ -44,6 +45,7 @@
       </nav>
       <div class="app-nav__right">
         <span class="runtime-pill" aria-label="Cangjie runner unavailable"><span class="runtime-pill__dot"></span><span id="runtime-label">Checking runner</span></span>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false"><span aria-hidden="true">☾</span><span class="theme-toggle__label">Dark mode</span></button>
         <button class="btn btn--primary app-nav__continue" type="button" id="continue-button">Start next problem</button>
       </div>
       <button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span></button>
@@ -111,7 +113,7 @@
   <section class="workspace" id="workspace-view" aria-label="Coding workspace" hidden>
     <header class="workspace-topbar">
       <div class="workspace-topbar__left"><button class="back-button" id="back-to-course" type="button"><span aria-hidden="true">←</span> Curriculum</button><span class="topbar-divider"></span><span class="workspace-breadcrumb" id="workspace-breadcrumb">Lesson 1 · Hello World</span></div>
-      <div class="workspace-topbar__right"><span class="language-label"><span class="language-label__mark">CJ</span>Cangjie</span><button class="icon-button" id="review-button" type="button" aria-pressed="false" title="Mark for review"><span aria-hidden="true">☆</span><span class="icon-button__text">Review</span></button></div>
+      <div class="workspace-topbar__right"><span class="language-label"><span class="language-label__mark">CJ</span>Cangjie</span><button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false"><span aria-hidden="true">☾</span><span class="theme-toggle__label">Dark mode</span></button><button class="icon-button" id="review-button" type="button" aria-pressed="false" title="Mark for review"><span aria-hidden="true">☆</span><span class="icon-button__text">Review</span></button></div>
     </header>
     <div class="workspace-panels" id="workspace-panels">
       <article class="problem-pane" id="problem-pane" aria-labelledby="problem-title">
