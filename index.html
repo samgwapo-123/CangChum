@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en" data-type="software" data-radius="sharp" data-ground="sand" data-buttons="arrow" data-motion>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="page-type" content="software">
+  <meta name="site-kind" content="software">
+  <meta name="description" content="A Cangjie programming course with ten lessons, 50 source problems, a coding workspace, and saved study progress.">
+  <title>CangChum — Cangjie practice</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/system.css">
+  <link rel="stylesheet" href="/assets/ui/cards.css">
+  <link rel="stylesheet" href="/assets/motion/motion.css">
+  <link rel="stylesheet" href="/assets/backgrounds/backgrounds.css">
+  <link rel="stylesheet" href="/assets/layout/layout.css">
+  <link rel="stylesheet" href="/assets/icons/icon.css">
+  <style>
+    :root {
+      --p-bg: #dedad3; --p-surface: #d3cec6; --p-ink: #0a0a0a; --p-muted: #55514c;
+      --p-accent: #256f82; --p-accent-ink: #ffffff; --p-action: #256f82; --p-action-ink: #ffffff;
+      --p-inv-bg: #0a0a0a; --p-inv-surface: #151515; --p-inv-ink: #dedad3; --p-inv-muted: #84827e;
+      --p-inv-accent: #256f82; --p-inv-accent-ink: #ffffff; --p-inv-action: #256f82; --p-inv-action-ink: #ffffff;
+      --font-display: "Geist", system-ui, sans-serif;
+      --font-text: "Geist", system-ui, sans-serif;
+      --font-mono: "Geist Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+      --display-weight: 500;
+      --display-tracking: -0.035em;
+      --display-tracking-xl: -0.045em;
+    }
+  </style>
+  <link rel="stylesheet" href="/src/styles.css">
+</head>
+<body>
+  <!-- software app: Cangjie practice; warm neutral palette, Geist pairing, split app workspace, sand UI ground; no shader or timed scene. -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="nav app-nav">
+    <div class="wrap app-nav__inner">
+      <a class="brand" href="#dashboard" aria-label="CangChum dashboard"><span class="mark" data-mark="dots" aria-hidden="true"></span><span>CangChum</span></a>
+      <nav class="app-nav__links" aria-label="Main navigation">
+        <a class="nav__link is-active" href="#dashboard" data-view-link="dashboard">Dashboard</a>
+        <a class="nav__link" href="#curriculum" data-view-link="curriculum">Curriculum</a>
+      </nav>
+      <div class="app-nav__right">
+        <span class="runtime-pill" aria-label="Cangjie runner unavailable"><span class="runtime-pill__dot"></span><span id="runtime-label">Checking runner</span></span>
+        <button class="btn btn--primary app-nav__continue" type="button" id="continue-button">Start next problem</button>
+      </div>
+      <button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span></button>
+    </div>
+    <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation" hidden>
+      <a href="#dashboard" data-view-link="dashboard">Dashboard</a>
+      <a href="#curriculum" data-view-link="curriculum">Curriculum</a>
+    </nav>
+  </header>
+
+  <main id="main" class="wrap app-shell">
+    <aside class="curriculum-rail" aria-label="Course curriculum">
+      <div class="rail-heading"><span>Course</span><span class="rail-count">10 lessons</span></div>
+      <div class="course-name"><span class="course-name__icon" aria-hidden="true">CJ</span><div><strong>Cangjie foundations</strong><span>Batch 1 · 50 problems</span></div></div>
+      <div class="rail-progress"><div class="rail-progress__line"><span id="rail-progress-fill"></span></div><span id="rail-progress-label">0% complete</span></div>
+      <div class="lesson-nav" id="lesson-nav"></div>
+      <div class="rail-note"><span class="rail-note__mark" aria-hidden="true">↗</span><p>All ten lessons are open. Follow the recommended order or revisit any topic.</p></div>
+    </aside>
+
+    <section class="main-content" id="dashboard" aria-labelledby="page-title">
+      <div class="page-intro">
+        <div class="breadcrumbs"><span>Course</span><span aria-hidden="true">/</span><span>Cangjie foundations</span></div>
+        <div class="intro-row">
+          <div><p class="eyebrow">Your study dashboard</p><h1 id="page-title">Cangjie practice</h1><p class="intro-copy">Study Cangjie concepts, write code against the source test cases, and track your progress in one workspace.</p></div>
+        </div>
+      </div>
+
+      <section class="stats-grid" aria-label="Course statistics">
+        <article class="stat-card stat-card--primary"><div class="stat-card__top"><span>Problems completed</span><span class="stat-icon" aria-hidden="true">✓</span></div><strong id="stat-completed">0 <small>/ 50</small></strong><div class="stat-card__foot"><span id="stat-completion-percent">0% course progress</span><div class="mini-track"><span id="stat-completion-fill"></span></div></div></article>
+        <article class="stat-card"><div class="stat-card__top"><span>Current lesson</span><span class="stat-icon stat-icon--plain" aria-hidden="true">↗</span></div><strong class="stat-card__lesson" id="stat-current-lesson">Lesson 1</strong><div class="stat-card__foot"><span id="stat-current-title">Hello World</span></div></article>
+        <article class="stat-card"><div class="stat-card__top"><span>Problems available</span><span class="stat-icon stat-icon--plain" aria-hidden="true">⌘</span></div><strong>50</strong><div class="stat-card__foot"><span>Across 10 lessons</span></div></article>
+        <article class="stat-card"><div class="stat-card__top"><span>Attempts</span><span class="stat-icon stat-icon--plain" aria-hidden="true">↻</span></div><strong id="stat-attempts">0</strong><div class="stat-card__foot"><span>Saved on this device</span></div></article>
+      </section>
+
+      <section class="performance-section" aria-labelledby="performance-heading">
+        <div class="section-title-row"><div><p class="eyebrow">Course progress</p><h2 id="performance-heading">Problem difficulty</h2></div><span class="section-meta">50 problems total</span></div>
+        <div class="difficulty-list" id="difficulty-stats"></div>
+      </section>
+
+      <section class="next-section" aria-labelledby="next-heading">
+        <div class="section-title-row"><div><p class="eyebrow">Recommended next</p><h2 id="next-heading">Pick up where you left off</h2></div><button class="text-action" id="view-curriculum" type="button">View curriculum <span aria-hidden="true">→</span></button></div>
+        <article class="next-card" id="next-card"></article>
+      </section>
+
+      <section class="activity-section" aria-labelledby="activity-heading">
+        <div class="section-title-row"><div><p class="eyebrow">Your work</p><h2 id="activity-heading">Recent coding activity</h2></div><span class="section-meta" id="activity-count">No attempts yet</span></div>
+        <div class="activity-list" id="activity-list"></div>
+      </section>
+      <footer class="app-footer"><span>CangChum · Cangjie study platform</span><span>Progress stays in this browser</span></footer>
+    </section>
+
+    <section class="main-content curriculum-content" id="curriculum" aria-labelledby="curriculum-title" hidden>
+      <div class="page-intro">
+        <div class="breadcrumbs"><a href="#dashboard" data-view-link="dashboard">Dashboard</a><span aria-hidden="true">/</span><span>Curriculum</span></div>
+        <p class="eyebrow">The source question bank</p><h1 id="curriculum-title">Lessons and problems</h1>
+        <p class="intro-copy">Ten topics in the original order. Each lesson has two Easy, two Medium, and one Hard problem.</p>
+      </div>
+      <div class="curriculum-toolbar"><div class="filter-group" aria-label="Filter by difficulty"><button type="button" class="filter-chip is-selected" data-filter-difficulty="all" aria-pressed="true">All levels</button><button type="button" class="filter-chip" data-filter-difficulty="Easy" aria-pressed="false">Easy</button><button type="button" class="filter-chip" data-filter-difficulty="Medium" aria-pressed="false">Medium</button><button type="button" class="filter-chip" data-filter-difficulty="Hard" aria-pressed="false">Hard</button></div>
+        <label class="status-filter">Status<select id="status-filter"><option value="all">All problems</option><option value="not-started">Not started</option><option value="attempted">Attempted</option><option value="completed">Completed</option><option value="review">For review</option></select></label></div>
+      <div class="lesson-overview-list" id="lesson-overview-list"></div>
+      <footer class="app-footer"><span>CangChum · Cangjie study platform</span><span>Source document: Batch 1 · Lessons 1–10</span></footer>
+    </section>
+  </main>
+
+  <section class="workspace" id="workspace-view" aria-label="Coding workspace" hidden>
+    <header class="workspace-topbar">
+      <div class="workspace-topbar__left"><button class="back-button" id="back-to-course" type="button"><span aria-hidden="true">←</span> Curriculum</button><span class="topbar-divider"></span><span class="workspace-breadcrumb" id="workspace-breadcrumb">Lesson 1 · Hello World</span></div>
+      <div class="workspace-topbar__right"><span class="language-label"><span class="language-label__mark">CJ</span>Cangjie</span><button class="icon-button" id="review-button" type="button" aria-pressed="false" title="Mark for review"><span aria-hidden="true">☆</span><span class="icon-button__text">Review</span></button></div>
+    </header>
+    <div class="workspace-panels" id="workspace-panels">
+      <article class="problem-pane" id="problem-pane" aria-labelledby="problem-title">
+        <div class="problem-pane__scroll">
+          <div class="problem-topline"><span class="problem-number" id="problem-number">1.1</span><span class="difficulty-badge" id="problem-difficulty">Easy</span><span class="problem-status" id="problem-status"></span></div>
+          <h1 id="problem-title">Problem title</h1>
+          <div class="problem-source" id="problem-source"></div>
+          <details class="testcases-disclosure" id="testcases-disclosure"><summary><span>Test cases</span><span class="testcases-count" id="testcases-count"></span></summary><div class="testcases-list" id="testcases-list"></div></details>
+        </div>
+        <div class="problem-pane__footer"><button class="previous-problem" id="previous-problem" type="button">← Previous</button><span id="problem-position">Problem 1 of 5</span><button class="next-problem" id="next-problem" type="button">Next →</button></div>
+      </article>
+      <div class="resize-grip" id="resize-grip" role="separator" aria-label="Resize problem and code panels" aria-orientation="vertical" tabindex="0"></div>
+      <section class="editor-pane" aria-label="Cangjie code editor">
+        <div class="editor-toolbar"><div class="editor-tab"><span class="editor-file-icon" aria-hidden="true">CJ</span><span>main.cj</span><span class="unsaved-dot" id="unsaved-dot" hidden></span></div><div class="editor-toolbar__right"><button class="editor-tool" id="reset-code" type="button">Reset code</button><button class="editor-tool editor-tool--icon" id="copy-code" type="button" title="Copy code">Copy</button></div></div>
+        <div class="editor-body" id="editor-body">
+          <div class="line-numbers" id="line-numbers" aria-hidden="true">1</div>
+          <pre class="syntax-layer" id="syntax-layer" aria-hidden="true"><code id="highlighted-code"></code></pre>
+          <textarea id="code-editor" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" aria-label="Cangjie source code" wrap="off" placeholder="Write your Cangjie program here"></textarea>
+        </div>
+        <div class="editor-controls"><label class="case-picker">Run against<select id="case-select"><option value="sample">Sample case</option></select></label><div class="run-actions"><button class="btn btn--secondary run-button" id="run-code" type="button">Run code</button><button class="btn btn--primary submit-button" id="submit-code" type="button">Submit</button></div></div>
+        <section class="results-pane" id="results-pane" aria-live="polite" aria-label="Execution results"><div class="results-empty"><span class="results-empty__icon" aria-hidden="true">⌘</span><strong>Run your code to see results</strong><span>Sample run checks the example. Submit checks every listed test case.</span></div></section>
+      </section>
+    </div>
+  </section>
+  <script type="module" src="/assets/system.js"></script>
+  <script type="module" src="/assets/motion/motion.js"></script>
+  <script type="module" src="/assets/layout/layout.js"></script>
+  <script type="module" src="/src/app.js"></script>
+</body>
+</html>
