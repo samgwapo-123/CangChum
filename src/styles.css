@@ -255,8 +255,8 @@ body.is-resizing { cursor: col-resize; user-select: none; }
 .editor-tool:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
 .editor-body { position: relative; min-height: 0; overflow: hidden; display: grid; grid-template-columns: 48px 1fr; background: #fcfcfa; }
 .line-numbers { z-index: 4; grid-column: 1; display: flex; flex-direction: column; align-items: end; gap: 0; padding: 18px 11px 18px 0; border-right: 1px solid var(--app-edge-soft); color: #a09d96; font: 12px/22px var(--font-mono); text-align: right; pointer-events: none; }
-.line-numbers span { height: 22px; }
-.syntax-layer { position: absolute; inset: 0 0 0 49px; z-index: 1; overflow: hidden; margin: 0; padding: 18px 17px; color: #343a3d; font: 13px/22px var(--font-mono); white-space: pre; pointer-events: none; tab-size: 4; }
+.line-numbers span { height: 22px; flex: 0 0 22px; }
+.syntax-layer { position: absolute; inset: 0 0 0 49px; z-index: 1; overflow: visible; margin: 0; padding: 18px 17px; color: #343a3d; font: 13px/22px var(--font-mono); white-space: pre; pointer-events: none; tab-size: 4; }
 .syntax-layer code { font: inherit; }
 #code-editor { position: absolute; z-index: 2; inset: 0 0 0 49px; width: calc(100% - 49px); height: 100%; resize: none; overflow: auto; padding: 18px 17px; border: 0; border-radius: 0; outline: 0; background: transparent; color: transparent; -webkit-text-fill-color: transparent; caret-color: #202627; font: 13px/22px var(--font-mono); white-space: pre; tab-size: 4; }
 #code-editor::selection { background: rgba(38, 111, 130, .18); color: transparent; -webkit-text-fill-color: transparent; }

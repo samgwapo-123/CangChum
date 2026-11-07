@@ -273,7 +273,7 @@ function renderWorkspace() {
 }
 
 function renderResultsEmpty() {
-  $('#results-pane').innerHTML = '<div class="results-empty"><span class="results-empty__icon" aria-hidden="true">⌘</span><strong>Run your code to see results</strong><span>Sample run checks the example. Submit checks every listed test case.</span></div>';
+  $('#results-pane').innerHTML = '<div class="results-empty"><span class="results-empty__icon" aria-hidden="true">⌘</span><strong>Run your code to see results</strong><span>Run code uses Custom Input. Submit checks every official test case.</span></div>';
 }
 
 function formatDate(dateValue) {
