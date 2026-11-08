@@ -1,6 +1,6 @@
 # CangChum
 
-CangChum is a local Cangjie study platform built from the supplied Batch 1 lesson bank. It includes the ten original lessons, their 50 problems and 270 test cases, a progress dashboard, a problem workspace, and an isolated execution-service boundary.
+CangChum is a local Cangjie study platform built from the supplied Batch 1 and Batch 2 lesson banks. It includes 20 lessons, 100 problems, and 520 official test cases, a progress dashboard, a problem workspace, and an isolated execution-service boundary.
 
 ## Start the app
 
@@ -12,7 +12,7 @@ npm start
 
 Open [http://127.0.0.1:4173](http://127.0.0.1:4173). The app stores saved code, review flags, attempts, submissions, and completion in this browser's local storage.
 
-To rebuild the structured curriculum after editing the source lesson document:
+To rebuild the structured curriculum after editing either source lesson document:
 
 ```powershell
 npm run build:data
@@ -30,7 +30,7 @@ Execution is only enabled when all of the following are available:
 
 ### Build the runner image
 
-Install Docker Desktop with its WSL 2 backend, then download the official Linux x64 Cangjie 1.0.5 SDK archive (`cangjie-sdk-linux-x64-1.0.5.tar.gz`) from the [Cangjie download center](https://cangjie-lang.cn/download/1.0.5) into this project folder. Build the runner image from PowerShell:
+With Docker Desktop running its Linux engine, place the official Linux x64 Cangjie 1.0.5 SDK archive (`cangjie-sdk-linux-x64-1.0.5.tar.gz`) from the [Cangjie download center](https://cangjie-lang.cn/download/1.0.5) in this project folder. Build the runner image from PowerShell:
 
 ```powershell
 docker build -f Dockerfile.runner --build-arg SDK_ARCHIVE=cangjie-sdk-linux-x64-1.0.5.tar.gz -t cangchum-cangjie:1.0.5 .
@@ -53,7 +53,7 @@ The backend passes each program to a fresh container. Containers have no network
 ## What's included
 
 - Dashboard with overall and difficulty progress, current lesson, attempts, next problem, and recent activity.
-- Navigation across all ten lessons, with every lesson available from the start.
+- Navigation across all twenty lessons, with every lesson available from the start.
 - Difficulty, completion, attempt, and review filters.
 - Problem statements, input/output formats, constraints, samples, and source test cases.
 - Cangjie editor with language-specific highlighting, line numbers, indentation, matching brackets, saved code, reset, copy, and resizable panels.
@@ -63,7 +63,7 @@ The backend passes each program to a fresh container. Containers have no network
 
 ## Current limits
 
-- Real compilation and execution require the isolated Docker image described above. The installed Windows compiler did not run its compiled smoke-test executable successfully, and no Docker engine is present.
+- Lesson 11 string indexing and size exercises constrain input to ASCII. Unicode-aware indexing and size behavior are therefore not covered by these problem tests.
 - Progress is stored per browser profile, not synchronized across devices.
 - The lightweight editor provides Cangjie-specific syntax colors and keyboard editing, but does not include Monaco's full language-server features.
-- Source questions and expected outputs are preserved as provided; any errors in the source document remain visible in the app.
+- Expected outputs and samples for Lessons 11–20 were independently reviewed and executed through the isolated Cangjie 1.0.5 runner; the audited source corrections are recorded in the Batch 2 source file.

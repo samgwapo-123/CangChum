@@ -1,5 +1,9 @@
 {
   "source": "Cangjie_CodeChum_Batch1_Lessons1-10.md",
+  "sourceFiles": [
+    "Cangjie_CodeChum_Batch1_Lessons1-10.md",
+    "Cangjie_CodeChum_Batch2_Lessons11-20.md"
+  ],
   "lessons": [
     {
       "id": 1,
@@ -2394,7 +2398,7 @@
               "expectedOutput": "Average: -9.00\nAbove average: 0"
             }
           ],
-          "concepts": "Array traversal, sum accumulation, `.size`, comparisons, derived calculations.",
+          "concepts": "Array traversal, sum accumulation, `.size`, comparisons, derived calculations.  \n**Formatting note:** Use a verified Cangjie formatting method for two decimal places in your environment; do not assume an unverified formatting API.",
           "sourceMarkdown": "**Difficulty:** Medium\n\n**Description:** Read `N` integers into an array. Calculate the arithmetic average, then count how many array elements are strictly greater than that average. To avoid floating-point formatting, compare each value multiplied by `N` against the total sum. Print the average to exactly two decimal places and the count.\n\n**Input Format:**\n- First line: integer `N`.\n- Next `N` lines: one integer per line.\n\n**Output Format:**\n```text\nAverage: <average to 2 decimal places>\nAbove average: <count>\n```\n\n**Constraints:**\n- `1 ≤ N ≤ 100`\n- `-1,000 ≤ each value ≤ 1,000`\n\n**Sample Input**\n```text\n4\n1\n2\n3\n4\n```\n\n**Sample Output**\n```text\nAverage: 2.50\nAbove average: 2\n```\n\n**Test Cases**\n```text\n# T1 - two values above average\nIN:\n4\n1\n2\n3\n4\nOUT:\nAverage: 2.50\nAbove average: 2\n\n# T2 - all equal\nIN:\n3\n5\n5\n5\nOUT:\nAverage: 5.00\nAbove average: 0\n\n# T3 - negative average\nIN:\n3\n-5\n-2\n-2\nOUT:\nAverage: -3.00\nAbove average: 2\n\n# T4 - average is a whole number\nIN:\n4\n1\n3\n5\n7\nOUT:\nAverage: 4.00\nAbove average: 2\n\n# T5 - one element\nIN:\n1\n-9\nOUT:\nAverage: -9.00\nAbove average: 0\n```\n\n**Concepts Practiced:** Array traversal, sum accumulation, `.size`, comparisons, derived calculations.  \n**Formatting note:** Use a verified Cangjie formatting method for two decimal places in your environment; do not assume an unverified formatting API."
         },
         {
@@ -2488,6 +2492,2376 @@
           ],
           "concepts": "`Array<T>`, indexing, `.size`, array slicing with `[L..R]`, iterating over a slice, accumulation, valid index boundaries.",
           "sourceMarkdown": "**Difficulty:** Hard\n\n**Description:** Read an array of `N` integers, followed by two valid zero-based indices `L` and `R`, where `L < R` and `R` is at most `N`. Analyze the half-open slice from index `L` up to but not including index `R` (the same endpoint behavior demonstrated by the lesson's `d[1..3]` example). Print the slice, its sum, and its length.\n\n**Input Format:**\n- First line: integer `N`.\n- Next `N` lines: one integer per line.\n- Next line: integer `L`.\n- Final line: integer `R`.\n\n**Output Format:** Three lines:\n```text\nSlice: <slice values separated by one space>\nSum: <slice sum>\nLength: <slice length>\n```\n\n**Constraints:**\n- `2 ≤ N ≤ 100`\n- `-1,000 ≤ each value ≤ 1,000`\n- `0 ≤ L < R ≤ N`\n\n**Sample Input**\n```text\n5\n4\n8\n2\n9\n6\n1\n4\n```\n\n**Sample Output**\n```text\nSlice: 8 2 9\nSum: 19\nLength: 3\n```\n\n**Test Cases**\n```text\n# T1 - middle slice\nIN:\n5\n4\n8\n2\n9\n6\n1\n4\nOUT:\nSlice: 8 2 9\nSum: 19\nLength: 3\n\n# T2 - first element only\nIN:\n3\n7\n8\n9\n0\n1\nOUT:\nSlice: 7\nSum: 7\nLength: 1\n\n# T3 - slice reaches the final element\nIN:\n4\n1\n2\n3\n4\n2\n4\nOUT:\nSlice: 3 4\nSum: 7\nLength: 2\n\n# T4 - full array slice\nIN:\n4\n-2\n0\n5\n-1\n0\n4\nOUT:\nSlice: -2 0 5 -1\nSum: 2\nLength: 4\n\n# T5 - negative values in a middle slice\nIN:\n6\n10\n-5\n-4\n-3\n20\n30\n1\n4\nOUT:\nSlice: -5 -4 -3\nSum: -12\nLength: 3\n```\n\n**Concepts Practiced:** `Array<T>`, indexing, `.size`, array slicing with `[L..R]`, iterating over a slice, accumulation, valid index boundaries.\n\n---\n\n## Batch 1, Part C completion summary\n\n| Measure | Result |\n|---|---:|\n| Topics completed in this part | 4 (Topics 7–10) |\n| Problems in this part | 20 |\n| Easy | 8 |\n| Medium | 8 |\n| Hard | 4 |\n| Test cases per problem | 5 |\n| Solutions included | 0 |\n\n## Batch 1 completion summary\n\n| Measure | Result |\n|---|---:|\n| Topics completed | 10 of 10 |\n| Problems completed | 50 of 50 |\n| Easy | 20 |\n| Medium | 20 |\n| Hard | 10 |\n| Minimum test cases per problem | 5 |\n\n**Batch 1 is now complete: Topics 1–10.** This file is the continuation for Topics 7–10; combine it with the existing Parts A and B to keep the complete 50-problem Batch 1 question bank together.\n\n## Notes for the AI coding agent\n\n1. Preserve all problem statements, constraints, sample data, and test cases. Do not silently rewrite or omit them.\n2. Do not generate solutions unless the learner explicitly asks for a hint, explanation, or solution.\n3. When evaluating a submitted Cangjie solution, compile it with the available Cangjie compiler if possible, run every supplied test case, and report compilation errors separately from logic errors.\n4. Do not assume APIs or syntax not taught in the lesson. If a problem requires a library or formatting feature not covered in the lesson, verify it against official Cangjie documentation before recommending it.\n5. Flag any suspected inconsistency in a test case instead of silently changing the expected output.\n6. For Topic 10.3, verify the local compiler's supported float formatting approach before implementing the exact two-decimal output requirement."
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "title": "Strings and Runes",
+      "description": "String indexing, ASCII bytes, Rune conversion, and character iteration.",
+      "problems": [
+        {
+          "id": "11.1",
+          "number": 1,
+          "title": "String Length",
+          "difficulty": "Easy",
+          "description": "Read one ASCII word and print its length using the\nstring's `.size` property.",
+          "inputFormat": "One line containing a word.",
+          "outputFormat": "One integer: the number of characters in the word.",
+          "constraints": "The word contains 1 to 50 ASCII letters. It has no\nspaces.",
+          "sampleInput": "Cangjie",
+          "sampleOutput": "7",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "normal",
+              "input": "hello",
+              "expectedOutput": "5"
+            },
+            {
+              "number": 2,
+              "label": "one character",
+              "input": "A",
+              "expectedOutput": "1"
+            },
+            {
+              "number": 3,
+              "label": "maximum length",
+              "input": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwx",
+              "expectedOutput": "50"
+            },
+            {
+              "number": 4,
+              "label": "all lowercase",
+              "input": "programming",
+              "expectedOutput": "11"
+            },
+            {
+              "number": 5,
+              "label": "digits are not allowed by the constraints, mixed letters",
+              "input": "CodeChum",
+              "expectedOutput": "8"
+            }
+          ],
+          "concepts": "`String`, `.size`, reading a line, printing an\ninteger.",
+          "sourceMarkdown": "**Difficulty:** Easy\n\n**Description:** Read one ASCII word and print its length using the\nstring's `.size` property.\n\n**Input Format:** One line containing a word.\n\n**Output Format:** One integer: the number of characters in the word.\n\n**Constraints:** The word contains 1 to 50 ASCII letters. It has no\nspaces.\n\n**Sample Input**\n\n```\nCangjie\n```\n\n**Sample Output**\n\n```\n7\n```\n\n**Test Cases**\n\n```\n# T1 (normal)\nIN:\nhello\nOUT:\n5\n```\n\n```\n# T2 (one character)\nIN:\nA\nOUT:\n1\n```\n\n```\n# T3 (maximum length)\nIN:\nABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwx\nOUT:\n50\n```\n\n```\n# T4 (all lowercase)\nIN:\nprogramming\nOUT:\n11\n```\n\n```\n# T5 (digits are not allowed by the constraints, mixed letters)\nIN:\nCodeChum\nOUT:\n8\n```\n\n**Concepts Practiced:** `String`, `.size`, reading a line, printing an\ninteger.\n\n------------------------------------------------------------------------"
+        },
+        {
+          "id": "11.2",
+          "number": 2,
+          "title": "Character at an Index",
+          "difficulty": "Easy",
+          "description": "Read an ASCII word and an index. Print the character at\nthat zero-based index. The index is always valid.",
+          "inputFormat": "Two lines: the word, then the zero-based index.",
+          "outputFormat": "One line containing the character at the requested\nindex.",
+          "constraints": "The word contains 1 to 50 ASCII letters.\n`0 ≤ index < word length`.",
+          "sampleInput": "Cangjie\n2",
+          "sampleOutput": "n",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "first character",
+              "input": "hello\n0",
+              "expectedOutput": "h"
+            },
+            {
+              "number": 2,
+              "label": "last character",
+              "input": "hello\n4",
+              "expectedOutput": "o"
+            },
+            {
+              "number": 3,
+              "label": "middle character",
+              "input": "computer\n3",
+              "expectedOutput": "p"
+            },
+            {
+              "number": 4,
+              "label": "single character",
+              "input": "Z\n0",
+              "expectedOutput": "Z"
+            },
+            {
+              "number": 5,
+              "label": "mixed case",
+              "input": "CodeChum\n4",
+              "expectedOutput": "C"
+            }
+          ],
+          "concepts": "String indexing with `[]`, zero-based indexes,\n`String.size`.",
+          "sourceMarkdown": "**Difficulty:** Easy\n\n**Description:** Read an ASCII word and an index. Print the character at\nthat zero-based index. The index is always valid.\n\n**Input Format:** Two lines: the word, then the zero-based index.\n\n**Output Format:** One line containing the character at the requested\nindex.\n\n**Constraints:** The word contains 1 to 50 ASCII letters.\n`0 ≤ index < word length`.\n\n**Sample Input**\n\n```\nCangjie\n2\n```\n\n**Sample Output**\n\n```\nn\n```\n\n**Test Cases**\n\n```\n# T1 (first character)\nIN:\nhello\n0\nOUT:\nh\n```\n\n```\n# T2 (last character)\nIN:\nhello\n4\nOUT:\no\n```\n\n```\n# T3 (middle character)\nIN:\ncomputer\n3\nOUT:\np\n```\n\n```\n# T4 (single character)\nIN:\nZ\n0\nOUT:\nZ\n```\n\n```\n# T5 (mixed case)\nIN:\nCodeChum\n4\nOUT:\nC\n```\n\n**Concepts Practiced:** String indexing with `[]`, zero-based indexes,\n`String.size`.\n\n------------------------------------------------------------------------"
+        },
+        {
+          "id": "11.3",
+          "number": 3,
+          "title": "Rune Code Report",
+          "difficulty": "Medium",
+          "description": "Read one ASCII letter. Convert the selected character\nto a `Rune` and print the character and its numeric code value. The\ninput is guaranteed to contain exactly one ASCII letter. Use the Rune\nconversion behavior taught in the lesson.",
+          "inputFormat": "One line containing one ASCII letter.",
+          "outputFormat": "Two lines:\n\n    Character: <character>\n    Rune: <numeric code>",
+          "constraints": "The input contains exactly one character from `A` to\n`Z` or `a` to `z`.",
+          "sampleInput": "A",
+          "sampleOutput": "Character: A\nRune: 65",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "uppercase A",
+              "input": "A",
+              "expectedOutput": "Character: A\nRune: 65"
+            },
+            {
+              "number": 2,
+              "label": "uppercase Z",
+              "input": "Z",
+              "expectedOutput": "Character: Z\nRune: 90"
+            },
+            {
+              "number": 3,
+              "label": "lowercase a",
+              "input": "a",
+              "expectedOutput": "Character: a\nRune: 97"
+            },
+            {
+              "number": 4,
+              "label": "lowercase z",
+              "input": "z",
+              "expectedOutput": "Character: z\nRune: 122"
+            },
+            {
+              "number": 5,
+              "label": "middle letter",
+              "input": "M",
+              "expectedOutput": "Character: M\nRune: 77"
+            }
+          ],
+          "concepts": "`Rune`, Rune conversion, ASCII character codes,\nstring indexing.",
+          "sourceMarkdown": "**Difficulty:** Medium\n\n**Description:** Read one ASCII letter. Convert the selected character\nto a `Rune` and print the character and its numeric code value. The\ninput is guaranteed to contain exactly one ASCII letter. Use the Rune\nconversion behavior taught in the lesson.\n\n**Input Format:** One line containing one ASCII letter.\n\n**Output Format:** Two lines:\n\n```\nCharacter: <character>\nRune: <numeric code>\n```\n\n**Constraints:** The input contains exactly one character from `A` to\n`Z` or `a` to `z`.\n\n**Sample Input**\n\n```\nA\n```\n\n**Sample Output**\n\n```\nCharacter: A\nRune: 65\n```\n\n**Test Cases**\n\n```\n# T1 (uppercase A)\nIN:\nA\nOUT:\nCharacter: A\nRune: 65\n```\n\n```\n# T2 (uppercase Z)\nIN:\nZ\nOUT:\nCharacter: Z\nRune: 90\n```\n\n```\n# T3 (lowercase a)\nIN:\na\nOUT:\nCharacter: a\nRune: 97\n```\n\n```\n# T4 (lowercase z)\nIN:\nz\nOUT:\nCharacter: z\nRune: 122\n```\n\n```\n# T5 (middle letter)\nIN:\nM\nOUT:\nCharacter: M\nRune: 77\n```\n\n**Concepts Practiced:** `Rune`, Rune conversion, ASCII character codes,\nstring indexing.\n\n------------------------------------------------------------------------"
+        },
+        {
+          "id": "11.4",
+          "number": 4,
+          "title": "Count a Selected Character",
+          "difficulty": "Medium",
+          "description": "Read an ASCII word and a target character. Count how\nmany times the target character appears in the word. Compare characters\nexactly, so uppercase and lowercase are different.",
+          "inputFormat": "Two lines: the word, then the target character.",
+          "outputFormat": "One integer: the number of occurrences.",
+          "constraints": "The word contains 1 to 100 ASCII letters. The target\nline contains exactly one ASCII letter.",
+          "sampleInput": "banana\na",
+          "sampleOutput": "3",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "several matches",
+              "input": "mississippi\ns",
+              "expectedOutput": "4"
+            },
+            {
+              "number": 2,
+              "label": "no match",
+              "input": "computer\nz",
+              "expectedOutput": "0"
+            },
+            {
+              "number": 3,
+              "label": "case-sensitive",
+              "input": "Banana\na",
+              "expectedOutput": "3"
+            },
+            {
+              "number": 4,
+              "label": "every character matches",
+              "input": "aaaaa\na",
+              "expectedOutput": "5"
+            },
+            {
+              "number": 5,
+              "label": "one-character word",
+              "input": "x\nx",
+              "expectedOutput": "1"
+            }
+          ],
+          "concepts": "String indexing, iteration over string elements,\ncharacter comparison, counting.",
+          "sourceMarkdown": "**Difficulty:** Medium\n\n**Description:** Read an ASCII word and a target character. Count how\nmany times the target character appears in the word. Compare characters\nexactly, so uppercase and lowercase are different.\n\n**Input Format:** Two lines: the word, then the target character.\n\n**Output Format:** One integer: the number of occurrences.\n\n**Constraints:** The word contains 1 to 100 ASCII letters. The target\nline contains exactly one ASCII letter.\n\n**Sample Input**\n\n```\nbanana\na\n```\n\n**Sample Output**\n\n```\n3\n```\n\n**Test Cases**\n\n```\n# T1 (several matches)\nIN:\nmississippi\ns\nOUT:\n4\n```\n\n```\n# T2 (no match)\nIN:\ncomputer\nz\nOUT:\n0\n```\n\n```\n# T3 (case-sensitive)\nIN:\nBanana\na\nOUT:\n3\n```\n\n```\n# T4 (every character matches)\nIN:\naaaaa\na\nOUT:\n5\n```\n\n```\n# T5 (one-character word)\nIN:\nx\nx\nOUT:\n1\n```\n\n**Concepts Practiced:** String indexing, iteration over string elements,\ncharacter comparison, counting.\n\n------------------------------------------------------------------------"
+        },
+        {
+          "id": "11.5",
+          "number": 5,
+          "title": "ASCII Character Frequency",
+          "difficulty": "Hard",
+          "description": "Read a word and three target ASCII letters. Count the\noccurrences of each target separately. A character may appear more than\nonce among the targets; report each requested count in the original\ntarget order. Comparisons are case-sensitive.",
+          "inputFormat": "Four lines: the word, target 1, target 2, and target\n3. Each target line contains one ASCII letter.",
+          "outputFormat": "Three lines:\n\n    <target 1>: <count>\n    <target 2>: <count>\n    <target 3>: <count>",
+          "constraints": "The word contains 1 to 100 ASCII letters. Each target\nis one ASCII letter.",
+          "sampleInput": "Mississippi\ns\ni\np",
+          "sampleOutput": "s: 4\ni: 4\np: 2",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "three different targets",
+              "input": "programming\nm\ng\nr",
+              "expectedOutput": "m: 2\ng: 2\nr: 2"
+            },
+            {
+              "number": 2,
+              "label": "repeated target",
+              "input": "banana\na\na\nn",
+              "expectedOutput": "a: 3\na: 3\nn: 2"
+            },
+            {
+              "number": 3,
+              "label": "case-sensitive targets",
+              "input": "AaAa\nA\na\nB",
+              "expectedOutput": "A: 2\na: 2\nB: 0"
+            },
+            {
+              "number": 4,
+              "label": "all targets absent",
+              "input": "hello\nx\ny\nz",
+              "expectedOutput": "x: 0\ny: 0\nz: 0"
+            },
+            {
+              "number": 5,
+              "label": "single-character word",
+              "input": "Q\nQ\nq\nQ",
+              "expectedOutput": "Q: 1\nq: 0\nQ: 1"
+            }
+          ],
+          "concepts": "String iteration, `Rune` or character\ncomparisons, multiple counters, preserving requested output order.",
+          "sourceMarkdown": "**Difficulty:** Hard\n\n**Description:** Read a word and three target ASCII letters. Count the\noccurrences of each target separately. A character may appear more than\nonce among the targets; report each requested count in the original\ntarget order. Comparisons are case-sensitive.\n\n**Input Format:** Four lines: the word, target 1, target 2, and target\n3. Each target line contains one ASCII letter.\n\n**Output Format:** Three lines:\n\n```\n<target 1>: <count>\n<target 2>: <count>\n<target 3>: <count>\n```\n\n**Constraints:** The word contains 1 to 100 ASCII letters. Each target\nis one ASCII letter.\n\n**Sample Input**\n\n```\nMississippi\ns\ni\np\n```\n\n**Sample Output**\n\n```\ns: 4\ni: 4\np: 2\n```\n\n**Test Cases**\n\n```\n# T1 (three different targets)\nIN:\nprogramming\nm\ng\nr\nOUT:\nm: 2\ng: 2\nr: 2\n```\n\n```\n# T2 (repeated target)\nIN:\nbanana\na\na\nn\nOUT:\na: 3\na: 3\nn: 2\n```\n\n```\n# T3 (case-sensitive targets)\nIN:\nAaAa\nA\na\nB\nOUT:\nA: 2\na: 2\nB: 0\n```\n\n```\n# T4 (all targets absent)\nIN:\nhello\nx\ny\nz\nOUT:\nx: 0\ny: 0\nz: 0\n```\n\n```\n# T5 (single-character word)\nIN:\nQ\nQ\nq\nQ\nOUT:\nQ: 1\nq: 0\nQ: 1\n```\n\n**Concepts Practiced:** String iteration, `Rune` or character\ncomparisons, multiple counters, preserving requested output order.\n\n------------------------------------------------------------------------"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "title": "Strings",
+      "description": "String trimming, case conversion, replacement, splitting, and inspection.",
+      "problems": [
+        {
+          "id": "12.1",
+          "number": 1,
+          "title": "Trim a Line",
+          "difficulty": "Easy",
+          "description": "Read one line that may contain spaces at the beginning\nor end. Print the line after removing leading and trailing whitespace\nusing the string trimming method taught in the lesson.",
+          "inputFormat": "One line of text. It contains at least one non-space\ncharacter.",
+          "outputFormat": "The trimmed text on one line.",
+          "constraints": "The line contains 1 to 60 printable ASCII characters\nand at least one non-space character.",
+          "sampleInput": "   Cangjie   ",
+          "sampleOutput": "Cangjie",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "spaces on both sides",
+              "input": "   hello world   ",
+              "expectedOutput": "hello world"
+            },
+            {
+              "number": 2,
+              "label": "leading spaces only",
+              "input": "    code",
+              "expectedOutput": "code"
+            },
+            {
+              "number": 3,
+              "label": "trailing spaces only",
+              "input": "school    ",
+              "expectedOutput": "school"
+            },
+            {
+              "number": 4,
+              "label": "no extra spaces",
+              "input": "Cebu",
+              "expectedOutput": "Cebu"
+            },
+            {
+              "number": 5,
+              "label": "internal spaces must remain",
+              "input": "  Code  Chum  ",
+              "expectedOutput": "Code  Chum"
+            }
+          ],
+          "concepts": "`String`, `.trimLeft` and the lesson's trimming\nbehavior, preserving internal spaces.",
+          "sourceMarkdown": "**Difficulty:** Easy\n\n**Description:** Read one line that may contain spaces at the beginning\nor end. Print the line after removing leading and trailing whitespace\nusing the string trimming method taught in the lesson.\n\n**Input Format:** One line of text. It contains at least one non-space\ncharacter.\n\n**Output Format:** The trimmed text on one line.\n\n**Constraints:** The line contains 1 to 60 printable ASCII characters\nand at least one non-space character.\n\n**Sample Input**\n\n```\n   Cangjie   \n```\n\n**Sample Output**\n\n```\nCangjie\n```\n\n**Test Cases**\n\n```\n# T1 (spaces on both sides)\nIN:\n   hello world   \nOUT:\nhello world\n```\n\n```\n# T2 (leading spaces only)\nIN:\n    code\nOUT:\ncode\n```\n\n```\n# T3 (trailing spaces only)\nIN:\nschool    \nOUT:\nschool\n```\n\n```\n# T4 (no extra spaces)\nIN:\nCebu\nOUT:\nCebu\n```\n\n```\n# T5 (internal spaces must remain)\nIN:\n  Code  Chum  \nOUT:\nCode  Chum\n```\n\n**Concepts Practiced:** `String`, `.trimLeft` and the lesson's trimming\nbehavior, preserving internal spaces.\n\n------------------------------------------------------------------------"
+        },
+        {
+          "id": "12.2",
+          "number": 2,
+          "title": "Change Letter Case",
+          "difficulty": "Easy",
+          "description": "Read one line of ASCII text. Print the text in\nuppercase, then in lowercase.",
+          "inputFormat": "One line containing ASCII letters and spaces.",
+          "outputFormat": "Two lines:\n\n    Upper: <uppercase text>\n    Lower: <lowercase text>",
+          "constraints": "The line contains 1 to 80 characters. It may contain\nspaces. It has no leading or trailing spaces.",
+          "sampleInput": "Hello Cangjie",
+          "sampleOutput": "Upper: HELLO CANGJIE\nLower: hello cangjie",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "mixed case",
+              "input": "CodeChum",
+              "expectedOutput": "Upper: CODECHUM\nLower: codechum"
+            },
+            {
+              "number": 2,
+              "label": "already uppercase",
+              "input": "PROGRAMMING",
+              "expectedOutput": "Upper: PROGRAMMING\nLower: programming"
+            },
+            {
+              "number": 3,
+              "label": "already lowercase",
+              "input": "student",
+              "expectedOutput": "Upper: STUDENT\nLower: student"
+            },
+            {
+              "number": 4,
+              "label": "multiple words",
+              "input": "Hello World 2026",
+              "expectedOutput": "Upper: HELLO WORLD 2026\nLower: hello world 2026"
+            },
+            {
+              "number": 5,
+              "label": "single letter",
+              "input": "z",
+              "expectedOutput": "Upper: Z\nLower: z"
+            }
+          ],
+          "concepts": "`.toAsciiUpper`, `.toAsciiLower`, string output.",
+          "sourceMarkdown": "**Difficulty:** Easy\n\n**Description:** Read one line of ASCII text. Print the text in\nuppercase, then in lowercase.\n\n**Input Format:** One line containing ASCII letters and spaces.\n\n**Output Format:** Two lines:\n\n```\nUpper: <uppercase text>\nLower: <lowercase text>\n```\n\n**Constraints:** The line contains 1 to 80 characters. It may contain\nspaces. It has no leading or trailing spaces.\n\n**Sample Input**\n\n```\nHello Cangjie\n```\n\n**Sample Output**\n\n```\nUpper: HELLO CANGJIE\nLower: hello cangjie\n```\n\n**Test Cases**\n\n```\n# T1 (mixed case)\nIN:\nCodeChum\nOUT:\nUpper: CODECHUM\nLower: codechum\n```\n\n```\n# T2 (already uppercase)\nIN:\nPROGRAMMING\nOUT:\nUpper: PROGRAMMING\nLower: programming\n```\n\n```\n# T3 (already lowercase)\nIN:\nstudent\nOUT:\nUpper: STUDENT\nLower: student\n```\n\n```\n# T4 (multiple words)\nIN:\nHello World 2026\nOUT:\nUpper: HELLO WORLD 2026\nLower: hello world 2026\n```\n\n```\n# T5 (single letter)\nIN:\nz\nOUT:\nUpper: Z\nLower: z\n```\n\n**Concepts Practiced:** `.toAsciiUpper`, `.toAsciiLower`, string output.\n\n------------------------------------------------------------------------"
+        },
+        {
+          "id": "12.3",
+          "number": 3,
+          "title": "Replace a Word",
+          "difficulty": "Medium",
+          "description": "Read a sentence, a target substring, and a replacement\nsubstring. Replace every occurrence of the target substring using the\nstring replacement method taught in the lesson.",
+          "inputFormat": "Three lines: sentence, target substring, replacement\nsubstring.",
+          "outputFormat": "One line containing the resulting sentence.",
+          "constraints": "The sentence contains 1 to 100 ASCII characters. The\ntarget and replacement each contain 1 to 20 characters. The target\nappears at least once.",
+          "sampleInput": "I like cats\ncats\ndogs",
+          "sampleOutput": "I like dogs",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "one occurrence",
+              "input": "red blue red\nred\ngreen",
+              "expectedOutput": "green blue green"
+            },
+            {
+              "number": 2,
+              "label": "replace a short substring",
+              "input": "banana\nna\nX",
+              "expectedOutput": "baXX"
+            },
+            {
+              "number": 3,
+              "label": "replacement is longer",
+              "input": "I use C\nC\nCangjie",
+              "expectedOutput": "I use Cangjie"
+            },
+            {
+              "number": 4,
+              "label": "replace with same text",
+              "input": "hello hello\nhello\nhello",
+              "expectedOutput": "hello hello"
+            },
+            {
+              "number": 5,
+              "label": "replace one letter",
+              "input": "mississippi\ns\nS",
+              "expectedOutput": "miSSiSSippi"
+            }
+          ],
+          "concepts": "`.replace`, string arguments, exact substring\nreplacement.",
+          "sourceMarkdown": "**Difficulty:** Medium\n\n**Description:** Read a sentence, a target substring, and a replacement\nsubstring. Replace every occurrence of the target substring using the\nstring replacement method taught in the lesson.\n\n**Input Format:** Three lines: sentence, target substring, replacement\nsubstring.\n\n**Output Format:** One line containing the resulting sentence.\n\n**Constraints:** The sentence contains 1 to 100 ASCII characters. The\ntarget and replacement each contain 1 to 20 characters. The target\nappears at least once.\n\n**Sample Input**\n\n```\nI like cats\ncats\ndogs\n```\n\n**Sample Output**\n\n```\nI like dogs\n```\n\n**Test Cases**\n\n```\n# T1 (one occurrence)\nIN:\nred blue red\nred\ngreen\nOUT:\ngreen blue green\n```\n\n```\n# T2 (replace a short substring)\nIN:\nbanana\nna\nX\nOUT:\nbaXX\n```\n\n```\n# T3 (replacement is longer)\nIN:\nI use C\nC\nCangjie\nOUT:\nI use Cangjie\n```\n\n```\n# T4 (replace with same text)\nIN:\nhello hello\nhello\nhello\nOUT:\nhello hello\n```\n\n```\n# T5 (replace one letter)\nIN:\nmississippi\ns\nS\nOUT:\nmiSSiSSippi\n```\n\n**Concepts Practiced:** `.replace`, string arguments, exact substring\nreplacement.\n\n------------------------------------------------------------------------"
+        },
+        {
+          "id": "12.4",
+          "number": 4,
+          "title": "Split and Join Words",
+          "difficulty": "Medium",
+          "description": "Read a sentence containing words separated by one or\nmore spaces. Split the sentence into words and join them using a hyphen\n(`-`). The input is guaranteed to have no leading or trailing spaces.",
+          "inputFormat": "One line containing the sentence.",
+          "outputFormat": "One line containing the words joined by hyphens.",
+          "constraints": "The sentence contains 1 to 100 ASCII characters and 1\nto 10 words.",
+          "sampleInput": "learn Cangjie today",
+          "sampleOutput": "learn-Cangjie-today",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "three words",
+              "input": "I love code",
+              "expectedOutput": "I-love-code"
+            },
+            {
+              "number": 2,
+              "label": "one word",
+              "input": "Cangjie",
+              "expectedOutput": "Cangjie"
+            },
+            {
+              "number": 3,
+              "label": "four words",
+              "input": "practice every single day",
+              "expectedOutput": "practice-every-single-day"
+            },
+            {
+              "number": 4,
+              "label": "multiple spaces",
+              "input": "one  two   three",
+              "expectedOutput": "one-two-three"
+            },
+            {
+              "number": 5,
+              "label": "short words",
+              "input": "a b c d",
+              "expectedOutput": "a-b-c-d"
+            }
+          ],
+          "concepts": "`.split`, `String.join`, string collections,\njoining with a separator.",
+          "sourceMarkdown": "**Difficulty:** Medium\n\n**Description:** Read a sentence containing words separated by one or\nmore spaces. Split the sentence into words and join them using a hyphen\n(`-`). The input is guaranteed to have no leading or trailing spaces.\n\n**Input Format:** One line containing the sentence.\n\n**Output Format:** One line containing the words joined by hyphens.\n\n**Constraints:** The sentence contains 1 to 100 ASCII characters and 1\nto 10 words.\n\n**Sample Input**\n\n```\nlearn Cangjie today\n```\n\n**Sample Output**\n\n```\nlearn-Cangjie-today\n```\n\n**Test Cases**\n\n```\n# T1 (three words)\nIN:\nI love code\nOUT:\nI-love-code\n```\n\n```\n# T2 (one word)\nIN:\nCangjie\nOUT:\nCangjie\n```\n\n```\n# T3 (four words)\nIN:\npractice every single day\nOUT:\npractice-every-single-day\n```\n\n```\n# T4 (multiple spaces)\nIN:\none  two   three\nOUT:\none-two-three\n```\n\n```\n# T5 (short words)\nIN:\na b c d\nOUT:\na-b-c-d\n```\n\n**Concepts Practiced:** `.split`, `String.join`, string collections,\njoining with a separator.\n\n------------------------------------------------------------------------"
+        },
+        {
+          "id": "12.5",
+          "number": 5,
+          "title": "Text Inspection Report",
+          "difficulty": "Hard",
+          "description": "Read a line of text and a search word. Print whether\nthe line contains the search word, whether it starts with the search\nword, whether it ends with the search word, whether it is empty after\ntrimming, and the original string length. All string checks are\ncase-sensitive. The search word is non-empty.",
+          "inputFormat": "Two lines: the text, then the search word. The text\nmay be empty.",
+          "outputFormat": "Five lines:\n\n    Contains: <true/false>\n    Starts with: <true/false>\n    Ends with: <true/false>\n    Empty: <true/false>\n    Size: <number>",
+          "constraints": "Text length is 0 to 100 ASCII characters. Search word\nlength is 1 to 20 ASCII characters.",
+          "sampleInput": "Cangjie programming\nCangjie",
+          "sampleOutput": "Contains: true\nStarts with: true\nEnds with: false\nEmpty: false\nSize: 19",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "all positional checks",
+              "input": "hello world\nhello",
+              "expectedOutput": "Contains: true\nStarts with: true\nEnds with: false\nEmpty: false\nSize: 11"
+            },
+            {
+              "number": 2,
+              "label": "ends with search word",
+              "input": "learn Cangjie\nCangjie",
+              "expectedOutput": "Contains: true\nStarts with: false\nEnds with: true\nEmpty: false\nSize: 13"
+            },
+            {
+              "number": 3,
+              "label": "search word absent",
+              "input": "computer science\nmath",
+              "expectedOutput": "Contains: false\nStarts with: false\nEnds with: false\nEmpty: false\nSize: 16"
+            },
+            {
+              "number": 4,
+              "label": "empty text",
+              "input": "\nx",
+              "expectedOutput": "Contains: false\nStarts with: false\nEnds with: false\nEmpty: true\nSize: 0"
+            },
+            {
+              "number": 5,
+              "label": "case-sensitive",
+              "input": "Hello\nhello",
+              "expectedOutput": "Contains: false\nStarts with: false\nEnds with: false\nEmpty: false\nSize: 5"
+            }
+          ],
+          "concepts": "`.contains`, `.startsWith`, `.endsWith`,\n`.trimLeft` or trimming, `.isEmpty`, `.size`.",
+          "sourceMarkdown": "**Difficulty:** Hard\n\n**Description:** Read a line of text and a search word. Print whether\nthe line contains the search word, whether it starts with the search\nword, whether it ends with the search word, whether it is empty after\ntrimming, and the original string length. All string checks are\ncase-sensitive. The search word is non-empty.\n\n**Input Format:** Two lines: the text, then the search word. The text\nmay be empty.\n\n**Output Format:** Five lines:\n\n```\nContains: <true/false>\nStarts with: <true/false>\nEnds with: <true/false>\nEmpty: <true/false>\nSize: <number>\n```\n\n**Constraints:** Text length is 0 to 100 ASCII characters. Search word\nlength is 1 to 20 ASCII characters.\n\n**Sample Input**\n\n```\nCangjie programming\nCangjie\n```\n\n**Sample Output**\n\n```\nContains: true\nStarts with: true\nEnds with: false\nEmpty: false\nSize: 19\n```\n\n**Test Cases**\n\n```\n# T1 (all positional checks)\nIN:\nhello world\nhello\nOUT:\nContains: true\nStarts with: true\nEnds with: false\nEmpty: false\nSize: 11\n```\n\n```\n# T2 (ends with search word)\nIN:\nlearn Cangjie\nCangjie\nOUT:\nContains: true\nStarts with: false\nEnds with: true\nEmpty: false\nSize: 13\n```\n\n```\n# T3 (search word absent)\nIN:\ncomputer science\nmath\nOUT:\nContains: false\nStarts with: false\nEnds with: false\nEmpty: false\nSize: 16\n```\n\n```\n# T4 (empty text)\nIN:\n```\n\n```\nx\nOUT:\nContains: false\nStarts with: false\nEnds with: false\nEmpty: true\nSize: 0\n```\n\n```\n# T5 (case-sensitive)\nIN:\nHello\nhello\nOUT:\nContains: false\nStarts with: false\nEnds with: false\nEmpty: false\nSize: 5\n```\n\n**Concepts Practiced:** `.contains`, `.startsWith`, `.endsWith`,\n`.trimLeft` or trimming, `.isEmpty`, `.size`.\n\n------------------------------------------------------------------------"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "title": "Enums",
+      "description": "Enum declarations, associated values, matching, and recursive evaluation.",
+      "problems": [
+        {
+          "id": "13.1",
+          "number": 1,
+          "title": "Traffic Light",
+          "difficulty": "Easy",
+          "description": "Define an enum named `TrafficLight` with the cases\n`Red`, `Yellow`, and `Green`. Read a color name and use a match\nexpression to print the instruction associated with it.",
+          "inputFormat": "One line: `Red`, `Yellow`, or `Green`.",
+          "outputFormat": "One line: - `Red` → `Stop` - `Yellow` → `Wait` -\n`Green` → `Go`",
+          "constraints": "Input is exactly one of the three listed values.",
+          "sampleInput": "Red",
+          "sampleOutput": "Stop",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "Test 1",
+              "input": "Red",
+              "expectedOutput": "Stop"
+            },
+            {
+              "number": 2,
+              "label": "Test 2",
+              "input": "Yellow",
+              "expectedOutput": "Wait"
+            },
+            {
+              "number": 3,
+              "label": "Test 3",
+              "input": "Green",
+              "expectedOutput": "Go"
+            },
+            {
+              "number": 4,
+              "label": "Test 4",
+              "input": "Red",
+              "expectedOutput": "Stop"
+            },
+            {
+              "number": 5,
+              "label": "Test 5",
+              "input": "Green",
+              "expectedOutput": "Go"
+            }
+          ],
+          "concepts": "Enum declaration, enum cases, `match`,\nexhaustive case handling.",
+          "sourceMarkdown": "**Difficulty:** Easy\n\n**Description:** Define an enum named `TrafficLight` with the cases\n`Red`, `Yellow`, and `Green`. Read a color name and use a match\nexpression to print the instruction associated with it.\n\n**Input Format:** One line: `Red`, `Yellow`, or `Green`.\n\n**Output Format:** One line: - `Red` → `Stop` - `Yellow` → `Wait` -\n`Green` → `Go`\n\n**Constraints:** Input is exactly one of the three listed values.\n\n**Sample Input**\n\n```\nRed\n```\n\n**Sample Output**\n\n```\nStop\n```\n\n**Test Cases**\n\n```\n# T1\nIN:\nRed\nOUT:\nStop\n```\n\n```\n# T2\nIN:\nYellow\nOUT:\nWait\n```\n\n```\n# T3\nIN:\nGreen\nOUT:\nGo\n```\n\n```\n# T4\nIN:\nRed\nOUT:\nStop\n```\n\n```\n# T5\nIN:\nGreen\nOUT:\nGo\n```\n\n**Concepts Practiced:** Enum declaration, enum cases, `match`,\nexhaustive case handling.\n\n------------------------------------------------------------------------"
+        },
+        {
+          "id": "13.2",
+          "number": 2,
+          "title": "Day Type",
+          "difficulty": "Easy",
+          "description": "Define an enum named `DayType` with cases `Weekday` and\n`Weekend`. Read a day number from 1 to 7. Map 1--5 to `Weekday` and 6--7\nto `Weekend`, then match the enum and print the result.",
+          "inputFormat": "One integer from 1 to 7.",
+          "outputFormat": "One line: `Weekday` or `Weekend`.",
+          "constraints": "`1 ≤ day ≤ 7`.",
+          "sampleInput": "6",
+          "sampleOutput": "Weekend",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "Monday",
+              "input": "1",
+              "expectedOutput": "Weekday"
+            },
+            {
+              "number": 2,
+              "label": "Friday",
+              "input": "5",
+              "expectedOutput": "Weekday"
+            },
+            {
+              "number": 3,
+              "label": "Saturday",
+              "input": "6",
+              "expectedOutput": "Weekend"
+            },
+            {
+              "number": 4,
+              "label": "Sunday",
+              "input": "7",
+              "expectedOutput": "Weekend"
+            },
+            {
+              "number": 5,
+              "label": "Wednesday",
+              "input": "3",
+              "expectedOutput": "Weekday"
+            }
+          ],
+          "concepts": "Enum values, mapping input to enum cases,\n`match`.",
+          "sourceMarkdown": "**Difficulty:** Easy\n\n**Description:** Define an enum named `DayType` with cases `Weekday` and\n`Weekend`. Read a day number from 1 to 7. Map 1--5 to `Weekday` and 6--7\nto `Weekend`, then match the enum and print the result.\n\n**Input Format:** One integer from 1 to 7.\n\n**Output Format:** One line: `Weekday` or `Weekend`.\n\n**Constraints:** `1 ≤ day ≤ 7`.\n\n**Sample Input**\n\n```\n6\n```\n\n**Sample Output**\n\n```\nWeekend\n```\n\n**Test Cases**\n\n```\n# T1 (Monday)\nIN:\n1\nOUT:\nWeekday\n```\n\n```\n# T2 (Friday)\nIN:\n5\nOUT:\nWeekday\n```\n\n```\n# T3 (Saturday)\nIN:\n6\nOUT:\nWeekend\n```\n\n```\n# T4 (Sunday)\nIN:\n7\nOUT:\nWeekend\n```\n\n```\n# T5 (Wednesday)\nIN:\n3\nOUT:\nWeekday\n```\n\n**Concepts Practiced:** Enum values, mapping input to enum cases,\n`match`.\n\n------------------------------------------------------------------------"
+        },
+        {
+          "id": "13.3",
+          "number": 3,
+          "title": "Operation Enum",
+          "difficulty": "Medium",
+          "description": "Define an enum named `Operation` with four cases:\n`Add`, `Subtract`, `Multiply`, and `Divide`. Read an operation name and\ntwo integers. Match the operation and calculate the result. Division\nuses integer division. The divisor is never zero.",
+          "inputFormat": "Three lines: operation name, integer `a`, integer `b`.",
+          "outputFormat": "One line containing the integer result.",
+          "constraints": "`-10000 ≤ a, b ≤ 10000`; `b` is nonzero for `Divide`.\nOperation is one of the four listed names.",
+          "sampleInput": "Multiply\n6\n7",
+          "sampleOutput": "42",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "addition",
+              "input": "Add\n12\n8",
+              "expectedOutput": "20"
+            },
+            {
+              "number": 2,
+              "label": "subtraction",
+              "input": "Subtract\n5\n9",
+              "expectedOutput": "-4"
+            },
+            {
+              "number": 3,
+              "label": "multiplication",
+              "input": "Multiply\n-3\n4",
+              "expectedOutput": "-12"
+            },
+            {
+              "number": 4,
+              "label": "exact division",
+              "input": "Divide\n20\n5",
+              "expectedOutput": "4"
+            },
+            {
+              "number": 5,
+              "label": "integer division",
+              "input": "Divide\n17\n5",
+              "expectedOutput": "3"
+            }
+          ],
+          "concepts": "Enum constructors, matching enum cases,\narithmetic, exhaustive matching.",
+          "sourceMarkdown": "**Difficulty:** Medium\n\n**Description:** Define an enum named `Operation` with four cases:\n`Add`, `Subtract`, `Multiply`, and `Divide`. Read an operation name and\ntwo integers. Match the operation and calculate the result. Division\nuses integer division. The divisor is never zero.\n\n**Input Format:** Three lines: operation name, integer `a`, integer `b`.\n\n**Output Format:** One line containing the integer result.\n\n**Constraints:** `-10000 ≤ a, b ≤ 10000`; `b` is nonzero for `Divide`.\nOperation is one of the four listed names.\n\n**Sample Input**\n\n```\nMultiply\n6\n7\n```\n\n**Sample Output**\n\n```\n42\n```\n\n**Test Cases**\n\n```\n# T1 (addition)\nIN:\nAdd\n12\n8\nOUT:\n20\n```\n\n```\n# T2 (subtraction)\nIN:\nSubtract\n5\n9\nOUT:\n-4\n```\n\n```\n# T3 (multiplication)\nIN:\nMultiply\n-3\n4\nOUT:\n-12\n```\n\n```\n# T4 (exact division)\nIN:\nDivide\n20\n5\nOUT:\n4\n```\n\n```\n# T5 (integer division)\nIN:\nDivide\n17\n5\nOUT:\n3\n```\n\n**Concepts Practiced:** Enum constructors, matching enum cases,\narithmetic, exhaustive matching.\n\n------------------------------------------------------------------------"
+        },
+        {
+          "id": "13.4",
+          "number": 4,
+          "title": "Recursive Expression Evaluator",
+          "difficulty": "Medium",
+          "description": "Define a recursive enum named `Expr` with a number case\nand two binary cases: addition and subtraction. Read three integers `a`,\n`b`, and `c`. Build the expression `(a + b) - c` using the enum\nconstructors and evaluate it with a recursive function named `evalExpr`.",
+          "inputFormat": "Three integers, one per line: `a`, `b`, and `c`.",
+          "outputFormat": "One integer: the result of `(a + b) - c`.",
+          "constraints": "`-100000 ≤ a, b, c ≤ 100000`.",
+          "sampleInput": "10\n5\n3",
+          "sampleOutput": "12",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "positive values",
+              "input": "10\n5\n3",
+              "expectedOutput": "12"
+            },
+            {
+              "number": 2,
+              "label": "negative result",
+              "input": "2\n3\n10",
+              "expectedOutput": "-5"
+            },
+            {
+              "number": 3,
+              "label": "negative operands",
+              "input": "-5\n-2\n-3",
+              "expectedOutput": "-4"
+            },
+            {
+              "number": 4,
+              "label": "zeros",
+              "input": "0\n0\n0",
+              "expectedOutput": "0"
+            },
+            {
+              "number": 5,
+              "label": "mixed signs",
+              "input": "100\n-40\n20",
+              "expectedOutput": "40"
+            }
+          ],
+          "concepts": "Recursive enums, enum constructors with\nassociated values, recursive matching, functions.",
+          "sourceMarkdown": "**Difficulty:** Medium\n\n**Description:** Define a recursive enum named `Expr` with a number case\nand two binary cases: addition and subtraction. Read three integers `a`,\n`b`, and `c`. Build the expression `(a + b) - c` using the enum\nconstructors and evaluate it with a recursive function named `evalExpr`.\n\n**Input Format:** Three integers, one per line: `a`, `b`, and `c`.\n\n**Output Format:** One integer: the result of `(a + b) - c`.\n\n**Constraints:** `-100000 ≤ a, b, c ≤ 100000`.\n\n**Sample Input**\n\n```\n10\n5\n3\n```\n\n**Sample Output**\n\n```\n12\n```\n\n**Test Cases**\n\n```\n# T1 (positive values)\nIN:\n10\n5\n3\nOUT:\n12\n```\n\n```\n# T2 (negative result)\nIN:\n2\n3\n10\nOUT:\n-5\n```\n\n```\n# T3 (negative operands)\nIN:\n-5\n-2\n-3\nOUT:\n-4\n```\n\n```\n# T4 (zeros)\nIN:\n0\n0\n0\nOUT:\n0\n```\n\n```\n# T5 (mixed signs)\nIN:\n100\n-40\n20\nOUT:\n40\n```\n\n**Concepts Practiced:** Recursive enums, enum constructors with\nassociated values, recursive matching, functions.\n\n------------------------------------------------------------------------"
+        },
+        {
+          "id": "13.5",
+          "number": 5,
+          "title": "Color Channel Enum",
+          "difficulty": "Hard",
+          "description": "Define an enum named `ColorChannel` with three cases\nthat each carry an integer value: `Red(Int64)`, `Green(Int64)`, and\n`Blue(Int64)`. Read three channel values and a channel name. Construct\nthe matching enum case and use a match expression to print the selected\nchannel value and its label.",
+          "inputFormat": "Four lines: red value, green value, blue value, then\nchannel name (`Red`, `Green`, or `Blue`).",
+          "outputFormat": "Two lines:\n\n    Channel: <name>\n    Value: <selected value>",
+          "constraints": "Each channel value is from 0 to 255. Channel name is\nexactly one of the three listed values.",
+          "sampleInput": "120\n80\n200\nBlue",
+          "sampleOutput": "Channel: Blue\nValue: 200",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "Red",
+              "input": "255\n0\n0\nRed",
+              "expectedOutput": "Channel: Red\nValue: 255"
+            },
+            {
+              "number": 2,
+              "label": "Green",
+              "input": "10\n128\n20\nGreen",
+              "expectedOutput": "Channel: Green\nValue: 128"
+            },
+            {
+              "number": 3,
+              "label": "Blue",
+              "input": "1\n2\n3\nBlue",
+              "expectedOutput": "Channel: Blue\nValue: 3"
+            },
+            {
+              "number": 4,
+              "label": "minimum values",
+              "input": "0\n0\n0\nGreen",
+              "expectedOutput": "Channel: Green\nValue: 0"
+            },
+            {
+              "number": 5,
+              "label": "maximum values",
+              "input": "255\n255\n255\nRed",
+              "expectedOutput": "Channel: Red\nValue: 255"
+            }
+          ],
+          "concepts": "Enum constructors with associated values,\nconstructing enum cases, matching and binding associated values.",
+          "sourceMarkdown": "**Difficulty:** Hard\n\n**Description:** Define an enum named `ColorChannel` with three cases\nthat each carry an integer value: `Red(Int64)`, `Green(Int64)`, and\n`Blue(Int64)`. Read three channel values and a channel name. Construct\nthe matching enum case and use a match expression to print the selected\nchannel value and its label.\n\n**Input Format:** Four lines: red value, green value, blue value, then\nchannel name (`Red`, `Green`, or `Blue`).\n\n**Output Format:** Two lines:\n\n```\nChannel: <name>\nValue: <selected value>\n```\n\n**Constraints:** Each channel value is from 0 to 255. Channel name is\nexactly one of the three listed values.\n\n**Sample Input**\n\n```\n120\n80\n200\nBlue\n```\n\n**Sample Output**\n\n```\nChannel: Blue\nValue: 200\n```\n\n**Test Cases**\n\n```\n# T1 (Red)\nIN:\n255\n0\n0\nRed\nOUT:\nChannel: Red\nValue: 255\n```\n\n```\n# T2 (Green)\nIN:\n10\n128\n20\nGreen\nOUT:\nChannel: Green\nValue: 128\n```\n\n```\n# T3 (Blue)\nIN:\n1\n2\n3\nBlue\nOUT:\nChannel: Blue\nValue: 3\n```\n\n```\n# T4 (minimum values)\nIN:\n0\n0\n0\nGreen\nOUT:\nChannel: Green\nValue: 0\n```\n\n```\n# T5 (maximum values)\nIN:\n255\n255\n255\nRed\nOUT:\nChannel: Red\nValue: 255\n```\n\n**Concepts Practiced:** Enum constructors with associated values,\nconstructing enum cases, matching and binding associated values.\n\n------------------------------------------------------------------------"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "title": "Function Overloading",
+      "description": "Overloaded functions and variadic array arguments.",
+      "problems": [
+        {
+          "id": "14.1",
+          "number": 1,
+          "title": "Double an Integer",
+          "difficulty": "Easy",
+          "description": "Define `func doubleValue(n: Int64): Int64` that returns\ntwice the input. Read one integer, call the function, and print the\nresult.",
+          "inputFormat": "One integer.",
+          "outputFormat": "One integer: twice the input.",
+          "constraints": "`-1000000 ≤ n ≤ 1000000`.",
+          "sampleInput": "12",
+          "sampleOutput": "24",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "positive",
+              "input": "12",
+              "expectedOutput": "24"
+            },
+            {
+              "number": 2,
+              "label": "zero",
+              "input": "0",
+              "expectedOutput": "0"
+            },
+            {
+              "number": 3,
+              "label": "negative",
+              "input": "-7",
+              "expectedOutput": "-14"
+            },
+            {
+              "number": 4,
+              "label": "one",
+              "input": "1",
+              "expectedOutput": "2"
+            },
+            {
+              "number": 5,
+              "label": "large negative",
+              "input": "-1000000",
+              "expectedOutput": "-2000000"
+            }
+          ],
+          "concepts": "Function definition, typed parameters, return\nvalues, function calls.",
+          "sourceMarkdown": "**Difficulty:** Easy\n\n**Description:** Define `func doubleValue(n: Int64): Int64` that returns\ntwice the input. Read one integer, call the function, and print the\nresult.\n\n**Input Format:** One integer.\n\n**Output Format:** One integer: twice the input.\n\n**Constraints:** `-1000000 ≤ n ≤ 1000000`.\n\n**Sample Input**\n\n```\n12\n```\n\n**Sample Output**\n\n```\n24\n```\n\n**Test Cases**\n\n```\n# T1 (positive)\nIN:\n12\nOUT:\n24\n```\n\n```\n# T2 (zero)\nIN:\n0\nOUT:\n0\n```\n\n```\n# T3 (negative)\nIN:\n-7\nOUT:\n-14\n```\n\n```\n# T4 (one)\nIN:\n1\nOUT:\n2\n```\n\n```\n# T5 (large negative)\nIN:\n-1000000\nOUT:\n-2000000\n```\n\n**Concepts Practiced:** Function definition, typed parameters, return\nvalues, function calls.\n\n------------------------------------------------------------------------"
+        },
+        {
+          "id": "14.2",
+          "number": 2,
+          "title": "Combine Two Values",
+          "difficulty": "Easy",
+          "description": "Define two overloads named `combine`: -\n`combine(a: Int64, b: Int64): Int64` returns the sum. -\n`combine(a: String, b: String): String` returns the two strings joined\ndirectly, with no separator.\n\nRead two integers and print the integer overload's result. Then read two\nwords and print the string overload's result.",
+          "inputFormat": "Four lines: integer `a`, integer `b`, string `first`,\nstring `second`.",
+          "outputFormat": "Two lines: the integer sum, then the concatenated\nstring.",
+          "constraints": "Integers are from -100000 to 100000. Each word contains\n1 to 20 ASCII letters.",
+          "sampleInput": "4\n6\nCode\nChum",
+          "sampleOutput": "10\nCodeChum",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "Test 1",
+              "input": "1\n2\nHello\nWorld",
+              "expectedOutput": "3\nHelloWorld"
+            },
+            {
+              "number": 2,
+              "label": "zero values",
+              "input": "0\n0\nA\nB",
+              "expectedOutput": "0\nAB"
+            },
+            {
+              "number": 3,
+              "label": "negative integers",
+              "input": "-5\n3\nCang\nJie",
+              "expectedOutput": "-2\nCangJie"
+            },
+            {
+              "number": 4,
+              "label": "same words",
+              "input": "10\n10\nsame\nsame",
+              "expectedOutput": "20\nsamesame"
+            },
+            {
+              "number": 5,
+              "label": "longer words",
+              "input": "100\n200\nProgramming\nLanguage",
+              "expectedOutput": "300\nProgrammingLanguage"
+            }
+          ],
+          "concepts": "Function overloading by parameter type, `Int64`\nand `String` parameters.",
+          "sourceMarkdown": "**Difficulty:** Easy\n\n**Description:** Define two overloads named `combine`: -\n`combine(a: Int64, b: Int64): Int64` returns the sum. -\n`combine(a: String, b: String): String` returns the two strings joined\ndirectly, with no separator.\n\nRead two integers and print the integer overload's result. Then read two\nwords and print the string overload's result.\n\n**Input Format:** Four lines: integer `a`, integer `b`, string `first`,\nstring `second`.\n\n**Output Format:** Two lines: the integer sum, then the concatenated\nstring.\n\n**Constraints:** Integers are from -100000 to 100000. Each word contains\n1 to 20 ASCII letters.\n\n**Sample Input**\n\n```\n4\n6\nCode\nChum\n```\n\n**Sample Output**\n\n```\n10\nCodeChum\n```\n\n**Test Cases**\n\n```\n# T1\nIN:\n1\n2\nHello\nWorld\nOUT:\n3\nHelloWorld\n```\n\n```\n# T2 (zero values)\nIN:\n0\n0\nA\nB\nOUT:\n0\nAB\n```\n\n```\n# T3 (negative integers)\nIN:\n-5\n3\nCang\nJie\nOUT:\n-2\nCangJie\n```\n\n```\n# T4 (same words)\nIN:\n10\n10\nsame\nsame\nOUT:\n20\nsamesame\n```\n\n```\n# T5 (longer words)\nIN:\n100\n200\nProgramming\nLanguage\nOUT:\n300\nProgrammingLanguage\n```\n\n**Concepts Practiced:** Function overloading by parameter type, `Int64`\nand `String` parameters.\n\n------------------------------------------------------------------------"
+        },
+        {
+          "id": "14.3",
+          "number": 3,
+          "title": "Three Ways to Calculate",
+          "difficulty": "Medium",
+          "description": "Define three overloads named `calculate`: - One `Int64`\nparameter returns its square. - Two `Int64` parameters return their\nsum. - Three `Int64` parameters return their product.\n\nRead four integers: `mode`, `a`, `b`, and `c`. If mode is 1, call the\none-parameter overload with `a`. If mode is 2, call the two-parameter\noverload with `a` and `b`. If mode is 3, call the three-parameter\noverload with `a`, `b`, and `c`.",
+          "inputFormat": "Four integers, one per line.",
+          "outputFormat": "One integer: the selected overload's result.",
+          "constraints": "`mode` is 1, 2, or 3. `-100 ≤ a, b, c ≤ 100`.",
+          "sampleInput": "3\n2\n3\n4",
+          "sampleOutput": "24",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "one parameter",
+              "input": "1\n5\n2\n3",
+              "expectedOutput": "25"
+            },
+            {
+              "number": 2,
+              "label": "two parameters",
+              "input": "2\n5\n7\n3",
+              "expectedOutput": "12"
+            },
+            {
+              "number": 3,
+              "label": "three parameters",
+              "input": "3\n2\n3\n4",
+              "expectedOutput": "24"
+            },
+            {
+              "number": 4,
+              "label": "negative values",
+              "input": "3\n-2\n3\n4",
+              "expectedOutput": "-24"
+            },
+            {
+              "number": 5,
+              "label": "zero product",
+              "input": "3\n10\n0\n5",
+              "expectedOutput": "0"
+            }
+          ],
+          "concepts": "Overloading by parameter count, selecting an\noverload, function calls.",
+          "sourceMarkdown": "**Difficulty:** Medium\n\n**Description:** Define three overloads named `calculate`: - One `Int64`\nparameter returns its square. - Two `Int64` parameters return their\nsum. - Three `Int64` parameters return their product.\n\nRead four integers: `mode`, `a`, `b`, and `c`. If mode is 1, call the\none-parameter overload with `a`. If mode is 2, call the two-parameter\noverload with `a` and `b`. If mode is 3, call the three-parameter\noverload with `a`, `b`, and `c`.\n\n**Input Format:** Four integers, one per line.\n\n**Output Format:** One integer: the selected overload's result.\n\n**Constraints:** `mode` is 1, 2, or 3. `-100 ≤ a, b, c ≤ 100`.\n\n**Sample Input**\n\n```\n3\n2\n3\n4\n```\n\n**Sample Output**\n\n```\n24\n```\n\n**Test Cases**\n\n```\n# T1 (one parameter)\nIN:\n1\n5\n2\n3\nOUT:\n25\n```\n\n```\n# T2 (two parameters)\nIN:\n2\n5\n7\n3\nOUT:\n12\n```\n\n```\n# T3 (three parameters)\nIN:\n3\n2\n3\n4\nOUT:\n24\n```\n\n```\n# T4 (negative values)\nIN:\n3\n-2\n3\n4\nOUT:\n-24\n```\n\n```\n# T5 (zero product)\nIN:\n3\n10\n0\n5\nOUT:\n0\n```\n\n**Concepts Practiced:** Overloading by parameter count, selecting an\noverload, function calls.\n\n------------------------------------------------------------------------"
+        },
+        {
+          "id": "14.4",
+          "number": 4,
+          "title": "Sum a Variable Number of Values",
+          "difficulty": "Medium",
+          "description": "Define `func sum(values: Array<Int64>): Int64` and use\nthe lesson's variadic-argument calling behavior to pass individual\ninteger arguments to it. Read four integers and call `sum` with those\nfour values.",
+          "inputFormat": "Four integers, one per line.",
+          "outputFormat": "One integer: their sum.",
+          "constraints": "`-100000 ≤ each value ≤ 100000`.",
+          "sampleInput": "1\n2\n3\n4",
+          "sampleOutput": "10",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "positive values",
+              "input": "5\n10\n15\n20",
+              "expectedOutput": "50"
+            },
+            {
+              "number": 2,
+              "label": "all zeros",
+              "input": "0\n0\n0\n0",
+              "expectedOutput": "0"
+            },
+            {
+              "number": 3,
+              "label": "negative values",
+              "input": "-1\n-2\n-3\n-4",
+              "expectedOutput": "-10"
+            },
+            {
+              "number": 4,
+              "label": "mixed values",
+              "input": "10\n-5\n3\n-2",
+              "expectedOutput": "6"
+            },
+            {
+              "number": 5,
+              "label": "same values",
+              "input": "7\n7\n7\n7",
+              "expectedOutput": "28"
+            }
+          ],
+          "concepts": "Array parameter, variadic function calls,\nsumming an array.",
+          "sourceMarkdown": "**Difficulty:** Medium\n\n**Description:** Define `func sum(values: Array<Int64>): Int64` and use\nthe lesson's variadic-argument calling behavior to pass individual\ninteger arguments to it. Read four integers and call `sum` with those\nfour values.\n\n**Input Format:** Four integers, one per line.\n\n**Output Format:** One integer: their sum.\n\n**Constraints:** `-100000 ≤ each value ≤ 100000`.\n\n**Sample Input**\n\n```\n1\n2\n3\n4\n```\n\n**Sample Output**\n\n```\n10\n```\n\n**Test Cases**\n\n```\n# T1 (positive values)\nIN:\n5\n10\n15\n20\nOUT:\n50\n```\n\n```\n# T2 (all zeros)\nIN:\n0\n0\n0\n0\nOUT:\n0\n```\n\n```\n# T3 (negative values)\nIN:\n-1\n-2\n-3\n-4\nOUT:\n-10\n```\n\n```\n# T4 (mixed values)\nIN:\n10\n-5\n3\n-2\nOUT:\n6\n```\n\n```\n# T5 (same values)\nIN:\n7\n7\n7\n7\nOUT:\n28\n```\n\n**Concepts Practiced:** Array parameter, variadic function calls,\nsumming an array.\n\n------------------------------------------------------------------------"
+        },
+        {
+          "id": "14.5",
+          "number": 5,
+          "title": "Overloaded Area Calculator",
+          "difficulty": "Hard",
+          "description": "Define two overloads named `area`: -\n`area(side: Int64): Int64` returns the area of a square. -\n`area(width: Int64, height: Int64): Int64` returns the area of a\nrectangle.\n\nRead a mode. If mode is 1, read one side and call the one-parameter\noverload. If mode is 2, read width and height and call the two-parameter\noverload.",
+          "inputFormat": "First line is mode. For mode 1, the next line is side.\nFor mode 2, the next two lines are width and height.",
+          "outputFormat": "One integer: the calculated area.",
+          "constraints": "Mode is 1 or 2. All dimensions are from 0 to 10000.",
+          "sampleInput": "2\n5\n8",
+          "sampleOutput": "40",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "square",
+              "input": "1\n5",
+              "expectedOutput": "25"
+            },
+            {
+              "number": 2,
+              "label": "rectangle",
+              "input": "2\n5\n8",
+              "expectedOutput": "40"
+            },
+            {
+              "number": 3,
+              "label": "zero side",
+              "input": "1\n0",
+              "expectedOutput": "0"
+            },
+            {
+              "number": 4,
+              "label": "long rectangle",
+              "input": "2\n100\n3",
+              "expectedOutput": "300"
+            },
+            {
+              "number": 5,
+              "label": "maximum square",
+              "input": "1\n10000",
+              "expectedOutput": "100000000"
+            }
+          ],
+          "concepts": "Function overloading by parameter count,\noverload resolution, typed parameters and return values.",
+          "sourceMarkdown": "**Difficulty:** Hard\n\n**Description:** Define two overloads named `area`: -\n`area(side: Int64): Int64` returns the area of a square. -\n`area(width: Int64, height: Int64): Int64` returns the area of a\nrectangle.\n\nRead a mode. If mode is 1, read one side and call the one-parameter\noverload. If mode is 2, read width and height and call the two-parameter\noverload.\n\n**Input Format:** First line is mode. For mode 1, the next line is side.\nFor mode 2, the next two lines are width and height.\n\n**Output Format:** One integer: the calculated area.\n\n**Constraints:** Mode is 1 or 2. All dimensions are from 0 to 10000.\n\n**Sample Input**\n\n```\n2\n5\n8\n```\n\n**Sample Output**\n\n```\n40\n```\n\n**Test Cases**\n\n```\n# T1 (square)\nIN:\n1\n5\nOUT:\n25\n```\n\n```\n# T2 (rectangle)\nIN:\n2\n5\n8\nOUT:\n40\n```\n\n```\n# T3 (zero side)\nIN:\n1\n0\nOUT:\n0\n```\n\n```\n# T4 (long rectangle)\nIN:\n2\n100\n3\nOUT:\n300\n```\n\n```\n# T5 (maximum square)\nIN:\n1\n10000\nOUT:\n100000000\n```\n\n**Concepts Practiced:** Function overloading by parameter count,\noverload resolution, typed parameters and return values.\n\n------------------------------------------------------------------------"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "title": "Match",
+      "description": "Match patterns, tuple matching, guards, and decision branches.",
+      "problems": [
+        {
+          "id": "15.1",
+          "number": 1,
+          "title": "Number Category",
+          "difficulty": "Easy",
+          "description": "Read an integer and use a match expression to classify\nit as `Negative`, `Zero`, or `Positive`.",
+          "inputFormat": "One integer.",
+          "outputFormat": "One word: `Negative`, `Zero`, or `Positive`.",
+          "constraints": "`-1000000 ≤ n ≤ 1000000`.",
+          "sampleInput": "0",
+          "sampleOutput": "Zero",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "negative",
+              "input": "-8",
+              "expectedOutput": "Negative"
+            },
+            {
+              "number": 2,
+              "label": "zero",
+              "input": "0",
+              "expectedOutput": "Zero"
+            },
+            {
+              "number": 3,
+              "label": "positive",
+              "input": "9",
+              "expectedOutput": "Positive"
+            },
+            {
+              "number": 4,
+              "label": "minimum",
+              "input": "-1000000",
+              "expectedOutput": "Negative"
+            },
+            {
+              "number": 5,
+              "label": "maximum",
+              "input": "1000000",
+              "expectedOutput": "Positive"
+            }
+          ],
+          "concepts": "`match`, literal patterns, wildcard pattern,\nexpression result.",
+          "sourceMarkdown": "**Difficulty:** Easy\n\n**Description:** Read an integer and use a match expression to classify\nit as `Negative`, `Zero`, or `Positive`.\n\n**Input Format:** One integer.\n\n**Output Format:** One word: `Negative`, `Zero`, or `Positive`.\n\n**Constraints:** `-1000000 ≤ n ≤ 1000000`.\n\n**Sample Input**\n\n```\n0\n```\n\n**Sample Output**\n\n```\nZero\n```\n\n**Test Cases**\n\n```\n# T1 (negative)\nIN:\n-8\nOUT:\nNegative\n```\n\n```\n# T2 (zero)\nIN:\n0\nOUT:\nZero\n```\n\n```\n# T3 (positive)\nIN:\n9\nOUT:\nPositive\n```\n\n```\n# T4 (minimum)\nIN:\n-1000000\nOUT:\nNegative\n```\n\n```\n# T5 (maximum)\nIN:\n1000000\nOUT:\nPositive\n```\n\n**Concepts Practiced:** `match`, literal patterns, wildcard pattern,\nexpression result.\n\n------------------------------------------------------------------------"
+        },
+        {
+          "id": "15.2",
+          "number": 2,
+          "title": "Grade Band",
+          "difficulty": "Easy",
+          "description": "Read a score from 0 to 100 and use match patterns to\nprint its grade band: - 90--100: `A` - 80--89: `B` - 70--79: `C` -\n60--69: `D` - 0--59: `F`",
+          "inputFormat": "One integer score.",
+          "outputFormat": "One uppercase letter.",
+          "constraints": "`0 ≤ score ≤ 100`.",
+          "sampleInput": "85",
+          "sampleOutput": "B",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "top band",
+              "input": "100",
+              "expectedOutput": "A"
+            },
+            {
+              "number": 2,
+              "label": "boundary 90",
+              "input": "90",
+              "expectedOutput": "A"
+            },
+            {
+              "number": 3,
+              "label": "boundary 80",
+              "input": "80",
+              "expectedOutput": "B"
+            },
+            {
+              "number": 4,
+              "label": "boundary 60",
+              "input": "60",
+              "expectedOutput": "D"
+            },
+            {
+              "number": 5,
+              "label": "lowest score",
+              "input": "0",
+              "expectedOutput": "F"
+            }
+          ],
+          "concepts": "Match range patterns, multiple cases, matching\nan integer.",
+          "sourceMarkdown": "**Difficulty:** Easy\n\n**Description:** Read a score from 0 to 100 and use match patterns to\nprint its grade band: - 90--100: `A` - 80--89: `B` - 70--79: `C` -\n60--69: `D` - 0--59: `F`\n\n**Input Format:** One integer score.\n\n**Output Format:** One uppercase letter.\n\n**Constraints:** `0 ≤ score ≤ 100`.\n\n**Sample Input**\n\n```\n85\n```\n\n**Sample Output**\n\n```\nB\n```\n\n**Test Cases**\n\n```\n# T1 (top band)\nIN:\n100\nOUT:\nA\n```\n\n```\n# T2 (boundary 90)\nIN:\n90\nOUT:\nA\n```\n\n```\n# T3 (boundary 80)\nIN:\n80\nOUT:\nB\n```\n\n```\n# T4 (boundary 60)\nIN:\n60\nOUT:\nD\n```\n\n```\n# T5 (lowest score)\nIN:\n0\nOUT:\nF\n```\n\n**Concepts Practiced:** Match range patterns, multiple cases, matching\nan integer.\n\n------------------------------------------------------------------------"
+        },
+        {
+          "id": "15.3",
+          "number": 3,
+          "title": "Tuple Command",
+          "difficulty": "Medium",
+          "description": "Read a command and two integers. Match the tuple\n`(command, a, b)` and perform the requested operation. Supported\ncommands are `ADD`, `SUB`, and `MUL`. Use a wildcard fallback for any\nother command and print `Invalid`.",
+          "inputFormat": "Three lines: command, integer `a`, integer `b`.",
+          "outputFormat": "One line containing the result, or `Invalid`.",
+          "constraints": "`-10000 ≤ a, b ≤ 10000`. Command is uppercase ASCII\ntext.",
+          "sampleInput": "ADD\n4\n5",
+          "sampleOutput": "9",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "addition",
+              "input": "ADD\n10\n20",
+              "expectedOutput": "30"
+            },
+            {
+              "number": 2,
+              "label": "subtraction",
+              "input": "SUB\n4\n9",
+              "expectedOutput": "-5"
+            },
+            {
+              "number": 3,
+              "label": "multiplication",
+              "input": "MUL\n-3\n5",
+              "expectedOutput": "-15"
+            },
+            {
+              "number": 4,
+              "label": "unknown command",
+              "input": "DIV\n10\n2",
+              "expectedOutput": "Invalid"
+            },
+            {
+              "number": 5,
+              "label": "zero",
+              "input": "MUL\n0\n100",
+              "expectedOutput": "0"
+            }
+          ],
+          "concepts": "Tuple patterns, matching multiple values\ntogether, wildcard patterns.",
+          "sourceMarkdown": "**Difficulty:** Medium\n\n**Description:** Read a command and two integers. Match the tuple\n`(command, a, b)` and perform the requested operation. Supported\ncommands are `ADD`, `SUB`, and `MUL`. Use a wildcard fallback for any\nother command and print `Invalid`.\n\n**Input Format:** Three lines: command, integer `a`, integer `b`.\n\n**Output Format:** One line containing the result, or `Invalid`.\n\n**Constraints:** `-10000 ≤ a, b ≤ 10000`. Command is uppercase ASCII\ntext.\n\n**Sample Input**\n\n```\nADD\n4\n5\n```\n\n**Sample Output**\n\n```\n9\n```\n\n**Test Cases**\n\n```\n# T1 (addition)\nIN:\nADD\n10\n20\nOUT:\n30\n```\n\n```\n# T2 (subtraction)\nIN:\nSUB\n4\n9\nOUT:\n-5\n```\n\n```\n# T3 (multiplication)\nIN:\nMUL\n-3\n5\nOUT:\n-15\n```\n\n```\n# T4 (unknown command)\nIN:\nDIV\n10\n2\nOUT:\nInvalid\n```\n\n```\n# T5 (zero)\nIN:\nMUL\n0\n100\nOUT:\n0\n```\n\n**Concepts Practiced:** Tuple patterns, matching multiple values\ntogether, wildcard patterns.\n\n------------------------------------------------------------------------"
+        },
+        {
+          "id": "15.4",
+          "number": 4,
+          "title": "Match a Pair of Values",
+          "difficulty": "Medium",
+          "description": "Read two integers and match their relationship. Print\n`Both zero` if both are zero, `First zero` if only the first is zero,\n`Second zero` if only the second is zero, `Equal` if they are equal and\nnonzero, or `Different` otherwise. Use tuple patterns and guards or\nequivalent match conditions supported by the lesson.",
+          "inputFormat": "Two integers, one per line.",
+          "outputFormat": "One of the five messages.",
+          "constraints": "`-100000 ≤ a, b ≤ 100000`.",
+          "sampleInput": "0\n5",
+          "sampleOutput": "First zero",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "both zero",
+              "input": "0\n0",
+              "expectedOutput": "Both zero"
+            },
+            {
+              "number": 2,
+              "label": "first zero",
+              "input": "0\n7",
+              "expectedOutput": "First zero"
+            },
+            {
+              "number": 3,
+              "label": "second zero",
+              "input": "9\n0",
+              "expectedOutput": "Second zero"
+            },
+            {
+              "number": 4,
+              "label": "equal nonzero",
+              "input": "-4\n-4",
+              "expectedOutput": "Equal"
+            },
+            {
+              "number": 5,
+              "label": "different nonzero",
+              "input": "3\n8",
+              "expectedOutput": "Different"
+            }
+          ],
+          "concepts": "Tuple matching, pattern ordering, guards or\nconditional matching.",
+          "sourceMarkdown": "**Difficulty:** Medium\n\n**Description:** Read two integers and match their relationship. Print\n`Both zero` if both are zero, `First zero` if only the first is zero,\n`Second zero` if only the second is zero, `Equal` if they are equal and\nnonzero, or `Different` otherwise. Use tuple patterns and guards or\nequivalent match conditions supported by the lesson.\n\n**Input Format:** Two integers, one per line.\n\n**Output Format:** One of the five messages.\n\n**Constraints:** `-100000 ≤ a, b ≤ 100000`.\n\n**Sample Input**\n\n```\n0\n5\n```\n\n**Sample Output**\n\n```\nFirst zero\n```\n\n**Test Cases**\n\n```\n# T1 (both zero)\nIN:\n0\n0\nOUT:\nBoth zero\n```\n\n```\n# T2 (first zero)\nIN:\n0\n7\nOUT:\nFirst zero\n```\n\n```\n# T3 (second zero)\nIN:\n9\n0\nOUT:\nSecond zero\n```\n\n```\n# T4 (equal nonzero)\nIN:\n-4\n-4\nOUT:\nEqual\n```\n\n```\n# T5 (different nonzero)\nIN:\n3\n8\nOUT:\nDifferent\n```\n\n**Concepts Practiced:** Tuple matching, pattern ordering, guards or\nconditional matching.\n\n------------------------------------------------------------------------"
+        },
+        {
+          "id": "15.5",
+          "number": 5,
+          "title": "Match-Based Shipping Cost",
+          "difficulty": "Hard",
+          "description": "Read a shipping zone and package weight. Use match to\nchoose the base charge: - `LOCAL`: 40 - `NEAR`: 70 - `FAR`: 120\n\nThen add a weight charge: - Weight from 1 to 2 kg: add 0 - Weight\ngreater than 2 and up to 5 kg: add 30 - Weight greater than 5 and up to\n10 kg: add 60\n\nIf the zone or weight is invalid, print `Invalid`. Weight is given as an\ninteger number of kilograms.",
+          "inputFormat": "Two lines: zone, then weight.",
+          "outputFormat": "One line: `Shipping: <total>` or `Invalid`.",
+          "constraints": "Zone is one of `LOCAL`, `NEAR`, `FAR`, or another\nuppercase word. Weight is an integer.",
+          "sampleInput": "NEAR\n4",
+          "sampleOutput": "Shipping: 100",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "local, minimum weight",
+              "input": "LOCAL\n1",
+              "expectedOutput": "Shipping: 40"
+            },
+            {
+              "number": 2,
+              "label": "near, middle weight",
+              "input": "NEAR\n3",
+              "expectedOutput": "Shipping: 100"
+            },
+            {
+              "number": 3,
+              "label": "far, maximum weight",
+              "input": "FAR\n10",
+              "expectedOutput": "Shipping: 180"
+            },
+            {
+              "number": 4,
+              "label": "invalid weight",
+              "input": "LOCAL\n0",
+              "expectedOutput": "Invalid"
+            },
+            {
+              "number": 5,
+              "label": "invalid zone",
+              "input": "ISLAND\n5",
+              "expectedOutput": "Invalid"
+            }
+          ],
+          "concepts": "Match expressions, string and range patterns,\nwildcard fallback, combining matched values with arithmetic.",
+          "sourceMarkdown": "**Difficulty:** Hard\n\n**Description:** Read a shipping zone and package weight. Use match to\nchoose the base charge: - `LOCAL`: 40 - `NEAR`: 70 - `FAR`: 120\n\nThen add a weight charge: - Weight from 1 to 2 kg: add 0 - Weight\ngreater than 2 and up to 5 kg: add 30 - Weight greater than 5 and up to\n10 kg: add 60\n\nIf the zone or weight is invalid, print `Invalid`. Weight is given as an\ninteger number of kilograms.\n\n**Input Format:** Two lines: zone, then weight.\n\n**Output Format:** One line: `Shipping: <total>` or `Invalid`.\n\n**Constraints:** Zone is one of `LOCAL`, `NEAR`, `FAR`, or another\nuppercase word. Weight is an integer.\n\n**Sample Input**\n\n```\nNEAR\n4\n```\n\n**Sample Output**\n\n```\nShipping: 100\n```\n\n**Test Cases**\n\n```\n# T1 (local, minimum weight)\nIN:\nLOCAL\n1\nOUT:\nShipping: 40\n```\n\n```\n# T2 (near, middle weight)\nIN:\nNEAR\n3\nOUT:\nShipping: 100\n```\n\n```\n# T3 (far, maximum weight)\nIN:\nFAR\n10\nOUT:\nShipping: 180\n```\n\n```\n# T4 (invalid weight)\nIN:\nLOCAL\n0\nOUT:\nInvalid\n```\n\n```\n# T5 (invalid zone)\nIN:\nISLAND\n5\nOUT:\nInvalid\n```\n\n**Concepts Practiced:** Match expressions, string and range patterns,\nwildcard fallback, combining matched values with arithmetic.\n\n------------------------------------------------------------------------"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "title": "Hashmaps",
+      "description": "HashMap insertion, lookup, updates, removal, and size.",
+      "problems": [
+        {
+          "id": "16.1",
+          "number": 1,
+          "title": "Store and Retrieve a Score",
+          "difficulty": "Easy",
+          "description": "Create a `HashMap<String, Int64>`. Read a student's\nname and score, store the score using the name as the key, then read a\nname to search for. Print the stored score if the key exists; otherwise\nprint `Not found`.",
+          "inputFormat": "Three lines: stored name, score, search name.",
+          "outputFormat": "One line: the score or `Not found`.",
+          "constraints": "Names contain 1 to 30 ASCII letters. `0 ≤ score ≤ 100`.",
+          "sampleInput": "Ana\n95\nAna",
+          "sampleOutput": "95",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "key exists",
+              "input": "Ben\n88\nBen",
+              "expectedOutput": "88"
+            },
+            {
+              "number": 2,
+              "label": "key missing",
+              "input": "Ana\n95\nLuis",
+              "expectedOutput": "Not found"
+            },
+            {
+              "number": 3,
+              "label": "zero score",
+              "input": "Mia\n0\nMia",
+              "expectedOutput": "0"
+            },
+            {
+              "number": 4,
+              "label": "maximum score",
+              "input": "Kai\n100\nKai",
+              "expectedOutput": "100"
+            },
+            {
+              "number": 5,
+              "label": "different capitalization",
+              "input": "Sam\n75\nsam",
+              "expectedOutput": "Not found"
+            }
+          ],
+          "concepts": "`HashMap`, key-value pairs, insertion, key\nlookup.",
+          "sourceMarkdown": "**Difficulty:** Easy\n\n**Description:** Create a `HashMap<String, Int64>`. Read a student's\nname and score, store the score using the name as the key, then read a\nname to search for. Print the stored score if the key exists; otherwise\nprint `Not found`.\n\n**Input Format:** Three lines: stored name, score, search name.\n\n**Output Format:** One line: the score or `Not found`.\n\n**Constraints:** Names contain 1 to 30 ASCII letters. `0 ≤ score ≤ 100`.\n\n**Sample Input**\n\n```\nAna\n95\nAna\n```\n\n**Sample Output**\n\n```\n95\n```\n\n**Test Cases**\n\n```\n# T1 (key exists)\nIN:\nBen\n88\nBen\nOUT:\n88\n```\n\n```\n# T2 (key missing)\nIN:\nAna\n95\nLuis\nOUT:\nNot found\n```\n\n```\n# T3 (zero score)\nIN:\nMia\n0\nMia\nOUT:\n0\n```\n\n```\n# T4 (maximum score)\nIN:\nKai\n100\nKai\nOUT:\n100\n```\n\n```\n# T5 (different capitalization)\nIN:\nSam\n75\nsam\nOUT:\nNot found\n```\n\n**Concepts Practiced:** `HashMap`, key-value pairs, insertion, key\nlookup.\n\n------------------------------------------------------------------------"
+        },
+        {
+          "id": "16.2",
+          "number": 2,
+          "title": "Count Stored Entries",
+          "difficulty": "Easy",
+          "description": "Create a `HashMap<String, Int64>`. Read three key-value\npairs and insert them into the map. Print the map's size. All three keys\nare guaranteed to be different.",
+          "inputFormat": "Six lines: key 1, value 1, key 2, value 2, key 3,\nvalue 3.",
+          "outputFormat": "One integer: the number of entries.",
+          "constraints": "Keys are 1 to 20 ASCII letters. Values are integers\nfrom -1000 to 1000. Keys are distinct.",
+          "sampleInput": "apple\n5\nbanana\n7\ncherry\n9",
+          "sampleOutput": "3",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "Test 1",
+              "input": "A\n1\nB\n2\nC\n3",
+              "expectedOutput": "3"
+            },
+            {
+              "number": 2,
+              "label": "negative values",
+              "input": "red\n-1\ngreen\n-2\nblue\n-3",
+              "expectedOutput": "3"
+            },
+            {
+              "number": 3,
+              "label": "single-letter keys",
+              "input": "x\n0\ny\n0\nz\n0",
+              "expectedOutput": "3"
+            },
+            {
+              "number": 4,
+              "label": "longer keys",
+              "input": "student\n90\nteacher\n95\nprincipal\n100",
+              "expectedOutput": "3"
+            },
+            {
+              "number": 5,
+              "label": "different case is a different key",
+              "input": "Code\n1\ncode\n2\nCODE\n3",
+              "expectedOutput": "3"
+            }
+          ],
+          "concepts": "`HashMap`, `put`, `.size`, unique keys.",
+          "sourceMarkdown": "**Difficulty:** Easy\n\n**Description:** Create a `HashMap<String, Int64>`. Read three key-value\npairs and insert them into the map. Print the map's size. All three keys\nare guaranteed to be different.\n\n**Input Format:** Six lines: key 1, value 1, key 2, value 2, key 3,\nvalue 3.\n\n**Output Format:** One integer: the number of entries.\n\n**Constraints:** Keys are 1 to 20 ASCII letters. Values are integers\nfrom -1000 to 1000. Keys are distinct.\n\n**Sample Input**\n\n```\napple\n5\nbanana\n7\ncherry\n9\n```\n\n**Sample Output**\n\n```\n3\n```\n\n**Test Cases**\n\n```\n# T1\nIN:\nA\n1\nB\n2\nC\n3\nOUT:\n3\n```\n\n```\n# T2 (negative values)\nIN:\nred\n-1\ngreen\n-2\nblue\n-3\nOUT:\n3\n```\n\n```\n# T3 (single-letter keys)\nIN:\nx\n0\ny\n0\nz\n0\nOUT:\n3\n```\n\n```\n# T4 (longer keys)\nIN:\nstudent\n90\nteacher\n95\nprincipal\n100\nOUT:\n3\n```\n\n```\n# T5 (different case is a different key)\nIN:\nCode\n1\ncode\n2\nCODE\n3\nOUT:\n3\n```\n\n**Concepts Practiced:** `HashMap`, `put`, `.size`, unique keys.\n\n------------------------------------------------------------------------"
+        },
+        {
+          "id": "16.3",
+          "number": 3,
+          "title": "Update Inventory Quantities",
+          "difficulty": "Medium",
+          "description": "Create a `HashMap<String, Int64>` with three product\nquantities. Read a product name and a new quantity. Update the value for\nthat key, then print the quantities for the three original product names\nin the original input order. The update key is guaranteed to be one of\nthe three products.",
+          "inputFormat": "Seven lines: three product-name/quantity pairs, then\nupdate product name, then new quantity.",
+          "outputFormat": "Three lines, one per original product:\n\n    <product>: <quantity>",
+          "constraints": "Product names are distinct ASCII words. Quantities are\nfrom 0 to 10000.",
+          "sampleInput": "Pen\n10\nBook\n5\nBag\n2\nBook\n8",
+          "sampleOutput": "Pen: 10\nBook: 8\nBag: 2",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "update first",
+              "input": "Pen\n10\nBook\n5\nBag\n2\nPen\n7",
+              "expectedOutput": "Pen: 7\nBook: 5\nBag: 2"
+            },
+            {
+              "number": 2,
+              "label": "update middle",
+              "input": "Pen\n10\nBook\n5\nBag\n2\nBook\n8",
+              "expectedOutput": "Pen: 10\nBook: 8\nBag: 2"
+            },
+            {
+              "number": 3,
+              "label": "update last",
+              "input": "Pen\n10\nBook\n5\nBag\n2\nBag\n0",
+              "expectedOutput": "Pen: 10\nBook: 5\nBag: 0"
+            },
+            {
+              "number": 4,
+              "label": "increase quantity",
+              "input": "Rice\n1\nMilk\n2\nEgg\n3\nEgg\n100",
+              "expectedOutput": "Rice: 1\nMilk: 2\nEgg: 100"
+            },
+            {
+              "number": 5,
+              "label": "set quantity to same value",
+              "input": "A\n4\nB\n5\nC\n6\nB\n5",
+              "expectedOutput": "A: 4\nB: 5\nC: 6"
+            }
+          ],
+          "concepts": "`HashMap.put`, updating a value, indexing by\nkey, deterministic lookup output.",
+          "sourceMarkdown": "**Difficulty:** Medium\n\n**Description:** Create a `HashMap<String, Int64>` with three product\nquantities. Read a product name and a new quantity. Update the value for\nthat key, then print the quantities for the three original product names\nin the original input order. The update key is guaranteed to be one of\nthe three products.\n\n**Input Format:** Seven lines: three product-name/quantity pairs, then\nupdate product name, then new quantity.\n\n**Output Format:** Three lines, one per original product:\n\n```\n<product>: <quantity>\n```\n\n**Constraints:** Product names are distinct ASCII words. Quantities are\nfrom 0 to 10000.\n\n**Sample Input**\n\n```\nPen\n10\nBook\n5\nBag\n2\nBook\n8\n```\n\n**Sample Output**\n\n```\nPen: 10\nBook: 8\nBag: 2\n```\n\n**Test Cases**\n\n```\n# T1 (update first)\nIN:\nPen\n10\nBook\n5\nBag\n2\nPen\n7\nOUT:\nPen: 7\nBook: 5\nBag: 2\n```\n\n```\n# T2 (update middle)\nIN:\nPen\n10\nBook\n5\nBag\n2\nBook\n8\nOUT:\nPen: 10\nBook: 8\nBag: 2\n```\n\n```\n# T3 (update last)\nIN:\nPen\n10\nBook\n5\nBag\n2\nBag\n0\nOUT:\nPen: 10\nBook: 5\nBag: 0\n```\n\n```\n# T4 (increase quantity)\nIN:\nRice\n1\nMilk\n2\nEgg\n3\nEgg\n100\nOUT:\nRice: 1\nMilk: 2\nEgg: 100\n```\n\n```\n# T5 (set quantity to same value)\nIN:\nA\n4\nB\n5\nC\n6\nB\n5\nOUT:\nA: 4\nB: 5\nC: 6\n```\n\n**Concepts Practiced:** `HashMap.put`, updating a value, indexing by\nkey, deterministic lookup output.\n\n------------------------------------------------------------------------"
+        },
+        {
+          "id": "16.4",
+          "number": 4,
+          "title": "Remove a Product",
+          "difficulty": "Medium",
+          "description": "Create a map with three product names and their\nquantities. Read one product name to remove. Remove that key and print\nthe remaining map size, followed by whether the removed key is still\npresent.",
+          "inputFormat": "Seven lines: three product-name/quantity pairs, then\nthe product name to remove.",
+          "outputFormat": "Two lines:\n\n    Size: <number>\n    Contains removed key: <true/false>",
+          "constraints": "The three product names are distinct. The removal key\nis guaranteed to exist.",
+          "sampleInput": "Pen\n10\nBook\n5\nBag\n2\nBook",
+          "sampleOutput": "Size: 2\nContains removed key: false",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "remove first",
+              "input": "A\n1\nB\n2\nC\n3\nA",
+              "expectedOutput": "Size: 2\nContains removed key: false"
+            },
+            {
+              "number": 2,
+              "label": "remove middle",
+              "input": "A\n1\nB\n2\nC\n3\nB",
+              "expectedOutput": "Size: 2\nContains removed key: false"
+            },
+            {
+              "number": 3,
+              "label": "remove last",
+              "input": "A\n1\nB\n2\nC\n3\nC",
+              "expectedOutput": "Size: 2\nContains removed key: false"
+            },
+            {
+              "number": 4,
+              "label": "larger initial values",
+              "input": "Rice\n100\nCorn\n200\nWheat\n300\nWheat",
+              "expectedOutput": "Size: 2\nContains removed key: false"
+            },
+            {
+              "number": 5,
+              "label": "zero quantity entry",
+              "input": "X\n0\nY\n1\nZ\n2\nX",
+              "expectedOutput": "Size: 2\nContains removed key: false"
+            }
+          ],
+          "concepts": "`HashMap.remove`, `.size`, key membership, map\nupdates.",
+          "sourceMarkdown": "**Difficulty:** Medium\n\n**Description:** Create a map with three product names and their\nquantities. Read one product name to remove. Remove that key and print\nthe remaining map size, followed by whether the removed key is still\npresent.\n\n**Input Format:** Seven lines: three product-name/quantity pairs, then\nthe product name to remove.\n\n**Output Format:** Two lines:\n\n```\nSize: <number>\nContains removed key: <true/false>\n```\n\n**Constraints:** The three product names are distinct. The removal key\nis guaranteed to exist.\n\n**Sample Input**\n\n```\nPen\n10\nBook\n5\nBag\n2\nBook\n```\n\n**Sample Output**\n\n```\nSize: 2\nContains removed key: false\n```\n\n**Test Cases**\n\n```\n# T1 (remove first)\nIN:\nA\n1\nB\n2\nC\n3\nA\nOUT:\nSize: 2\nContains removed key: false\n```\n\n```\n# T2 (remove middle)\nIN:\nA\n1\nB\n2\nC\n3\nB\nOUT:\nSize: 2\nContains removed key: false\n```\n\n```\n# T3 (remove last)\nIN:\nA\n1\nB\n2\nC\n3\nC\nOUT:\nSize: 2\nContains removed key: false\n```\n\n```\n# T4 (larger initial values)\nIN:\nRice\n100\nCorn\n200\nWheat\n300\nWheat\nOUT:\nSize: 2\nContains removed key: false\n```\n\n```\n# T5 (zero quantity entry)\nIN:\nX\n0\nY\n1\nZ\n2\nX\nOUT:\nSize: 2\nContains removed key: false\n```\n\n**Concepts Practiced:** `HashMap.remove`, `.size`, key membership, map\nupdates.\n\n------------------------------------------------------------------------"
+        },
+        {
+          "id": "16.5",
+          "number": 5,
+          "title": "Word Score Dictionary",
+          "difficulty": "Hard",
+          "description": "Build a `HashMap<String, Int64>` from four word-score\npairs. Then read three query words. For each query, print its score if\nthe word exists or `0` if it does not. Do not print or depend on map\niteration order.",
+          "inputFormat": "Eleven lines: four word-score pairs, then three query\nwords.",
+          "outputFormat": "Three lines, one result for each query in the order\nentered.",
+          "constraints": "The four stored words are distinct. Words contain 1 to\n20 ASCII letters. Scores are from 0 to 1000.",
+          "sampleInput": "apple\n10\nbanana\n20\ncherry\n30\ndate\n40\nbanana\nfig\napple",
+          "sampleOutput": "20\n0\n10",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "all found",
+              "input": "a\n1\nb\n2\nc\n3\nd\n4\nd\nb\na",
+              "expectedOutput": "4\n2\n1"
+            },
+            {
+              "number": 2,
+              "label": "all missing",
+              "input": "red\n10\ngreen\n20\nblue\n30\nwhite\n40\nblack\norange\npurple",
+              "expectedOutput": "0\n0\n0"
+            },
+            {
+              "number": 3,
+              "label": "mixed found and missing",
+              "input": "pen\n5\nbook\n10\nbag\n15\nbox\n20\nbag\ncase\npen",
+              "expectedOutput": "15\n0\n5"
+            },
+            {
+              "number": 4,
+              "label": "zero score is still a stored key",
+              "input": "A\n0\nB\n2\nC\n3\nD\n4\nA\nB\nZ",
+              "expectedOutput": "0\n2\n0"
+            },
+            {
+              "number": 5,
+              "label": "queries repeat",
+              "input": "one\n11\ntwo\n22\nthree\n33\nfour\n44\ntwo\ntwo\ntwo",
+              "expectedOutput": "22\n22\n22"
+            }
+          ],
+          "concepts": "Creating and querying a `HashMap`, key lookup,\nmissing-key handling, stable query order.",
+          "sourceMarkdown": "**Difficulty:** Hard\n\n**Description:** Build a `HashMap<String, Int64>` from four word-score\npairs. Then read three query words. For each query, print its score if\nthe word exists or `0` if it does not. Do not print or depend on map\niteration order.\n\n**Input Format:** Eleven lines: four word-score pairs, then three query\nwords.\n\n**Output Format:** Three lines, one result for each query in the order\nentered.\n\n**Constraints:** The four stored words are distinct. Words contain 1 to\n20 ASCII letters. Scores are from 0 to 1000.\n\n**Sample Input**\n\n```\napple\n10\nbanana\n20\ncherry\n30\ndate\n40\nbanana\nfig\napple\n```\n\n**Sample Output**\n\n```\n20\n0\n10\n```\n\n**Test Cases**\n\n```\n# T1 (all found)\nIN:\na\n1\nb\n2\nc\n3\nd\n4\nd\nb\na\nOUT:\n4\n2\n1\n```\n\n```\n# T2 (all missing)\nIN:\nred\n10\ngreen\n20\nblue\n30\nwhite\n40\nblack\norange\npurple\nOUT:\n0\n0\n0\n```\n\n```\n# T3 (mixed found and missing)\nIN:\npen\n5\nbook\n10\nbag\n15\nbox\n20\nbag\ncase\npen\nOUT:\n15\n0\n5\n```\n\n```\n# T4 (zero score is still a stored key)\nIN:\nA\n0\nB\n2\nC\n3\nD\n4\nA\nB\nZ\nOUT:\n0\n2\n0\n```\n\n```\n# T5 (queries repeat)\nIN:\none\n11\ntwo\n22\nthree\n33\nfour\n44\ntwo\ntwo\ntwo\nOUT:\n22\n22\n22\n```\n\n**Concepts Practiced:** Creating and querying a `HashMap`, key lookup,\nmissing-key handling, stable query order.\n\n------------------------------------------------------------------------"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "title": "Hash Sets",
+      "description": "HashSet uniqueness, membership, removal, and set relationships.",
+      "problems": [
+        {
+          "id": "17.1",
+          "number": 1,
+          "title": "Unique Number Count",
+          "difficulty": "Easy",
+          "description": "Read five integers and insert them into a\n`HashSet<Int64>`. Print the number of unique values.",
+          "inputFormat": "Five integers, one per line.",
+          "outputFormat": "One integer: the set size.",
+          "constraints": "Each integer is from -1000 to 1000.",
+          "sampleInput": "1\n2\n2\n3\n1",
+          "sampleOutput": "3",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "all different",
+              "input": "1\n2\n3\n4\n5",
+              "expectedOutput": "5"
+            },
+            {
+              "number": 2,
+              "label": "all same",
+              "input": "7\n7\n7\n7\n7",
+              "expectedOutput": "1"
+            },
+            {
+              "number": 3,
+              "label": "two unique values",
+              "input": "1\n2\n1\n2\n1",
+              "expectedOutput": "2"
+            },
+            {
+              "number": 4,
+              "label": "negative and positive",
+              "input": "-1\n-1\n0\n1\n1",
+              "expectedOutput": "3"
+            },
+            {
+              "number": 5,
+              "label": "zeros",
+              "input": "0\n0\n0\n0\n0",
+              "expectedOutput": "1"
+            }
+          ],
+          "concepts": "`HashSet`, duplicate removal, `.size`.",
+          "sourceMarkdown": "**Difficulty:** Easy\n\n**Description:** Read five integers and insert them into a\n`HashSet<Int64>`. Print the number of unique values.\n\n**Input Format:** Five integers, one per line.\n\n**Output Format:** One integer: the set size.\n\n**Constraints:** Each integer is from -1000 to 1000.\n\n**Sample Input**\n\n```\n1\n2\n2\n3\n1\n```\n\n**Sample Output**\n\n```\n3\n```\n\n**Test Cases**\n\n```\n# T1 (all different)\nIN:\n1\n2\n3\n4\n5\nOUT:\n5\n```\n\n```\n# T2 (all same)\nIN:\n7\n7\n7\n7\n7\nOUT:\n1\n```\n\n```\n# T3 (two unique values)\nIN:\n1\n2\n1\n2\n1\nOUT:\n2\n```\n\n```\n# T4 (negative and positive)\nIN:\n-1\n-1\n0\n1\n1\nOUT:\n3\n```\n\n```\n# T5 (zeros)\nIN:\n0\n0\n0\n0\n0\nOUT:\n1\n```\n\n**Concepts Practiced:** `HashSet`, duplicate removal, `.size`.\n\n------------------------------------------------------------------------"
+        },
+        {
+          "id": "17.2",
+          "number": 2,
+          "title": "Check Membership",
+          "difficulty": "Easy",
+          "description": "Read four words and insert them into a\n`HashSet<String>`. Then read a query word and print whether the set\ncontains it.",
+          "inputFormat": "Five lines: four words, then the query word.",
+          "outputFormat": "`true` if the query exists in the set; otherwise\n`false`.",
+          "constraints": "Each word contains 1 to 20 ASCII letters. Membership is\ncase-sensitive.",
+          "sampleInput": "apple\nbanana\ncherry\ndate\nbanana",
+          "sampleOutput": "true",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "present",
+              "input": "red\ngreen\nblue\nwhite\nblue",
+              "expectedOutput": "true"
+            },
+            {
+              "number": 2,
+              "label": "absent",
+              "input": "red\ngreen\nblue\nwhite\nblack",
+              "expectedOutput": "false"
+            },
+            {
+              "number": 3,
+              "label": "case-sensitive",
+              "input": "Code\nChum\nCang\nJie\ncode",
+              "expectedOutput": "false"
+            },
+            {
+              "number": 4,
+              "label": "first item",
+              "input": "A\nB\nC\nD\nA",
+              "expectedOutput": "true"
+            },
+            {
+              "number": 5,
+              "label": "last item",
+              "input": "A\nB\nC\nD\nD",
+              "expectedOutput": "true"
+            }
+          ],
+          "concepts": "`HashSet`, insertion, `.contains`, Boolean\noutput.",
+          "sourceMarkdown": "**Difficulty:** Easy\n\n**Description:** Read four words and insert them into a\n`HashSet<String>`. Then read a query word and print whether the set\ncontains it.\n\n**Input Format:** Five lines: four words, then the query word.\n\n**Output Format:** `true` if the query exists in the set; otherwise\n`false`.\n\n**Constraints:** Each word contains 1 to 20 ASCII letters. Membership is\ncase-sensitive.\n\n**Sample Input**\n\n```\napple\nbanana\ncherry\ndate\nbanana\n```\n\n**Sample Output**\n\n```\ntrue\n```\n\n**Test Cases**\n\n```\n# T1 (present)\nIN:\nred\ngreen\nblue\nwhite\nblue\nOUT:\ntrue\n```\n\n```\n# T2 (absent)\nIN:\nred\ngreen\nblue\nwhite\nblack\nOUT:\nfalse\n```\n\n```\n# T3 (case-sensitive)\nIN:\nCode\nChum\nCang\nJie\ncode\nOUT:\nfalse\n```\n\n```\n# T4 (first item)\nIN:\nA\nB\nC\nD\nA\nOUT:\ntrue\n```\n\n```\n# T5 (last item)\nIN:\nA\nB\nC\nD\nD\nOUT:\ntrue\n```\n\n**Concepts Practiced:** `HashSet`, insertion, `.contains`, Boolean\noutput.\n\n------------------------------------------------------------------------"
+        },
+        {
+          "id": "17.3",
+          "number": 3,
+          "title": "Remove a Value",
+          "difficulty": "Medium",
+          "description": "Read five integers and insert them into a\n`HashSet<Int64>`. Read a value to remove. Remove it if present, then\nprint the set size and whether it still contains the value.",
+          "inputFormat": "Six integers: five initial values, then the value to\nremove.",
+          "outputFormat": "Two lines:\n\n    Size: <number>\n    Contains: <true/false>",
+          "constraints": "Each integer is from -1000 to 1000.",
+          "sampleInput": "1\n2\n2\n3\n4\n2",
+          "sampleOutput": "Size: 3\nContains: false",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "remove existing unique value",
+              "input": "1\n2\n3\n4\n5\n3",
+              "expectedOutput": "Size: 4\nContains: false"
+            },
+            {
+              "number": 2,
+              "label": "remove duplicate value",
+              "input": "1\n1\n2\n2\n3\n1",
+              "expectedOutput": "Size: 2\nContains: false"
+            },
+            {
+              "number": 3,
+              "label": "remove value not present",
+              "input": "1\n2\n3\n4\n5\n9",
+              "expectedOutput": "Size: 5\nContains: false"
+            },
+            {
+              "number": 4,
+              "label": "all values same",
+              "input": "7\n7\n7\n7\n7\n7",
+              "expectedOutput": "Size: 0\nContains: false"
+            },
+            {
+              "number": 5,
+              "label": "negative value",
+              "input": "-1\n-2\n-3\n-2\n0\n-2",
+              "expectedOutput": "Size: 3\nContains: false"
+            }
+          ],
+          "concepts": "`HashSet.remove`, `.size`, `.contains`,\nduplicate handling.",
+          "sourceMarkdown": "**Difficulty:** Medium\n\n**Description:** Read five integers and insert them into a\n`HashSet<Int64>`. Read a value to remove. Remove it if present, then\nprint the set size and whether it still contains the value.\n\n**Input Format:** Six integers: five initial values, then the value to\nremove.\n\n**Output Format:** Two lines:\n\n```\nSize: <number>\nContains: <true/false>\n```\n\n**Constraints:** Each integer is from -1000 to 1000.\n\n**Sample Input**\n\n```\n1\n2\n2\n3\n4\n2\n```\n\n**Sample Output**\n\n```\nSize: 3\nContains: false\n```\n\n**Test Cases**\n\n```\n# T1 (remove existing unique value)\nIN:\n1\n2\n3\n4\n5\n3\nOUT:\nSize: 4\nContains: false\n```\n\n```\n# T2 (remove duplicate value)\nIN:\n1\n1\n2\n2\n3\n1\nOUT:\nSize: 2\nContains: false\n```\n\n```\n# T3 (remove value not present)\nIN:\n1\n2\n3\n4\n5\n9\nOUT:\nSize: 5\nContains: false\n```\n\n```\n# T4 (all values same)\nIN:\n7\n7\n7\n7\n7\n7\nOUT:\nSize: 0\nContains: false\n```\n\n```\n# T5 (negative value)\nIN:\n-1\n-2\n-3\n-2\n0\n-2\nOUT:\nSize: 3\nContains: false\n```\n\n**Concepts Practiced:** `HashSet.remove`, `.size`, `.contains`,\nduplicate handling.\n\n------------------------------------------------------------------------"
+        },
+        {
+          "id": "17.4",
+          "number": 4,
+          "title": "Common Elements",
+          "difficulty": "Medium",
+          "description": "Read three integers for set A and three integers for\nset B. Count how many distinct values are present in both sets. Use two\nhash sets and do not rely on their iteration order.",
+          "inputFormat": "Six integers: three values for A, followed by three\nvalues for B.",
+          "outputFormat": "One integer: the number of common distinct values.",
+          "constraints": "Each integer is from -1000 to 1000.",
+          "sampleInput": "1\n2\n3\n2\n3\n4",
+          "sampleOutput": "2",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "two common values",
+              "input": "1\n2\n3\n2\n3\n4",
+              "expectedOutput": "2"
+            },
+            {
+              "number": 2,
+              "label": "no common values",
+              "input": "1\n2\n3\n4\n5\n6",
+              "expectedOutput": "0"
+            },
+            {
+              "number": 3,
+              "label": "all common",
+              "input": "1\n2\n3\n3\n2\n1",
+              "expectedOutput": "3"
+            },
+            {
+              "number": 4,
+              "label": "duplicates in input",
+              "input": "1\n1\n2\n1\n2\n2",
+              "expectedOutput": "2"
+            },
+            {
+              "number": 5,
+              "label": "negative values",
+              "input": "-1\n-2\n0\n-2\n0\n5",
+              "expectedOutput": "2"
+            }
+          ],
+          "concepts": "Two `HashSet` instances, membership checks,\ncounting distinct intersections.",
+          "sourceMarkdown": "**Difficulty:** Medium\n\n**Description:** Read three integers for set A and three integers for\nset B. Count how many distinct values are present in both sets. Use two\nhash sets and do not rely on their iteration order.\n\n**Input Format:** Six integers: three values for A, followed by three\nvalues for B.\n\n**Output Format:** One integer: the number of common distinct values.\n\n**Constraints:** Each integer is from -1000 to 1000.\n\n**Sample Input**\n\n```\n1\n2\n3\n2\n3\n4\n```\n\n**Sample Output**\n\n```\n2\n```\n\n**Test Cases**\n\n```\n# T1 (two common values)\nIN:\n1\n2\n3\n2\n3\n4\nOUT:\n2\n```\n\n```\n# T2 (no common values)\nIN:\n1\n2\n3\n4\n5\n6\nOUT:\n0\n```\n\n```\n# T3 (all common)\nIN:\n1\n2\n3\n3\n2\n1\nOUT:\n3\n```\n\n```\n# T4 (duplicates in input)\nIN:\n1\n1\n2\n1\n2\n2\nOUT:\n2\n```\n\n```\n# T5 (negative values)\nIN:\n-1\n-2\n0\n-2\n0\n5\nOUT:\n2\n```\n\n**Concepts Practiced:** Two `HashSet` instances, membership checks,\ncounting distinct intersections.\n\n------------------------------------------------------------------------"
+        },
+        {
+          "id": "17.5",
+          "number": 5,
+          "title": "Set Relationship Report",
+          "difficulty": "Hard",
+          "description": "Read four integers for set A and four integers for set\nB. Build two hash sets and report: 1. Number of unique values in A. 2.\nNumber of unique values in B. 3. Number of values common to both sets.\n4. Number of values that are in A but not in B.\n\nDo not print set elements or depend on their iteration order.",
+          "inputFormat": "Eight integers: four values for A, then four values\nfor B.",
+          "outputFormat": "Four lines:\n\n    A size: <number>\n    B size: <number>\n    Common: <number>\n    A only: <number>",
+          "constraints": "Each integer is from -1000 to 1000.",
+          "sampleInput": "1\n2\n2\n3\n2\n3\n4\n4",
+          "sampleOutput": "A size: 3\nB size: 3\nCommon: 2\nA only: 1",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "partial overlap",
+              "input": "1\n2\n2\n3\n2\n3\n4\n4",
+              "expectedOutput": "A size: 3\nB size: 3\nCommon: 2\nA only: 1"
+            },
+            {
+              "number": 2,
+              "label": "no overlap",
+              "input": "1\n2\n3\n4\n5\n6\n7\n8",
+              "expectedOutput": "A size: 4\nB size: 4\nCommon: 0\nA only: 4"
+            },
+            {
+              "number": 3,
+              "label": "same unique values",
+              "input": "1\n1\n2\n2\n2\n1\n2\n1",
+              "expectedOutput": "A size: 2\nB size: 2\nCommon: 2\nA only: 0"
+            },
+            {
+              "number": 4,
+              "label": "A is contained in B",
+              "input": "5\n5\n6\n6\n5\n6\n7\n8",
+              "expectedOutput": "A size: 2\nB size: 4\nCommon: 2\nA only: 0"
+            },
+            {
+              "number": 5,
+              "label": "negative and zero",
+              "input": "-1\n-2\n-2\n0\n-2\n0\n1\n1",
+              "expectedOutput": "A size: 3\nB size: 3\nCommon: 2\nA only: 1"
+            }
+          ],
+          "concepts": "Hash set construction, uniqueness, `.size`,\n`.contains`, set intersection and difference counts.",
+          "sourceMarkdown": "**Difficulty:** Hard\n\n**Description:** Read four integers for set A and four integers for set\nB. Build two hash sets and report: 1. Number of unique values in A. 2.\nNumber of unique values in B. 3. Number of values common to both sets.\n4. Number of values that are in A but not in B.\n\nDo not print set elements or depend on their iteration order.\n\n**Input Format:** Eight integers: four values for A, then four values\nfor B.\n\n**Output Format:** Four lines:\n\n```\nA size: <number>\nB size: <number>\nCommon: <number>\nA only: <number>\n```\n\n**Constraints:** Each integer is from -1000 to 1000.\n\n**Sample Input**\n\n```\n1\n2\n2\n3\n2\n3\n4\n4\n```\n\n**Sample Output**\n\n```\nA size: 3\nB size: 3\nCommon: 2\nA only: 1\n```\n\n**Test Cases**\n\n```\n# T1 (partial overlap)\nIN:\n1\n2\n2\n3\n2\n3\n4\n4\nOUT:\nA size: 3\nB size: 3\nCommon: 2\nA only: 1\n```\n\n```\n# T2 (no overlap)\nIN:\n1\n2\n3\n4\n5\n6\n7\n8\nOUT:\nA size: 4\nB size: 4\nCommon: 0\nA only: 4\n```\n\n```\n# T3 (same unique values)\nIN:\n1\n1\n2\n2\n2\n1\n2\n1\nOUT:\nA size: 2\nB size: 2\nCommon: 2\nA only: 0\n```\n\n```\n# T4 (A is contained in B)\nIN:\n5\n5\n6\n6\n5\n6\n7\n8\nOUT:\nA size: 2\nB size: 4\nCommon: 2\nA only: 0\n```\n\n```\n# T5 (negative and zero)\nIN:\n-1\n-2\n-2\n0\n-2\n0\n1\n1\nOUT:\nA size: 3\nB size: 3\nCommon: 2\nA only: 1\n```\n\n**Concepts Practiced:** Hash set construction, uniqueness, `.size`,\n`.contains`, set intersection and difference counts.\n\n------------------------------------------------------------------------"
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "title": "Range Over Builtin Types",
+      "description": "Ranges and iteration over arrays, maps, and sets.",
+      "problems": [
+        {
+          "id": "18.1",
+          "number": 1,
+          "title": "Sum an Array",
+          "difficulty": "Easy",
+          "description": "Read five integers into an array. Use a `for` loop over\nthe array to calculate and print the sum.",
+          "inputFormat": "Five integers, one per line.",
+          "outputFormat": "One integer: the sum.",
+          "constraints": "Each integer is from -1000 to 1000.",
+          "sampleInput": "1\n2\n3\n4\n5",
+          "sampleOutput": "15",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "positive values",
+              "input": "1\n2\n3\n4\n5",
+              "expectedOutput": "15"
+            },
+            {
+              "number": 2,
+              "label": "all zeros",
+              "input": "0\n0\n0\n0\n0",
+              "expectedOutput": "0"
+            },
+            {
+              "number": 3,
+              "label": "negative values",
+              "input": "-1\n-2\n-3\n-4\n-5",
+              "expectedOutput": "-15"
+            },
+            {
+              "number": 4,
+              "label": "mixed values",
+              "input": "10\n-10\n20\n-20\n5",
+              "expectedOutput": "5"
+            },
+            {
+              "number": 5,
+              "label": "same values",
+              "input": "7\n7\n7\n7\n7",
+              "expectedOutput": "35"
+            }
+          ],
+          "concepts": "Arrays, `for (value in array)`, accumulation.",
+          "sourceMarkdown": "**Difficulty:** Easy\n\n**Description:** Read five integers into an array. Use a `for` loop over\nthe array to calculate and print the sum.\n\n**Input Format:** Five integers, one per line.\n\n**Output Format:** One integer: the sum.\n\n**Constraints:** Each integer is from -1000 to 1000.\n\n**Sample Input**\n\n```\n1\n2\n3\n4\n5\n```\n\n**Sample Output**\n\n```\n15\n```\n\n**Test Cases**\n\n```\n# T1 (positive values)\nIN:\n1\n2\n3\n4\n5\nOUT:\n15\n```\n\n```\n# T2 (all zeros)\nIN:\n0\n0\n0\n0\n0\nOUT:\n0\n```\n\n```\n# T3 (negative values)\nIN:\n-1\n-2\n-3\n-4\n-5\nOUT:\n-15\n```\n\n```\n# T4 (mixed values)\nIN:\n10\n-10\n20\n-20\n5\nOUT:\n5\n```\n\n```\n# T5 (same values)\nIN:\n7\n7\n7\n7\n7\nOUT:\n35\n```\n\n**Concepts Practiced:** Arrays, `for (value in array)`, accumulation.\n\n------------------------------------------------------------------------"
+        },
+        {
+          "id": "18.2",
+          "number": 2,
+          "title": "Count Values Above a Limit",
+          "difficulty": "Easy",
+          "description": "Read a limit and four integers into an array. Iterate\nover the array and count how many values are strictly greater than the\nlimit.",
+          "inputFormat": "Five integers: limit, followed by four array values.",
+          "outputFormat": "One integer: the count.",
+          "constraints": "Each integer is from -1000 to 1000.",
+          "sampleInput": "5\n1\n6\n5\n9",
+          "sampleOutput": "2",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "two above",
+              "input": "5\n1\n6\n5\n9",
+              "expectedOutput": "2"
+            },
+            {
+              "number": 2,
+              "label": "none above",
+              "input": "10\n1\n2\n3\n4",
+              "expectedOutput": "0"
+            },
+            {
+              "number": 3,
+              "label": "all above",
+              "input": "0\n1\n2\n3\n4",
+              "expectedOutput": "4"
+            },
+            {
+              "number": 4,
+              "label": "equal values do not count",
+              "input": "5\n5\n5\n5\n5",
+              "expectedOutput": "0"
+            },
+            {
+              "number": 5,
+              "label": "negative limit",
+              "input": "-3\n-2\n-3\n-4\n0",
+              "expectedOutput": "2"
+            }
+          ],
+          "concepts": "Iterating over arrays, comparisons, counting.",
+          "sourceMarkdown": "**Difficulty:** Easy\n\n**Description:** Read a limit and four integers into an array. Iterate\nover the array and count how many values are strictly greater than the\nlimit.\n\n**Input Format:** Five integers: limit, followed by four array values.\n\n**Output Format:** One integer: the count.\n\n**Constraints:** Each integer is from -1000 to 1000.\n\n**Sample Input**\n\n```\n5\n1\n6\n5\n9\n```\n\n**Sample Output**\n\n```\n2\n```\n\n**Test Cases**\n\n```\n# T1 (two above)\nIN:\n5\n1\n6\n5\n9\nOUT:\n2\n```\n\n```\n# T2 (none above)\nIN:\n10\n1\n2\n3\n4\nOUT:\n0\n```\n\n```\n# T3 (all above)\nIN:\n0\n1\n2\n3\n4\nOUT:\n4\n```\n\n```\n# T4 (equal values do not count)\nIN:\n5\n5\n5\n5\n5\nOUT:\n0\n```\n\n```\n# T5 (negative limit)\nIN:\n-3\n-2\n-3\n-4\n0\nOUT:\n2\n```\n\n**Concepts Practiced:** Iterating over arrays, comparisons, counting.\n\n------------------------------------------------------------------------"
+        },
+        {
+          "id": "18.3",
+          "number": 3,
+          "title": "Sum Values in a Range",
+          "difficulty": "Medium",
+          "description": "Read two integers `L` and `R`, then read five integers\ninto an array. Sum only the array values that are within the inclusive\nrange `[L, R]`.",
+          "inputFormat": "Seven integers: `L`, `R`, then five array values.\n`L ≤ R`.",
+          "outputFormat": "One integer: the sum of values in the range.",
+          "constraints": "All values are from -1000 to 1000.",
+          "sampleInput": "2\n6\n1\n2\n4\n6\n8",
+          "sampleOutput": "12",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "several included",
+              "input": "2\n6\n1\n2\n4\n6\n8",
+              "expectedOutput": "12"
+            },
+            {
+              "number": 2,
+              "label": "none included",
+              "input": "10\n20\n1\n2\n3\n4\n5",
+              "expectedOutput": "0"
+            },
+            {
+              "number": 3,
+              "label": "all included",
+              "input": "-5\n5\n-5\n-1\n0\n3\n5",
+              "expectedOutput": "2"
+            },
+            {
+              "number": 4,
+              "label": "single-value range",
+              "input": "4\n4\n4\n3\n4\n5\n4",
+              "expectedOutput": "12"
+            },
+            {
+              "number": 5,
+              "label": "negative range",
+              "input": "-10\n-1\n-10\n-5\n0\n-1\n2",
+              "expectedOutput": "-16"
+            }
+          ],
+          "concepts": "Array iteration, inclusive range conditions,\naccumulation.",
+          "sourceMarkdown": "**Difficulty:** Medium\n\n**Description:** Read two integers `L` and `R`, then read five integers\ninto an array. Sum only the array values that are within the inclusive\nrange `[L, R]`.\n\n**Input Format:** Seven integers: `L`, `R`, then five array values.\n`L ≤ R`.\n\n**Output Format:** One integer: the sum of values in the range.\n\n**Constraints:** All values are from -1000 to 1000.\n\n**Sample Input**\n\n```\n2\n6\n1\n2\n4\n6\n8\n```\n\n**Sample Output**\n\n```\n12\n```\n\n**Test Cases**\n\n```\n# T1 (several included)\nIN:\n2\n6\n1\n2\n4\n6\n8\nOUT:\n12\n```\n\n```\n# T2 (none included)\nIN:\n10\n20\n1\n2\n3\n4\n5\nOUT:\n0\n```\n\n```\n# T3 (all included)\nIN:\n-5\n5\n-5\n-1\n0\n3\n5\nOUT:\n2\n```\n\n```\n# T4 (single-value range)\nIN:\n4\n4\n4\n3\n4\n5\n4\nOUT:\n12\n```\n\n```\n# T5 (negative range)\nIN:\n-10\n-1\n-10\n-5\n0\n-1\n2\nOUT:\n-16\n```\n\n**Concepts Practiced:** Array iteration, inclusive range conditions,\naccumulation.\n\n------------------------------------------------------------------------"
+        },
+        {
+          "id": "18.4",
+          "number": 4,
+          "title": "Count Map Values",
+          "difficulty": "Medium",
+          "description": "Create a `HashMap<String, Int64>` from four key-value\npairs. Iterate over the map's entries and count how many stored values\nare at least the given threshold. The output is only a count, so it must\nnot depend on map iteration order.",
+          "inputFormat": "Nine lines: threshold, followed by four key-value\npairs.",
+          "outputFormat": "One integer: the number of map values greater than or\nequal to the threshold.",
+          "constraints": "Keys are distinct words. Values and threshold are from\n-1000 to 1000.",
+          "sampleInput": "50\nAna\n90\nBen\n40\nKai\n50\nMia\n70",
+          "sampleOutput": "3",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "Test 1",
+              "input": "50\nA\n90\nB\n40\nC\n50\nD\n70",
+              "expectedOutput": "3"
+            },
+            {
+              "number": 2,
+              "label": "none qualify",
+              "input": "100\nA\n10\nB\n20\nC\n30\nD\n40",
+              "expectedOutput": "0"
+            },
+            {
+              "number": 3,
+              "label": "all qualify",
+              "input": "0\nA\n0\nB\n1\nC\n2\nD\n3",
+              "expectedOutput": "4"
+            },
+            {
+              "number": 4,
+              "label": "negative values",
+              "input": "-5\nA\n-10\nB\n-5\nC\n0\nD\n5",
+              "expectedOutput": "3"
+            },
+            {
+              "number": 5,
+              "label": "exact threshold",
+              "input": "7\nA\n7\nB\n6\nC\n8\nD\n7",
+              "expectedOutput": "3"
+            }
+          ],
+          "concepts": "Range over `HashMap`, key-value pair iteration,\naggregate counting without relying on order.",
+          "sourceMarkdown": "**Difficulty:** Medium\n\n**Description:** Create a `HashMap<String, Int64>` from four key-value\npairs. Iterate over the map's entries and count how many stored values\nare at least the given threshold. The output is only a count, so it must\nnot depend on map iteration order.\n\n**Input Format:** Nine lines: threshold, followed by four key-value\npairs.\n\n**Output Format:** One integer: the number of map values greater than or\nequal to the threshold.\n\n**Constraints:** Keys are distinct words. Values and threshold are from\n-1000 to 1000.\n\n**Sample Input**\n\n```\n50\nAna\n90\nBen\n40\nKai\n50\nMia\n70\n```\n\n**Sample Output**\n\n```\n3\n```\n\n**Test Cases**\n\n```\n# T1\nIN:\n50\nA\n90\nB\n40\nC\n50\nD\n70\nOUT:\n3\n```\n\n```\n# T2 (none qualify)\nIN:\n100\nA\n10\nB\n20\nC\n30\nD\n40\nOUT:\n0\n```\n\n```\n# T3 (all qualify)\nIN:\n0\nA\n0\nB\n1\nC\n2\nD\n3\nOUT:\n4\n```\n\n```\n# T4 (negative values)\nIN:\n-5\nA\n-10\nB\n-5\nC\n0\nD\n5\nOUT:\n3\n```\n\n```\n# T5 (exact threshold)\nIN:\n7\nA\n7\nB\n6\nC\n8\nD\n7\nOUT:\n3\n```\n\n**Concepts Practiced:** Range over `HashMap`, key-value pair iteration,\naggregate counting without relying on order.\n\n------------------------------------------------------------------------"
+        },
+        {
+          "id": "18.5",
+          "number": 5,
+          "title": "Collection Summary",
+          "difficulty": "Hard",
+          "description": "Read five integers into an array, then read three query\nvalues. Build a `HashSet<Int64>` from the array. Use a range over the\narray to calculate its total and a range over the set to count unique\nvalues. Finally, for each query in input order, print whether the set\ncontains it.",
+          "inputFormat": "Eight integers: five array values, followed by three\nquery values.",
+          "outputFormat": "Five lines:\n\n    Array sum: <sum>\n    Unique count: <count>\n    Query 1: <true/false>\n    Query 2: <true/false>\n    Query 3: <true/false>",
+          "constraints": "All integers are from -1000 to 1000.",
+          "sampleInput": "1\n2\n2\n3\n4\n2\n5\n1",
+          "sampleOutput": "Array sum: 12\nUnique count: 4\nQuery 1: true\nQuery 2: false\nQuery 3: true",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "some duplicates",
+              "input": "1\n2\n2\n3\n4\n2\n5\n1",
+              "expectedOutput": "Array sum: 12\nUnique count: 4\nQuery 1: true\nQuery 2: false\nQuery 3: true"
+            },
+            {
+              "number": 2,
+              "label": "all values equal",
+              "input": "7\n7\n7\n7\n7\n7\n0\n8",
+              "expectedOutput": "Array sum: 35\nUnique count: 1\nQuery 1: true\nQuery 2: false\nQuery 3: false"
+            },
+            {
+              "number": 3,
+              "label": "negative values",
+              "input": "-1\n-2\n-2\n0\n1\n-2\n2\n0",
+              "expectedOutput": "Array sum: -4\nUnique count: 4\nQuery 1: true\nQuery 2: false\nQuery 3: true"
+            },
+            {
+              "number": 4,
+              "label": "all unique",
+              "input": "1\n2\n3\n4\n5\n1\n3\n5",
+              "expectedOutput": "Array sum: 15\nUnique count: 5\nQuery 1: true\nQuery 2: true\nQuery 3: true"
+            },
+            {
+              "number": 5,
+              "label": "queries all absent",
+              "input": "10\n20\n30\n40\n50\n0\n1\n2",
+              "expectedOutput": "Array sum: 150\nUnique count: 5\nQuery 1: false\nQuery 2: false\nQuery 3: false"
+            }
+          ],
+          "concepts": "Range over arrays and hash sets, aggregate\ncalculations, membership checks, collection traversal.",
+          "sourceMarkdown": "**Difficulty:** Hard\n\n**Description:** Read five integers into an array, then read three query\nvalues. Build a `HashSet<Int64>` from the array. Use a range over the\narray to calculate its total and a range over the set to count unique\nvalues. Finally, for each query in input order, print whether the set\ncontains it.\n\n**Input Format:** Eight integers: five array values, followed by three\nquery values.\n\n**Output Format:** Five lines:\n\n```\nArray sum: <sum>\nUnique count: <count>\nQuery 1: <true/false>\nQuery 2: <true/false>\nQuery 3: <true/false>\n```\n\n**Constraints:** All integers are from -1000 to 1000.\n\n**Sample Input**\n\n```\n1\n2\n2\n3\n4\n2\n5\n1\n```\n\n**Sample Output**\n\n```\nArray sum: 12\nUnique count: 4\nQuery 1: true\nQuery 2: false\nQuery 3: true\n```\n\n**Test Cases**\n\n```\n# T1 (some duplicates)\nIN:\n1\n2\n2\n3\n4\n2\n5\n1\nOUT:\nArray sum: 12\nUnique count: 4\nQuery 1: true\nQuery 2: false\nQuery 3: true\n```\n\n```\n# T2 (all values equal)\nIN:\n7\n7\n7\n7\n7\n7\n0\n8\nOUT:\nArray sum: 35\nUnique count: 1\nQuery 1: true\nQuery 2: false\nQuery 3: false\n```\n\n```\n# T3 (negative values)\nIN:\n-1\n-2\n-2\n0\n1\n-2\n2\n0\nOUT:\nArray sum: -4\nUnique count: 4\nQuery 1: true\nQuery 2: false\nQuery 3: true\n```\n\n```\n# T4 (all unique)\nIN:\n1\n2\n3\n4\n5\n1\n3\n5\nOUT:\nArray sum: 15\nUnique count: 5\nQuery 1: true\nQuery 2: true\nQuery 3: true\n```\n\n```\n# T5 (queries all absent)\nIN:\n10\n20\n30\n40\n50\n0\n1\n2\nOUT:\nArray sum: 150\nUnique count: 5\nQuery 1: false\nQuery 2: false\nQuery 3: false\n```\n\n**Concepts Practiced:** Range over arrays and hash sets, aggregate\ncalculations, membership checks, collection traversal.\n\n------------------------------------------------------------------------"
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "title": "Iterators",
+      "description": "Custom Iterable and Iterator implementations.",
+      "problems": [
+        {
+          "id": "19.1",
+          "number": 1,
+          "title": "Count with a Custom Iterator",
+          "difficulty": "Easy",
+          "description": "Define a custom iterable type that produces the\nintegers from 1 through `n`. Its iterator should return one value at a\ntime and then return `None`. Read `n` and print all produced values on\none line, separated by single spaces.",
+          "inputFormat": "One integer `n`.",
+          "outputFormat": "The integers from 1 through `n`, separated by one\nspace. If `n` is 0, print an empty line.",
+          "constraints": "`0 ≤ n ≤ 20`.",
+          "sampleInput": "5",
+          "sampleOutput": "1 2 3 4 5",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "normal",
+              "input": "5",
+              "expectedOutput": "1 2 3 4 5"
+            },
+            {
+              "number": 2,
+              "label": "one value",
+              "input": "1",
+              "expectedOutput": "1"
+            },
+            {
+              "number": 3,
+              "label": "zero values",
+              "input": "0",
+              "expectedOutput": ""
+            },
+            {
+              "number": 4,
+              "label": "three values",
+              "input": "3",
+              "expectedOutput": "1 2 3"
+            },
+            {
+              "number": 5,
+              "label": "maximum",
+              "input": "20",
+              "expectedOutput": "1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20"
+            }
+          ],
+          "concepts": "Custom `Iterable`, custom `Iterator`, `next`,\n`Some`, `None`.",
+          "sourceMarkdown": "**Difficulty:** Easy\n\n**Description:** Define a custom iterable type that produces the\nintegers from 1 through `n`. Its iterator should return one value at a\ntime and then return `None`. Read `n` and print all produced values on\none line, separated by single spaces.\n\n**Input Format:** One integer `n`.\n\n**Output Format:** The integers from 1 through `n`, separated by one\nspace. If `n` is 0, print an empty line.\n\n**Constraints:** `0 ≤ n ≤ 20`.\n\n**Sample Input**\n\n```\n5\n```\n\n**Sample Output**\n\n```\n1 2 3 4 5\n```\n\n**Test Cases**\n\n```\n# T1 (normal)\nIN:\n5\nOUT:\n1 2 3 4 5\n```\n\n```\n# T2 (one value)\nIN:\n1\nOUT:\n1\n```\n\n```\n# T3 (zero values)\nIN:\n0\nOUT:\n```\n\n\n```\n# T4 (three values)\nIN:\n3\nOUT:\n1 2 3\n```\n\n```\n# T5 (maximum)\nIN:\n20\nOUT:\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20\n```\n\n**Concepts Practiced:** Custom `Iterable`, custom `Iterator`, `next`,\n`Some`, `None`.\n\n------------------------------------------------------------------------"
+        },
+        {
+          "id": "19.2",
+          "number": 2,
+          "title": "Iterate Through a Fixed Sequence",
+          "difficulty": "Easy",
+          "description": "Define a custom iterable type that produces the fixed\nsequence `2, 4, 6, 8, 10`. Use a custom iterator and a `for` loop to\nprint the values, one per line.",
+          "inputFormat": "No input. The sequence is fixed.",
+          "outputFormat": "Five lines, one number per line.",
+          "constraints": "No input.",
+          "sampleInput": "",
+          "sampleOutput": "2\n4\n6\n8\n10",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "the fixed sequence",
+              "input": "",
+              "expectedOutput": "2\n4\n6\n8\n10"
+            },
+            {
+              "number": 2,
+              "label": "same fixed sequence",
+              "input": "",
+              "expectedOutput": "2\n4\n6\n8\n10"
+            },
+            {
+              "number": 3,
+              "label": "same fixed sequence",
+              "input": "",
+              "expectedOutput": "2\n4\n6\n8\n10"
+            },
+            {
+              "number": 4,
+              "label": "same fixed sequence",
+              "input": "",
+              "expectedOutput": "2\n4\n6\n8\n10"
+            },
+            {
+              "number": 5,
+              "label": "same fixed sequence",
+              "input": "",
+              "expectedOutput": "2\n4\n6\n8\n10"
+            }
+          ],
+          "concepts": "Implementing `Iterable<T>`, returning an\niterator, `next(): Option<T>`, iterating with `for`.",
+          "sourceMarkdown": "**Difficulty:** Easy\n\n**Description:** Define a custom iterable type that produces the fixed\nsequence `2, 4, 6, 8, 10`. Use a custom iterator and a `for` loop to\nprint the values, one per line.\n\n**Input Format:** No input. The sequence is fixed.\n\n**Output Format:** Five lines, one number per line.\n\n**Constraints:** No input.\n\n**Sample Input**\n\n**Sample Output**\n\n```\n2\n4\n6\n8\n10\n```\n\n**Test Cases**\n\n```\n# T1 (the fixed sequence)\nIN:\n```\n\n```\nOUT:\n2\n4\n6\n8\n10\n```\n\n```\n# T2 (same fixed sequence)\nIN:\n```\n\n```\nOUT:\n2\n4\n6\n8\n10\n```\n\n```\n# T3 (same fixed sequence)\nIN:\n```\n\n```\nOUT:\n2\n4\n6\n8\n10\n```\n\n```\n# T4 (same fixed sequence)\nIN:\n```\n\n```\nOUT:\n2\n4\n6\n8\n10\n```\n\n```\n# T5 (same fixed sequence)\nIN:\n```\n\n```\nOUT:\n2\n4\n6\n8\n10\n```\n\n**Concepts Practiced:** Implementing `Iterable<T>`, returning an\niterator, `next(): Option<T>`, iterating with `for`.\n\n------------------------------------------------------------------------"
+        },
+        {
+          "id": "19.3",
+          "number": 3,
+          "title": "Custom Countdown",
+          "difficulty": "Medium",
+          "description": "Define a custom iterable that produces a countdown from\nthe starting integer `n` down to 1. Its iterator returns `None` after\nthe final value. Print the values on one line, separated by spaces.",
+          "inputFormat": "One integer `n`.",
+          "outputFormat": "Values from `n` down to 1, separated by one space. If\n`n` is 0, print an empty line.",
+          "constraints": "`0 ≤ n ≤ 20`.",
+          "sampleInput": "4",
+          "sampleOutput": "4 3 2 1",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "normal",
+              "input": "4",
+              "expectedOutput": "4 3 2 1"
+            },
+            {
+              "number": 2,
+              "label": "one",
+              "input": "1",
+              "expectedOutput": "1"
+            },
+            {
+              "number": 3,
+              "label": "zero",
+              "input": "0",
+              "expectedOutput": ""
+            },
+            {
+              "number": 4,
+              "label": "three",
+              "input": "3",
+              "expectedOutput": "3 2 1"
+            },
+            {
+              "number": 5,
+              "label": "maximum",
+              "input": "20",
+              "expectedOutput": "20 19 18 17 16 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1"
+            }
+          ],
+          "concepts": "Iterator state, decrementing sequence, `Some`\nand `None`, custom iterable traversal.",
+          "sourceMarkdown": "**Difficulty:** Medium\n\n**Description:** Define a custom iterable that produces a countdown from\nthe starting integer `n` down to 1. Its iterator returns `None` after\nthe final value. Print the values on one line, separated by spaces.\n\n**Input Format:** One integer `n`.\n\n**Output Format:** Values from `n` down to 1, separated by one space. If\n`n` is 0, print an empty line.\n\n**Constraints:** `0 ≤ n ≤ 20`.\n\n**Sample Input**\n\n```\n4\n```\n\n**Sample Output**\n\n```\n4 3 2 1\n```\n\n**Test Cases**\n\n```\n# T1 (normal)\nIN:\n4\nOUT:\n4 3 2 1\n```\n\n```\n# T2 (one)\nIN:\n1\nOUT:\n1\n```\n\n```\n# T3 (zero)\nIN:\n0\nOUT:\n```\n\n\n```\n# T4 (three)\nIN:\n3\nOUT:\n3 2 1\n```\n\n```\n# T5 (maximum)\nIN:\n20\nOUT:\n20 19 18 17 16 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1\n```\n\n**Concepts Practiced:** Iterator state, decrementing sequence, `Some`\nand `None`, custom iterable traversal.\n\n------------------------------------------------------------------------"
+        },
+        {
+          "id": "19.4",
+          "number": 4,
+          "title": "Custom Even Number Iterator",
+          "difficulty": "Medium",
+          "description": "Define a custom iterable that produces the first `n`\npositive even numbers: `2, 4, 6, ...`. Use its iterator in a `for` loop\nand print the sum of the produced values.",
+          "inputFormat": "One integer `n`.",
+          "outputFormat": "One integer: the sum of the first `n` positive even\nnumbers. If `n` is 0, the sum is 0.",
+          "constraints": "`0 ≤ n ≤ 100`.",
+          "sampleInput": "4",
+          "sampleOutput": "20",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "four values",
+              "input": "4",
+              "expectedOutput": "20"
+            },
+            {
+              "number": 2,
+              "label": "zero values",
+              "input": "0",
+              "expectedOutput": "0"
+            },
+            {
+              "number": 3,
+              "label": "one value",
+              "input": "1",
+              "expectedOutput": "2"
+            },
+            {
+              "number": 4,
+              "label": "five values",
+              "input": "5",
+              "expectedOutput": "30"
+            },
+            {
+              "number": 5,
+              "label": "maximum",
+              "input": "100",
+              "expectedOutput": "10100"
+            }
+          ],
+          "concepts": "Custom iterator state, generating values,\nsumming an iterable.",
+          "sourceMarkdown": "**Difficulty:** Medium\n\n**Description:** Define a custom iterable that produces the first `n`\npositive even numbers: `2, 4, 6, ...`. Use its iterator in a `for` loop\nand print the sum of the produced values.\n\n**Input Format:** One integer `n`.\n\n**Output Format:** One integer: the sum of the first `n` positive even\nnumbers. If `n` is 0, the sum is 0.\n\n**Constraints:** `0 ≤ n ≤ 100`.\n\n**Sample Input**\n\n```\n4\n```\n\n**Sample Output**\n\n```\n20\n```\n\n**Test Cases**\n\n```\n# T1 (four values)\nIN:\n4\nOUT:\n20\n```\n\n```\n# T2 (zero values)\nIN:\n0\nOUT:\n0\n```\n\n```\n# T3 (one value)\nIN:\n1\nOUT:\n2\n```\n\n```\n# T4 (five values)\nIN:\n5\nOUT:\n30\n```\n\n```\n# T5 (maximum)\nIN:\n100\nOUT:\n10100\n```\n\n**Concepts Practiced:** Custom iterator state, generating values,\nsumming an iterable.\n\n------------------------------------------------------------------------"
+        },
+        {
+          "id": "19.5",
+          "number": 5,
+          "title": "Nested Custom Iteration",
+          "difficulty": "Hard",
+          "description": "Define a custom iterable that produces the integers\nfrom 1 through `n`. Use nested `for` loops over the same iterable. For\neach outer value `i`, print the inner sequence from 1 through `n`, with\neach value multiplied by `i`. Print one row per outer value, with values\nseparated by single spaces.",
+          "inputFormat": "One integer `n`.",
+          "outputFormat": "An `n` by `n` multiplication table. Each row starts\nwith the outer value multiplied by 1 and ends with the outer value\nmultiplied by `n`.",
+          "constraints": "`1 ≤ n ≤ 10`.",
+          "sampleInput": "3",
+          "sampleOutput": "1 2 3\n2 4 6\n3 6 9",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "one row",
+              "input": "1",
+              "expectedOutput": "1"
+            },
+            {
+              "number": 2,
+              "label": "two by two",
+              "input": "2",
+              "expectedOutput": "1 2\n2 4"
+            },
+            {
+              "number": 3,
+              "label": "three by three",
+              "input": "3",
+              "expectedOutput": "1 2 3\n2 4 6\n3 6 9"
+            },
+            {
+              "number": 4,
+              "label": "four by four",
+              "input": "4",
+              "expectedOutput": "1 2 3 4\n2 4 6 8\n3 6 9 12\n4 8 12 16"
+            },
+            {
+              "number": 5,
+              "label": "maximum",
+              "input": "10",
+              "expectedOutput": "1 2 3 4 5 6 7 8 9 10\n2 4 6 8 10 12 14 16 18 20\n3 6 9 12 15 18 21 24 27 30\n4 8 12 16 20 24 28 32 36 40\n5 10 15 20 25 30 35 40 45 50\n6 12 18 24 30 36 42 48 54 60\n7 14 21 28 35 42 49 56 63 70\n8 16 24 32 40 48 56 64 72 80\n9 18 27 36 45 54 63 72 81 90\n10 20 30 40 50 60 70 80 90 100"
+            }
+          ],
+          "concepts": "Custom `Iterable`, custom `Iterator`, nested\niteration, independent iterator state, formatted row output.",
+          "sourceMarkdown": "**Difficulty:** Hard\n\n**Description:** Define a custom iterable that produces the integers\nfrom 1 through `n`. Use nested `for` loops over the same iterable. For\neach outer value `i`, print the inner sequence from 1 through `n`, with\neach value multiplied by `i`. Print one row per outer value, with values\nseparated by single spaces.\n\n**Input Format:** One integer `n`.\n\n**Output Format:** An `n` by `n` multiplication table. Each row starts\nwith the outer value multiplied by 1 and ends with the outer value\nmultiplied by `n`.\n\n**Constraints:** `1 ≤ n ≤ 10`.\n\n**Sample Input**\n\n```\n3\n```\n\n**Sample Output**\n\n```\n1 2 3\n2 4 6\n3 6 9\n```\n\n**Test Cases**\n\n```\n# T1 (one row)\nIN:\n1\nOUT:\n1\n```\n\n```\n# T2 (two by two)\nIN:\n2\nOUT:\n1 2\n2 4\n```\n\n```\n# T3 (three by three)\nIN:\n3\nOUT:\n1 2 3\n2 4 6\n3 6 9\n```\n\n```\n# T4 (four by four)\nIN:\n4\nOUT:\n1 2 3 4\n2 4 6 8\n3 6 9 12\n4 8 12 16\n```\n\n```\n# T5 (maximum)\nIN:\n10\nOUT:\n1 2 3 4 5 6 7 8 9 10\n2 4 6 8 10 12 14 16 18 20\n3 6 9 12 15 18 21 24 27 30\n4 8 12 16 20 24 28 32 36 40\n5 10 15 20 25 30 35 40 45 50\n6 12 18 24 30 36 42 48 54 60\n7 14 21 28 35 42 49 56 63 70\n8 16 24 32 40 48 56 64 72 80\n9 18 27 36 45 54 63 72 81 90\n10 20 30 40 50 60 70 80 90 100\n```\n\n**Concepts Practiced:** Custom `Iterable`, custom `Iterator`, nested\niteration, independent iterator state, formatted row output.\n\n------------------------------------------------------------------------"
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "title": "Variadic Functions",
+      "description": "Variadic functions with trailing array parameters.",
+      "problems": [
+        {
+          "id": "20.1",
+          "number": 1,
+          "title": "Sum Three Values",
+          "difficulty": "Easy",
+          "description": "Define `func sum(values: Array<Int64>): Int64` that\nreturns the sum of its values. Read three integers and call the function\nby passing the three values as individual arguments.",
+          "inputFormat": "Three integers, one per line.",
+          "outputFormat": "One integer: their sum.",
+          "constraints": "Each integer is from -100000 to 100000.",
+          "sampleInput": "1\n2\n3",
+          "sampleOutput": "6",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "positive",
+              "input": "1\n2\n3",
+              "expectedOutput": "6"
+            },
+            {
+              "number": 2,
+              "label": "negative",
+              "input": "-1\n-2\n-3",
+              "expectedOutput": "-6"
+            },
+            {
+              "number": 3,
+              "label": "mixed",
+              "input": "10\n-5\n2",
+              "expectedOutput": "7"
+            },
+            {
+              "number": 4,
+              "label": "zeros",
+              "input": "0\n0\n0",
+              "expectedOutput": "0"
+            },
+            {
+              "number": 5,
+              "label": "maximum values",
+              "input": "100000\n100000\n100000",
+              "expectedOutput": "300000"
+            }
+          ],
+          "concepts": "Variadic function call, array parameter, summing\nvalues.",
+          "sourceMarkdown": "**Difficulty:** Easy\n\n**Description:** Define `func sum(values: Array<Int64>): Int64` that\nreturns the sum of its values. Read three integers and call the function\nby passing the three values as individual arguments.\n\n**Input Format:** Three integers, one per line.\n\n**Output Format:** One integer: their sum.\n\n**Constraints:** Each integer is from -100000 to 100000.\n\n**Sample Input**\n\n```\n1\n2\n3\n```\n\n**Sample Output**\n\n```\n6\n```\n\n**Test Cases**\n\n```\n# T1 (positive)\nIN:\n1\n2\n3\nOUT:\n6\n```\n\n```\n# T2 (negative)\nIN:\n-1\n-2\n-3\nOUT:\n-6\n```\n\n```\n# T3 (mixed)\nIN:\n10\n-5\n2\nOUT:\n7\n```\n\n```\n# T4 (zeros)\nIN:\n0\n0\n0\nOUT:\n0\n```\n\n```\n# T5 (maximum values)\nIN:\n100000\n100000\n100000\nOUT:\n300000\n```\n\n**Concepts Practiced:** Variadic function call, array parameter, summing\nvalues.\n\n------------------------------------------------------------------------"
+        },
+        {
+          "id": "20.2",
+          "number": 2,
+          "title": "Find the Largest of Several Values",
+          "difficulty": "Easy",
+          "description": "Define `func largest(values: Array<Int64>): Int64` that\nreturns the largest value in its array. Read four integers and call the\nfunction by passing them as individual trailing arguments.",
+          "inputFormat": "Four integers, one per line.",
+          "outputFormat": "One integer: the largest value.",
+          "constraints": "Each integer is from -100000 to 100000.",
+          "sampleInput": "4\n9\n2\n7",
+          "sampleOutput": "9",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "largest in second position",
+              "input": "4\n9\n2\n7",
+              "expectedOutput": "9"
+            },
+            {
+              "number": 2,
+              "label": "largest in first position",
+              "input": "10\n3\n2\n1",
+              "expectedOutput": "10"
+            },
+            {
+              "number": 3,
+              "label": "all negative",
+              "input": "-8\n-2\n-9\n-4",
+              "expectedOutput": "-2"
+            },
+            {
+              "number": 4,
+              "label": "all equal",
+              "input": "5\n5\n5\n5",
+              "expectedOutput": "5"
+            },
+            {
+              "number": 5,
+              "label": "zero is largest",
+              "input": "-1\n-10\n0\n-3",
+              "expectedOutput": "0"
+            }
+          ],
+          "concepts": "Variadic arguments, array iteration, comparison\nand tracking a maximum.",
+          "sourceMarkdown": "**Difficulty:** Easy\n\n**Description:** Define `func largest(values: Array<Int64>): Int64` that\nreturns the largest value in its array. Read four integers and call the\nfunction by passing them as individual trailing arguments.\n\n**Input Format:** Four integers, one per line.\n\n**Output Format:** One integer: the largest value.\n\n**Constraints:** Each integer is from -100000 to 100000.\n\n**Sample Input**\n\n```\n4\n9\n2\n7\n```\n\n**Sample Output**\n\n```\n9\n```\n\n**Test Cases**\n\n```\n# T1 (largest in second position)\nIN:\n4\n9\n2\n7\nOUT:\n9\n```\n\n```\n# T2 (largest in first position)\nIN:\n10\n3\n2\n1\nOUT:\n10\n```\n\n```\n# T3 (all negative)\nIN:\n-8\n-2\n-9\n-4\nOUT:\n-2\n```\n\n```\n# T4 (all equal)\nIN:\n5\n5\n5\n5\nOUT:\n5\n```\n\n```\n# T5 (zero is largest)\nIN:\n-1\n-10\n0\n-3\nOUT:\n0\n```\n\n**Concepts Practiced:** Variadic arguments, array iteration, comparison\nand tracking a maximum.\n\n------------------------------------------------------------------------"
+        },
+        {
+          "id": "20.3",
+          "number": 3,
+          "title": "Average of a Variable Number of Scores",
+          "difficulty": "Medium",
+          "description": "Define `func average(values: Array<Int64>): Int64` that\nreturns the integer average. Read five scores and pass them as\nindividual arguments. The average uses integer division, so the decimal\npart is dropped.",
+          "inputFormat": "Five integers, one per line.",
+          "outputFormat": "One integer: the integer average.",
+          "constraints": "`0 ≤ each score ≤ 100`.",
+          "sampleInput": "80\n90\n70\n100\n60",
+          "sampleOutput": "80",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "exact average",
+              "input": "80\n90\n70\n100\n60",
+              "expectedOutput": "80"
+            },
+            {
+              "number": 2,
+              "label": "all zero",
+              "input": "0\n0\n0\n0\n0",
+              "expectedOutput": "0"
+            },
+            {
+              "number": 3,
+              "label": "maximum",
+              "input": "100\n100\n100\n100\n100",
+              "expectedOutput": "100"
+            },
+            {
+              "number": 4,
+              "label": "fraction dropped",
+              "input": "10\n10\n10\n10\n11",
+              "expectedOutput": "10"
+            },
+            {
+              "number": 5,
+              "label": "mixed scores",
+              "input": "50\n60\n70\n80\n90",
+              "expectedOutput": "70"
+            }
+          ],
+          "concepts": "Variadic calls, array parameters, accumulation,\ninteger division.",
+          "sourceMarkdown": "**Difficulty:** Medium\n\n**Description:** Define `func average(values: Array<Int64>): Int64` that\nreturns the integer average. Read five scores and pass them as\nindividual arguments. The average uses integer division, so the decimal\npart is dropped.\n\n**Input Format:** Five integers, one per line.\n\n**Output Format:** One integer: the integer average.\n\n**Constraints:** `0 ≤ each score ≤ 100`.\n\n**Sample Input**\n\n```\n80\n90\n70\n100\n60\n```\n\n**Sample Output**\n\n```\n80\n```\n\n**Test Cases**\n\n```\n# T1 (exact average)\nIN:\n80\n90\n70\n100\n60\nOUT:\n80\n```\n\n```\n# T2 (all zero)\nIN:\n0\n0\n0\n0\n0\nOUT:\n0\n```\n\n```\n# T3 (maximum)\nIN:\n100\n100\n100\n100\n100\nOUT:\n100\n```\n\n```\n# T4 (fraction dropped)\nIN:\n10\n10\n10\n10\n11\nOUT:\n10\n```\n\n```\n# T5 (mixed scores)\nIN:\n50\n60\n70\n80\n90\nOUT:\n70\n```\n\n**Concepts Practiced:** Variadic calls, array parameters, accumulation,\ninteger division.\n\n------------------------------------------------------------------------"
+        },
+        {
+          "id": "20.4",
+          "number": 4,
+          "title": "Build a Repeated Message",
+          "difficulty": "Medium",
+          "description": "Define\n`func repeatMessage(message: String, copies: Array<Int64>): String` is\nnot a valid signature for this task. Instead, define\n`func repeatMessage(copies: Array<String>): String`, which joins the\nsupplied strings with a single space between them. Read three words and\ncall the function using three individual trailing arguments.",
+          "inputFormat": "Three lines, each containing one word.",
+          "outputFormat": "One line containing the three words separated by one\nspace.",
+          "constraints": "Each word contains 1 to 20 ASCII letters.",
+          "sampleInput": "Cangjie\nis\nfun",
+          "sampleOutput": "Cangjie is fun",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "normal",
+              "input": "I\nlove\ncoding",
+              "expectedOutput": "I love coding"
+            },
+            {
+              "number": 2,
+              "label": "short words",
+              "input": "a\nb\nc",
+              "expectedOutput": "a b c"
+            },
+            {
+              "number": 3,
+              "label": "mixed case",
+              "input": "Hello\nCode\nChum",
+              "expectedOutput": "Hello Code Chum"
+            },
+            {
+              "number": 4,
+              "label": "long words",
+              "input": "Programming\nLanguage\nPractice",
+              "expectedOutput": "Programming Language Practice"
+            },
+            {
+              "number": 5,
+              "label": "repeated words",
+              "input": "go\ngo\ngo",
+              "expectedOutput": "go go go"
+            }
+          ],
+          "concepts": "Variadic function calls with `String` values,\narray parameter, joining text.",
+          "sourceMarkdown": "**Difficulty:** Medium\n\n**Description:** Define\n`func repeatMessage(message: String, copies: Array<Int64>): String` is\nnot a valid signature for this task. Instead, define\n`func repeatMessage(copies: Array<String>): String`, which joins the\nsupplied strings with a single space between them. Read three words and\ncall the function using three individual trailing arguments.\n\n**Input Format:** Three lines, each containing one word.\n\n**Output Format:** One line containing the three words separated by one\nspace.\n\n**Constraints:** Each word contains 1 to 20 ASCII letters.\n\n**Sample Input**\n\n```\nCangjie\nis\nfun\n```\n\n**Sample Output**\n\n```\nCangjie is fun\n```\n\n**Test Cases**\n\n```\n# T1 (normal)\nIN:\nI\nlove\ncoding\nOUT:\nI love coding\n```\n\n```\n# T2 (short words)\nIN:\na\nb\nc\nOUT:\na b c\n```\n\n```\n# T3 (mixed case)\nIN:\nHello\nCode\nChum\nOUT:\nHello Code Chum\n```\n\n```\n# T4 (long words)\nIN:\nProgramming\nLanguage\nPractice\nOUT:\nProgramming Language Practice\n```\n\n```\n# T5 (repeated words)\nIN:\ngo\ngo\ngo\nOUT:\ngo go go\n```\n\n**Concepts Practiced:** Variadic function calls with `String` values,\narray parameter, joining text.\n\n------------------------------------------------------------------------"
+        },
+        {
+          "id": "20.5",
+          "number": 5,
+          "title": "Variadic Statistics",
+          "difficulty": "Hard",
+          "description": "Define these functions, each using an array as its\nfinal parameter: - `sum(values: Array<Int64>): Int64` returns the sum. -\n`countAbove(limit: Int64, values: Array<Int64>): Int64` returns how many\nvalues are strictly greater than `limit`. -\n`range(values: Array<Int64>): Int64` returns the largest value minus the\nsmallest value.\n\nRead a limit and five integers. Call each function using individual\ntrailing arguments for the five values. Print the three results.",
+          "inputFormat": "Six integers: limit, followed by five values.",
+          "outputFormat": "Three lines:\n\n    Sum: <sum>\n    Above: <count>\n    Range: <maximum minus minimum>",
+          "constraints": "All integers are from -10000 to 10000.",
+          "sampleInput": "5\n1\n6\n3\n9\n5",
+          "sampleOutput": "Sum: 24\nAbove: 2\nRange: 8",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "normal",
+              "input": "5\n1\n6\n3\n9\n5",
+              "expectedOutput": "Sum: 24\nAbove: 2\nRange: 8"
+            },
+            {
+              "number": 2,
+              "label": "all equal",
+              "input": "4\n4\n4\n4\n4\n4",
+              "expectedOutput": "Sum: 20\nAbove: 0\nRange: 0"
+            },
+            {
+              "number": 3,
+              "label": "negative values",
+              "input": "-5\n-10\n-5\n0\n5\n10",
+              "expectedOutput": "Sum: 0\nAbove: 3\nRange: 20"
+            },
+            {
+              "number": 4,
+              "label": "all below limit",
+              "input": "100\n1\n2\n3\n4\n5",
+              "expectedOutput": "Sum: 15\nAbove: 0\nRange: 4"
+            },
+            {
+              "number": 5,
+              "label": "all above limit",
+              "input": "0\n1\n2\n3\n4\n5",
+              "expectedOutput": "Sum: 15\nAbove: 5\nRange: 4"
+            }
+          ],
+          "concepts": "Multiple variadic functions, array parameters,\naggregation, comparisons, reusing the same arguments across function\ncalls.",
+          "sourceMarkdown": "**Difficulty:** Hard\n\n**Description:** Define these functions, each using an array as its\nfinal parameter: - `sum(values: Array<Int64>): Int64` returns the sum. -\n`countAbove(limit: Int64, values: Array<Int64>): Int64` returns how many\nvalues are strictly greater than `limit`. -\n`range(values: Array<Int64>): Int64` returns the largest value minus the\nsmallest value.\n\nRead a limit and five integers. Call each function using individual\ntrailing arguments for the five values. Print the three results.\n\n**Input Format:** Six integers: limit, followed by five values.\n\n**Output Format:** Three lines:\n\n```\nSum: <sum>\nAbove: <count>\nRange: <maximum minus minimum>\n```\n\n**Constraints:** All integers are from -10000 to 10000.\n\n**Sample Input**\n\n```\n5\n1\n6\n3\n9\n5\n```\n\n**Sample Output**\n\n```\nSum: 24\nAbove: 2\nRange: 8\n```\n\n**Test Cases**\n\n```\n# T1 (normal)\nIN:\n5\n1\n6\n3\n9\n5\nOUT:\nSum: 24\nAbove: 2\nRange: 8\n```\n\n```\n# T2 (all equal)\nIN:\n4\n4\n4\n4\n4\n4\nOUT:\nSum: 20\nAbove: 0\nRange: 0\n```\n\n```\n# T3 (negative values)\nIN:\n-5\n-10\n-5\n0\n5\n10\nOUT:\nSum: 0\nAbove: 3\nRange: 20\n```\n\n```\n# T4 (all below limit)\nIN:\n100\n1\n2\n3\n4\n5\nOUT:\nSum: 15\nAbove: 0\nRange: 4\n```\n\n```\n# T5 (all above limit)\nIN:\n0\n1\n2\n3\n4\n5\nOUT:\nSum: 15\nAbove: 5\nRange: 4\n```\n\n**Concepts Practiced:** Multiple variadic functions, array parameters,\naggregation, comparisons, reusing the same arguments across function\ncalls."
         }
       ]
     }

@@ -266,7 +266,7 @@ async function serveStatic(request, response, pathname) {
     response.writeHead(200, {
       'Content-Type': mimeTypes[extname(target).toLowerCase()] || 'application/octet-stream',
       'Content-Length': content.length,
-      'Cache-Control': target.endsWith('curriculum.json') ? 'public, max-age=300' : 'no-cache',
+      'Cache-Control': 'no-cache',
       'X-Content-Type-Options': 'nosniff',
       'Referrer-Policy': 'no-referrer',
       'Content-Security-Policy': "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'"

@@ -6,7 +6,7 @@
   <script>try { if (localStorage.getItem('cangchum-theme') === 'dark') document.documentElement.dataset.theme = 'dark'; } catch {}</script>
   <meta name="page-type" content="software">
   <meta name="site-kind" content="software">
-  <meta name="description" content="A Cangjie programming course with ten lessons, 50 source problems, a coding workspace, and saved study progress.">
+  <meta name="description" content="A Cangjie programming course with twenty lessons, 100 source problems, a coding workspace, and saved study progress.">
   <title>CangChum — Cangjie practice</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -58,11 +58,11 @@
 
   <main id="main" class="wrap app-shell">
     <aside class="curriculum-rail" aria-label="Course curriculum">
-      <div class="rail-heading"><span>Course</span><span class="rail-count">10 lessons</span></div>
-      <div class="course-name"><span class="course-name__icon" aria-hidden="true">CJ</span><div><strong>Cangjie foundations</strong><span>Batch 1 · 50 problems</span></div></div>
+      <div class="rail-heading"><span>Course</span><span class="rail-count">20 lessons</span></div>
+      <div class="course-name"><span class="course-name__icon" aria-hidden="true">CJ</span><div><strong>Cangjie foundations</strong><span>Batch 1 + 2 · 100 problems</span></div></div>
       <div class="rail-progress"><div class="rail-progress__line"><span id="rail-progress-fill"></span></div><span id="rail-progress-label">0% complete</span></div>
       <div class="lesson-nav" id="lesson-nav"></div>
-      <div class="rail-note"><span class="rail-note__mark" aria-hidden="true">↗</span><p>All ten lessons are open. Follow the recommended order or revisit any topic.</p></div>
+      <div class="rail-note"><span class="rail-note__mark" aria-hidden="true">↗</span><p>All twenty lessons are open. Follow the recommended order or revisit any topic.</p></div>
     </aside>
 
     <section class="main-content" id="dashboard" aria-labelledby="page-title">
@@ -74,14 +74,14 @@
       </div>
 
       <section class="stats-grid" aria-label="Course statistics">
-        <article class="stat-card stat-card--primary"><div class="stat-card__top"><span>Problems completed</span><span class="stat-icon" aria-hidden="true">✓</span></div><strong id="stat-completed">0 <small>/ 50</small></strong><div class="stat-card__foot"><span id="stat-completion-percent">0% course progress</span><div class="mini-track"><span id="stat-completion-fill"></span></div></div></article>
+        <article class="stat-card stat-card--primary"><div class="stat-card__top"><span>Problems completed</span><span class="stat-icon" aria-hidden="true">✓</span></div><strong id="stat-completed">0 <small>/ 100</small></strong><div class="stat-card__foot"><span id="stat-completion-percent">0% course progress</span><div class="mini-track"><span id="stat-completion-fill"></span></div></div></article>
         <article class="stat-card"><div class="stat-card__top"><span>Current lesson</span><span class="stat-icon stat-icon--plain" aria-hidden="true">↗</span></div><strong class="stat-card__lesson" id="stat-current-lesson">Lesson 1</strong><div class="stat-card__foot"><span id="stat-current-title">Hello World</span></div></article>
-        <article class="stat-card"><div class="stat-card__top"><span>Problems available</span><span class="stat-icon stat-icon--plain" aria-hidden="true">⌘</span></div><strong>50</strong><div class="stat-card__foot"><span>Across 10 lessons</span></div></article>
+        <article class="stat-card"><div class="stat-card__top"><span>Problems available</span><span class="stat-icon stat-icon--plain" aria-hidden="true">⌘</span></div><strong>100</strong><div class="stat-card__foot"><span>Across 20 lessons</span></div></article>
         <article class="stat-card"><div class="stat-card__top"><span>Attempts</span><span class="stat-icon stat-icon--plain" aria-hidden="true">↻</span></div><strong id="stat-attempts">0</strong><div class="stat-card__foot"><span>Saved on this device</span></div></article>
       </section>
 
       <section class="performance-section" aria-labelledby="performance-heading">
-        <div class="section-title-row"><div><p class="eyebrow">Course progress</p><h2 id="performance-heading">Problem difficulty</h2></div><span class="section-meta">50 problems total</span></div>
+        <div class="section-title-row"><div><p class="eyebrow">Course progress</p><h2 id="performance-heading">Problem difficulty</h2></div><span class="section-meta">100 problems total</span></div>
         <div class="difficulty-list" id="difficulty-stats"></div>
       </section>
 
@@ -101,12 +101,12 @@
       <div class="page-intro">
         <div class="breadcrumbs"><a href="#dashboard" data-view-link="dashboard">Dashboard</a><span aria-hidden="true">/</span><span>Curriculum</span></div>
         <p class="eyebrow">The source question bank</p><h1 id="curriculum-title">Lessons and problems</h1>
-        <p class="intro-copy">Ten topics in the original order. Each lesson has two Easy, two Medium, and one Hard problem.</p>
+        <p class="intro-copy">Twenty topics in the original order. Each lesson has two Easy, two Medium, and one Hard problem.</p>
       </div>
       <div class="curriculum-toolbar"><div class="filter-group" aria-label="Filter by difficulty"><button type="button" class="filter-chip is-selected" data-filter-difficulty="all" aria-pressed="true">All levels</button><button type="button" class="filter-chip" data-filter-difficulty="Easy" aria-pressed="false">Easy</button><button type="button" class="filter-chip" data-filter-difficulty="Medium" aria-pressed="false">Medium</button><button type="button" class="filter-chip" data-filter-difficulty="Hard" aria-pressed="false">Hard</button></div>
         <label class="status-filter">Status<select id="status-filter"><option value="all">All problems</option><option value="not-started">Not started</option><option value="attempted">Attempted</option><option value="completed">Completed</option><option value="review">For review</option></select></label></div>
       <div class="lesson-overview-list" id="lesson-overview-list"></div>
-      <footer class="app-footer"><span>CangChum · Cangjie study platform</span><span>Source document: Batch 1 · Lessons 1–10</span></footer>
+      <footer class="app-footer"><span>CangChum · Cangjie study platform</span><span>Source documents: Batches 1–2 · Lessons 1–20</span></footer>
     </section>
   </main>
 
