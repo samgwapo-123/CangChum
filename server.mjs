@@ -44,12 +44,18 @@ function runnerHealth() {
   if (daemon.error || daemon.status !== 0) return { runnerAvailable: false, compilerInstalled: false, compilerVersion: null, message: 'Docker is installed, but its container service is not running.' };
   const image = spawnSync('docker', ['image', 'inspect', '--format', '{{.Id}}', RUNNER_IMAGE], { encoding: 'utf8', windowsHide: true, timeout: 3000 });
   if (image.error || image.status !== 0) return { runnerAvailable: false, compilerInstalled: false, compilerVersion: null, message: `The configured runner image “${RUNNER_IMAGE}” is not available locally. Build or load it before running code.` };
-  const compilerVersion = runVersion('docker', [
+  const compilerProbe = [
     'run', '--rm', '--network=none', '--read-only', '--cpus=1', '--memory=512m', '--pids-limit=32',
     '--user=65534:65534', '--cap-drop=ALL', '--security-opt=no-new-privileges',
     '--tmpfs=/tmp:rw,nosuid,nodev,noexec,size=16m', RUNNER_IMAGE, 'cjc', '--version'
-  ], 8000);
-  if (!compilerVersion) return { runnerAvailable: false, compilerInstalled: false, compilerVersion: null, message: `The Cangjie compiler is not accessible in the configured runner image “${RUNNER_IMAGE}”.` };
+  ];
+  // Docker Desktop's Resource Saver can put the Linux VM to sleep when idle.
+  // The first container start then wakes the VM, which can exceed the normal
+  // probe budget, so retry once with a cold-start allowance before reporting
+  // the compiler as missing.
+  let compilerVersion = runVersion('docker', compilerProbe, 8_000);
+  if (!compilerVersion) compilerVersion = runVersion('docker', compilerProbe, 25_000);
+  if (!compilerVersion) return { runnerAvailable: false, compilerInstalled: false, compilerVersion: null, message: `The Cangjie compiler is not accessible in the configured runner image “${RUNNER_IMAGE}”. If Docker Desktop was idle, it may still be waking up; try again in a moment.` };
   return { runnerAvailable: true, compilerInstalled: true, compilerVersion, runnerImage: RUNNER_IMAGE, message: '' };
 }
 
