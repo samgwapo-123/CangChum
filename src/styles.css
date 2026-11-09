@@ -381,6 +381,7 @@ body.is-resizing { cursor: col-resize; user-select: none; }
 :root[data-theme="dark"] .result-error { border-color: var(--app-edge); background: #111718; color: #d9dfdf; }
 :root[data-theme="dark"] .problem-source th { background: #252c2e; }
 :root[data-theme="dark"] .editor-body { background: #111718; }
+:root[data-theme="dark"] #code-editor { caret-color: #ffffff; }
 :root[data-theme="dark"] .line-numbers { color: #7e898a; }
 :root[data-theme="dark"] .syntax-layer { color: #d5dddd; }
 :root[data-theme="dark"] .syntax-keyword { color: #d2a6e2; }
