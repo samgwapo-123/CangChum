@@ -473,6 +473,54 @@ function toggleReview() {
   renderAll();
 }
 
+const AUTO_PAIRS = { '(': ')', '[': ']', '{': '}', '"': '"', "'": "'" };
+const AUTO_CLOSERS = new Set([')', ']', '}', '"', "'"]);
+
+// Auto-closes ( ) [ ] { } and quotes, wraps a selection, skips over an already
+// present closer, and deletes both halves of an empty pair on Backspace.
+function handleAutoPairs(event, editor) {
+  if (event.isComposing || event.ctrlKey || event.metaKey || event.altKey) return false;
+  const { selectionStart: start, selectionEnd: end, value } = editor;
+
+  if (event.key === 'Backspace') {
+    if (start !== end || start === 0) return false;
+    const opening = value[start - 1];
+    const partner = Object.prototype.hasOwnProperty.call(AUTO_PAIRS, opening) ? AUTO_PAIRS[opening] : '';
+    if (!partner || partner !== value[start]) return false;
+    event.preventDefault();
+    editor.setRangeText('', start - 1, start + 1, 'end');
+    editor.dispatchEvent(new Event('input', { bubbles: true }));
+    return true;
+  }
+
+  const closer = Object.prototype.hasOwnProperty.call(AUTO_PAIRS, event.key) ? AUTO_PAIRS[event.key] : '';
+  if (!closer) {
+    // Typing a closer (or quote) whose twin is already the next character: step over it.
+    if (start === end && AUTO_CLOSERS.has(event.key) && value[start] === event.key) {
+      event.preventDefault();
+      editor.setSelectionRange(start + 1, start + 1);
+      return true;
+    }
+    return false;
+  }
+
+  event.preventDefault();
+  if (start !== end) {
+    editor.setRangeText(`${event.key}${value.slice(start, end)}${closer}`, start, end, 'end');
+  } else if (closer === event.key && value[start] === closer) {
+    // Quotes open and close with the same character, so step over an existing
+    // one. Brackets are different characters: typing an opener always inserts a
+    // fresh pair, even when a closer is already ahead, so `(` before `)` gives `(())`.
+    editor.setSelectionRange(start + 1, start + 1);
+    return true;
+  } else {
+    editor.setRangeText(`${event.key}${closer}`, start, start, 'end');
+    editor.setSelectionRange(start + 1, start + 1);
+  }
+  editor.dispatchEvent(new Event('input', { bubbles: true }));
+  return true;
+}
+
 function handleEditorKeydown(event) {
   const editor = event.currentTarget;
   if ((event.ctrlKey || event.metaKey) && event.key === 'Enter') {
@@ -480,6 +528,7 @@ function handleEditorKeydown(event) {
     execute('sample');
     return;
   }
+  if (handleAutoPairs(event, editor)) return;
   if (event.key === 'Tab') {
     event.preventDefault();
     const start = editor.selectionStart;
