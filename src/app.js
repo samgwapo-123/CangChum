@@ -539,13 +539,24 @@ function handleEditorKeydown(event) {
   }
   if (event.key === 'Enter') {
     const start = editor.selectionStart;
+    const end = editor.selectionEnd;
     const before = editor.value.slice(0, start);
     const currentLine = before.slice(before.lastIndexOf('\n') + 1);
-    let indentation = currentLine.match(/^[ \t]*/)?.[0] || '';
-    if (/\{\s*$/.test(currentLine)) indentation += '    ';
+    const indentation = currentLine.match(/^[ \t]*/)?.[0] || '';
+    const opensBlock = /\{\s*$/.test(currentLine);
+    const innerIndentation = opensBlock ? `${indentation}    ` : indentation;
     event.preventDefault();
-    editor.setRangeText(`\n${indentation}`, start, editor.selectionEnd, 'end');
+    if (start === end && opensBlock && editor.value[start] === '}') {
+      // Caret sits inside an empty pair such as `{|}`: keep the closing brace on
+      // its own line, aligned with the line that opened the block.
+      const inner = innerIndentation;
+      editor.setRangeText(`\n${inner}\n${indentation}`, start, end, 'end');
+      editor.setSelectionRange(start + 1 + inner.length, start + 1 + inner.length);
+    } else {
+      editor.setRangeText(`\n${innerIndentation}`, start, end, 'end');
+    }
     editor.dispatchEvent(new Event('input', { bubbles: true }));
+    return;
   }
   if ((event.ctrlKey || event.metaKey) && event.key === 's') {
     event.preventDefault();
