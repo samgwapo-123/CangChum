@@ -30,6 +30,13 @@ const batches = [
       'Custom Iterable and Iterator implementations.',
       'Variadic functions with trailing array parameters.'
     ]
+  },
+  {
+    file: 'Cangjie_CodeChum_Batch3_Lessons21-22.md',
+    descriptions: [
+      'Nested loops, row and column traversal, diagonals, transpose, and matrix arithmetic.',
+      'Classes, constructors, encapsulation, inheritance, interfaces, and object composition.'
+    ]
   }
 ];
 
@@ -161,11 +168,27 @@ const lessons = lessonsByBatch.flat();
 const problems = lessons.flatMap((lesson) => lesson.problems);
 const ids = new Set();
 
-if (lessons.length !== 20 || lessons.some((lesson) => lesson.problems.length !== 5)) {
-  throw new Error(`Expected 20 lessons with 5 problems each; found ${lessons.length} lessons.`);
+const expectedLessonCount = 22;
+const expectedProblemCount = 120;
+const expectedTestCaseCount = 620;
+const problemsPerLesson = new Map([[21, 10], [22, 10]]);
+const difficultyByLesson = new Map([
+  [21, { Easy: 6, Medium: 3, Hard: 1 }],
+  [22, { Easy: 3, Medium: 3, Hard: 4 }]
+]);
+const standardDifficulty = { Easy: 2, Medium: 2, Hard: 1 };
+
+if (lessons.length !== expectedLessonCount) {
+  throw new Error(`Expected ${expectedLessonCount} lessons; found ${lessons.length}.`);
 }
-if (problems.length !== 100 || problems.some((problem) => ids.has(problem.id) || !ids.add(problem.id))) {
-  throw new Error('Expected 100 problems with unique IDs.');
+for (const lesson of lessons) {
+  const expected = problemsPerLesson.get(lesson.id) ?? 5;
+  if (lesson.problems.length !== expected) {
+    throw new Error(`Expected ${expected} problems in lesson ${lesson.id}; found ${lesson.problems.length}.`);
+  }
+}
+if (problems.length !== expectedProblemCount || problems.some((problem) => ids.has(problem.id) || !ids.add(problem.id))) {
+  throw new Error(`Expected ${expectedProblemCount} problems with unique IDs; found ${problems.length}.`);
 }
 for (const lesson of lessons) {
   const counts = { Easy: 0, Medium: 0, Hard: 0 };
@@ -174,18 +197,22 @@ for (const lesson of lessons) {
       || typeof problem.sampleInput !== 'string' || typeof problem.sampleOutput !== 'string' || problem.testCases.length < 5) {
       throw new Error(`Incomplete source data in problem ${problem.id}`);
     }
+    if (!Object.hasOwn(counts, problem.difficulty)) {
+      throw new Error(`Unexpected difficulty "${problem.difficulty}" in problem ${problem.id}`);
+    }
     counts[problem.difficulty] += 1;
     if (problem.testCases.some((test) => typeof test.input !== 'string' || typeof test.expectedOutput !== 'string')) {
       throw new Error(`Invalid input or expected output in problem ${problem.id}`);
     }
   }
-  if (counts.Easy !== 2 || counts.Medium !== 2 || counts.Hard !== 1) {
+  const expected = difficultyByLesson.get(lesson.id) ?? standardDifficulty;
+  if (counts.Easy !== expected.Easy || counts.Medium !== expected.Medium || counts.Hard !== expected.Hard) {
     throw new Error(`Unexpected difficulty distribution in lesson ${lesson.id}: ${JSON.stringify(counts)}`);
   }
 }
 
 const testCaseCount = problems.reduce((total, problem) => total + problem.testCases.length, 0);
-if (testCaseCount !== 520) throw new Error(`Expected 520 test cases; found ${testCaseCount}.`);
+if (testCaseCount !== expectedTestCaseCount) throw new Error(`Expected ${expectedTestCaseCount} test cases; found ${testCaseCount}.`);
 
 await writeFile(new URL('./curriculum.json', import.meta.url), `${JSON.stringify({
   source: batches[0].file,

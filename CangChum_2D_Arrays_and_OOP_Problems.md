@@ -1361,8 +1361,8 @@ Eli
 Expected:
 ```text
 Account: Eli
-Balance: 100
-Withdrawal: FAILED
+Balance: 99
+Withdrawal: SUCCESS
 ```
 
 **Test Case 5**
@@ -1960,7 +1960,7 @@ For each item, print `name: subtotal`. Then print `Total: amount`.
 - `1 ≤ N ≤ 100`
 - `1 ≤ product name length ≤ 30`
 - `0 ≤ unit price ≤ 1,000,000`
-- `1 ≤ quantity ≤ 1,000`
+- `0 ≤ quantity ≤ 1,000`
 
 ### Sample Input
 ```text

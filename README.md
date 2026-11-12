@@ -1,6 +1,6 @@
 # CangChum
 
-CangChum is a local Cangjie study platform built from the supplied Batch 1 and Batch 2 lesson banks. It includes 20 lessons, 100 problems, and 520 official test cases, a progress dashboard, a problem workspace, and an isolated execution-service boundary.
+CangChum is a local Cangjie study platform built from the supplied lesson banks. It includes 22 lessons, 120 problems, and 620 official test cases, a progress dashboard, a problem workspace, and an isolated execution-service boundary.
 
 ## Start the app
 
@@ -12,7 +12,7 @@ npm start
 
 Open [http://127.0.0.1:4173](http://127.0.0.1:4173). The app stores saved code, review flags, attempts, submissions, and completion in this browser's local storage.
 
-To rebuild the structured curriculum after editing either source lesson document:
+To rebuild the structured curriculum after editing any source lesson document:
 
 ```powershell
 npm run build:data
@@ -53,7 +53,7 @@ The backend passes each program to a fresh container. Containers have no network
 ## What's included
 
 - Dashboard with overall and difficulty progress, current lesson, attempts, next problem, and recent activity.
-- Navigation across all twenty lessons, with every lesson available from the start.
+- Navigation across all twenty-two lessons, with every lesson available from the start.
 - Difficulty, completion, attempt, and review filters.
 - Problem statements, input/output formats, constraints, samples, and source test cases.
 - Cangjie editor with language-specific highlighting, line numbers, indentation, matching brackets, saved code, reset, copy, and resizable panels.

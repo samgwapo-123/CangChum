@@ -2,7 +2,8 @@
   "source": "Cangjie_CodeChum_Batch1_Lessons1-10.md",
   "sourceFiles": [
     "Cangjie_CodeChum_Batch1_Lessons1-10.md",
-    "Cangjie_CodeChum_Batch2_Lessons11-20.md"
+    "Cangjie_CodeChum_Batch2_Lessons11-20.md",
+    "Cangjie_CodeChum_Batch3_Lessons21-22.md"
   ],
   "lessons": [
     {
@@ -4862,6 +4863,940 @@
           ],
           "concepts": "Multiple variadic functions, array parameters,\naggregation, comparisons, reusing the same arguments across function\ncalls.",
           "sourceMarkdown": "**Difficulty:** Hard\n\n**Description:** Define these functions, each using an array as its\nfinal parameter: - `sum(values: Array<Int64>): Int64` returns the sum. -\n`countAbove(limit: Int64, values: Array<Int64>): Int64` returns how many\nvalues are strictly greater than `limit`. -\n`range(values: Array<Int64>): Int64` returns the largest value minus the\nsmallest value.\n\nRead a limit and five integers. Call each function using individual\ntrailing arguments for the five values. Print the three results.\n\n**Input Format:** Six integers: limit, followed by five values.\n\n**Output Format:** Three lines:\n\n```\nSum: <sum>\nAbove: <count>\nRange: <maximum minus minimum>\n```\n\n**Constraints:** All integers are from -10000 to 10000.\n\n**Sample Input**\n\n```\n5\n1\n6\n3\n9\n5\n```\n\n**Sample Output**\n\n```\nSum: 24\nAbove: 2\nRange: 8\n```\n\n**Test Cases**\n\n```\n# T1 (normal)\nIN:\n5\n1\n6\n3\n9\n5\nOUT:\nSum: 24\nAbove: 2\nRange: 8\n```\n\n```\n# T2 (all equal)\nIN:\n4\n4\n4\n4\n4\n4\nOUT:\nSum: 20\nAbove: 0\nRange: 0\n```\n\n```\n# T3 (negative values)\nIN:\n-5\n-10\n-5\n0\n5\n10\nOUT:\nSum: 0\nAbove: 3\nRange: 20\n```\n\n```\n# T4 (all below limit)\nIN:\n100\n1\n2\n3\n4\n5\nOUT:\nSum: 15\nAbove: 0\nRange: 4\n```\n\n```\n# T5 (all above limit)\nIN:\n0\n1\n2\n3\n4\n5\nOUT:\nSum: 15\nAbove: 5\nRange: 4\n```\n\n**Concepts Practiced:** Multiple variadic functions, array parameters,\naggregation, comparisons, reusing the same arguments across function\ncalls."
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "title": "2D Arrays",
+      "description": "Nested loops, row and column traversal, diagonals, transpose, and matrix arithmetic.",
+      "problems": [
+        {
+          "id": "21.1",
+          "number": 1,
+          "title": "A1. Matrix Sum",
+          "difficulty": "Easy",
+          "description": "Read an integer `N`, followed by an `N × N` matrix. Calculate the sum of all elements in the matrix.",
+          "inputFormat": "- First line: integer `N`.\n- Next `N` lines: `N` space-separated integers per line.",
+          "outputFormat": "Print `Sum: X`, where `X` is the sum of all matrix elements.",
+          "constraints": "- `1 ≤ N ≤ 100`\n- `-10,000 ≤ element ≤ 10,000`",
+          "sampleInput": "3\n1 2 3\n4 5 6\n7 8 9",
+          "sampleOutput": "Sum: 45",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "Test 1",
+              "input": "3\n1 2 3\n4 5 6\n7 8 9",
+              "expectedOutput": "Sum: 45"
+            },
+            {
+              "number": 2,
+              "label": "Test 2",
+              "input": "1\n-7",
+              "expectedOutput": "Sum: -7"
+            },
+            {
+              "number": 3,
+              "label": "Test 3",
+              "input": "2\n-1 5\n3 -2",
+              "expectedOutput": "Sum: 5"
+            },
+            {
+              "number": 4,
+              "label": "Test 4",
+              "input": "2\n0 0\n0 0",
+              "expectedOutput": "Sum: 0"
+            },
+            {
+              "number": 5,
+              "label": "Test 5",
+              "input": "3\n10000 -10000 1\n-5 5 9\n2 3 -4",
+              "expectedOutput": "Sum: 11"
+            }
+          ],
+          "concepts": "2D array initialization, nested loops, accumulation, reading matrix rows.",
+          "sourceMarkdown": "**Difficulty:** Easy\n\n**Description:** Read an integer `N`, followed by an `N × N` matrix. Calculate the sum of all elements in the matrix.\n\n**Input Format:** - First line: integer `N`.\n- Next `N` lines: `N` space-separated integers per line.\n\n**Output Format:** Print `Sum: X`, where `X` is the sum of all matrix elements.\n\n**Constraints:**\n\n- `1 ≤ N ≤ 100`\n- `-10,000 ≤ element ≤ 10,000`\n\n**Sample Input**\n```\n3\n1 2 3\n4 5 6\n7 8 9\n```\n**Sample Output**\n```\nSum: 45\n```\n\n**Test Cases**\n```\n# T1\nIN:\n3\n1 2 3\n4 5 6\n7 8 9\nOUT:\nSum: 45\n# T2\nIN:\n1\n-7\nOUT:\nSum: -7\n# T3\nIN:\n2\n-1 5\n3 -2\nOUT:\nSum: 5\n# T4\nIN:\n2\n0 0\n0 0\nOUT:\nSum: 0\n# T5\nIN:\n3\n10000 -10000 1\n-5 5 9\n2 3 -4\nOUT:\nSum: 11\n```\n**Concepts Practiced:** 2D array initialization, nested loops, accumulation, reading matrix rows."
+        },
+        {
+          "id": "21.2",
+          "number": 2,
+          "title": "A2. Sum of Each Row",
+          "difficulty": "Easy",
+          "description": "Read an `R × C` matrix. Calculate the sum of each row and print the result in row order.",
+          "inputFormat": "- First line: `R C`.\n- Next `R` lines: `C` space-separated integers per line.",
+          "outputFormat": "For each row `i`, print `Row i: sum`.",
+          "constraints": "- `1 ≤ R, C ≤ 100`\n- `-10,000 ≤ element ≤ 10,000`",
+          "sampleInput": "3 4\n1 2 3 4\n5 0 -1 2\n7 8 9 1",
+          "sampleOutput": "Row 0: 10\nRow 1: 6\nRow 2: 25",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "Test 1",
+              "input": "3 4\n1 2 3 4\n5 0 -1 2\n7 8 9 1",
+              "expectedOutput": "Row 0: 10\nRow 1: 6\nRow 2: 25"
+            },
+            {
+              "number": 2,
+              "label": "Test 2",
+              "input": "1 3\n4 5 6",
+              "expectedOutput": "Row 0: 15"
+            },
+            {
+              "number": 3,
+              "label": "Test 3",
+              "input": "2 2\n-3 -2\n8 -1",
+              "expectedOutput": "Row 0: -5\nRow 1: 7"
+            },
+            {
+              "number": 4,
+              "label": "Test 4",
+              "input": "3 1\n9\n0\n-4",
+              "expectedOutput": "Row 0: 9\nRow 1: 0\nRow 2: -4"
+            },
+            {
+              "number": 5,
+              "label": "Test 5",
+              "input": "2 3\n10000 10000 10000\n-10000 -10000 5",
+              "expectedOutput": "Row 0: 30000\nRow 1: -19995"
+            }
+          ],
+          "concepts": "Rectangular 2D arrays, row traversal, nested loops, accumulators.",
+          "sourceMarkdown": "**Difficulty:** Easy\n\n**Description:** Read an `R × C` matrix. Calculate the sum of each row and print the result in row order.\n\n**Input Format:** - First line: `R C`.\n- Next `R` lines: `C` space-separated integers per line.\n\n**Output Format:** For each row `i`, print `Row i: sum`.\n\n**Constraints:**\n\n- `1 ≤ R, C ≤ 100`\n- `-10,000 ≤ element ≤ 10,000`\n\n**Sample Input**\n```\n3 4\n1 2 3 4\n5 0 -1 2\n7 8 9 1\n```\n**Sample Output**\n```\nRow 0: 10\nRow 1: 6\nRow 2: 25\n```\n\n**Test Cases**\n```\n# T1\nIN:\n3 4\n1 2 3 4\n5 0 -1 2\n7 8 9 1\nOUT:\nRow 0: 10\nRow 1: 6\nRow 2: 25\n# T2\nIN:\n1 3\n4 5 6\nOUT:\nRow 0: 15\n# T3\nIN:\n2 2\n-3 -2\n8 -1\nOUT:\nRow 0: -5\nRow 1: 7\n# T4\nIN:\n3 1\n9\n0\n-4\nOUT:\nRow 0: 9\nRow 1: 0\nRow 2: -4\n# T5\nIN:\n2 3\n10000 10000 10000\n-10000 -10000 5\nOUT:\nRow 0: 30000\nRow 1: -19995\n```\n**Concepts Practiced:** Rectangular 2D arrays, row traversal, nested loops, accumulators."
+        },
+        {
+          "id": "21.3",
+          "number": 3,
+          "title": "A3. Sum of Each Column",
+          "difficulty": "Easy",
+          "description": "Read an `R × C` matrix. Calculate the sum of each column and print the result from the first column to the last.",
+          "inputFormat": "- First line: `R C`.\n- Next `R` lines: `C` space-separated integers per line.",
+          "outputFormat": "For each column `j`, print `Column j: sum`.",
+          "constraints": "- `1 ≤ R, C ≤ 100`\n- `-10,000 ≤ element ≤ 10,000`",
+          "sampleInput": "3 3\n1 2 3\n4 5 6\n7 8 9",
+          "sampleOutput": "Column 0: 12\nColumn 1: 15\nColumn 2: 18",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "Test 1",
+              "input": "3 3\n1 2 3\n4 5 6\n7 8 9",
+              "expectedOutput": "Column 0: 12\nColumn 1: 15\nColumn 2: 18"
+            },
+            {
+              "number": 2,
+              "label": "Test 2",
+              "input": "1 3\n4 5 6",
+              "expectedOutput": "Column 0: 4\nColumn 1: 5\nColumn 2: 6"
+            },
+            {
+              "number": 3,
+              "label": "Test 3",
+              "input": "3 1\n2\n-3\n8",
+              "expectedOutput": "Column 0: 7"
+            },
+            {
+              "number": 4,
+              "label": "Test 4",
+              "input": "2 2\n-1 -2\n-3 -4",
+              "expectedOutput": "Column 0: -4\nColumn 1: -6"
+            },
+            {
+              "number": 5,
+              "label": "Test 5",
+              "input": "2 4\n1 0 2 0\n3 4 5 6",
+              "expectedOutput": "Column 0: 4\nColumn 1: 4\nColumn 2: 7\nColumn 3: 6"
+            }
+          ],
+          "concepts": "Column traversal, fixing the column index while changing the row index, rectangular arrays.",
+          "sourceMarkdown": "**Difficulty:** Easy\n\n**Description:** Read an `R × C` matrix. Calculate the sum of each column and print the result from the first column to the last.\n\n**Input Format:** - First line: `R C`.\n- Next `R` lines: `C` space-separated integers per line.\n\n**Output Format:** For each column `j`, print `Column j: sum`.\n\n**Constraints:**\n\n- `1 ≤ R, C ≤ 100`\n- `-10,000 ≤ element ≤ 10,000`\n\n**Sample Input**\n```\n3 3\n1 2 3\n4 5 6\n7 8 9\n```\n**Sample Output**\n```\nColumn 0: 12\nColumn 1: 15\nColumn 2: 18\n```\n\n**Test Cases**\n```\n# T1\nIN:\n3 3\n1 2 3\n4 5 6\n7 8 9\nOUT:\nColumn 0: 12\nColumn 1: 15\nColumn 2: 18\n# T2\nIN:\n1 3\n4 5 6\nOUT:\nColumn 0: 4\nColumn 1: 5\nColumn 2: 6\n# T3\nIN:\n3 1\n2\n-3\n8\nOUT:\nColumn 0: 7\n# T4\nIN:\n2 2\n-1 -2\n-3 -4\nOUT:\nColumn 0: -4\nColumn 1: -6\n# T5\nIN:\n2 4\n1 0 2 0\n3 4 5 6\nOUT:\nColumn 0: 4\nColumn 1: 4\nColumn 2: 7\nColumn 3: 6\n```\n**Concepts Practiced:** Column traversal, fixing the column index while changing the row index, rectangular arrays."
+        },
+        {
+          "id": "21.4",
+          "number": 4,
+          "title": "A4. Row and Column Averages",
+          "difficulty": "Easy",
+          "description": "Read an `R × C` matrix. Print the integer average of each row, followed by the integer average of each column. Integer division truncates toward zero.",
+          "inputFormat": "- First line: `R C`.\n- Next `R` lines: `C` space-separated integers per line.",
+          "outputFormat": "First print each row average as `Row i Average: value`. Then print each column average as `Column j Average: value`.",
+          "constraints": "- `1 ≤ R, C ≤ 100`\n- `-10,000 ≤ element ≤ 10,000`",
+          "sampleInput": "2 3\n2 4 6\n4 6 8",
+          "sampleOutput": "Row 0 Average: 4\nRow 1 Average: 6\nColumn 0 Average: 3\nColumn 1 Average: 5\nColumn 2 Average: 7",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "Test 1",
+              "input": "2 3\n2 4 6\n4 6 8",
+              "expectedOutput": "Row 0 Average: 4\nRow 1 Average: 6\nColumn 0 Average: 3\nColumn 1 Average: 5\nColumn 2 Average: 7"
+            },
+            {
+              "number": 2,
+              "label": "Test 2",
+              "input": "1 1\n9",
+              "expectedOutput": "Row 0 Average: 9\nColumn 0 Average: 9"
+            },
+            {
+              "number": 3,
+              "label": "Test 3",
+              "input": "2 2\n1 2\n2 3",
+              "expectedOutput": "Row 0 Average: 1\nRow 1 Average: 2\nColumn 0 Average: 1\nColumn 1 Average: 2"
+            },
+            {
+              "number": 4,
+              "label": "Test 4",
+              "input": "2 3\n-2 -4 -6\n1 2 3",
+              "expectedOutput": "Row 0 Average: -4\nRow 1 Average: 2\nColumn 0 Average: 0\nColumn 1 Average: -1\nColumn 2 Average: -1"
+            },
+            {
+              "number": 5,
+              "label": "Test 5",
+              "input": "3 2\n10 20\n20 30\n30 40",
+              "expectedOutput": "Row 0 Average: 15\nRow 1 Average: 25\nRow 2 Average: 35\nColumn 0 Average: 20\nColumn 1 Average: 30"
+            }
+          ],
+          "concepts": "Row and column traversal, integer division, accumulators, rectangular matrices.",
+          "sourceMarkdown": "**Difficulty:** Easy\n\n**Description:** Read an `R × C` matrix. Print the integer average of each row, followed by the integer average of each column. Integer division truncates toward zero.\n\n**Input Format:** - First line: `R C`.\n- Next `R` lines: `C` space-separated integers per line.\n\n**Output Format:** First print each row average as `Row i Average: value`. Then print each column average as `Column j Average: value`.\n\n**Constraints:**\n\n- `1 ≤ R, C ≤ 100`\n- `-10,000 ≤ element ≤ 10,000`\n\n**Sample Input**\n```\n2 3\n2 4 6\n4 6 8\n```\n**Sample Output**\n```\nRow 0 Average: 4\nRow 1 Average: 6\nColumn 0 Average: 3\nColumn 1 Average: 5\nColumn 2 Average: 7\n```\n\n**Test Cases**\n```\n# T1\nIN:\n2 3\n2 4 6\n4 6 8\nOUT:\nRow 0 Average: 4\nRow 1 Average: 6\nColumn 0 Average: 3\nColumn 1 Average: 5\nColumn 2 Average: 7\n# T2\nIN:\n1 1\n9\nOUT:\nRow 0 Average: 9\nColumn 0 Average: 9\n# T3\nIN:\n2 2\n1 2\n2 3\nOUT:\nRow 0 Average: 1\nRow 1 Average: 2\nColumn 0 Average: 1\nColumn 1 Average: 2\n# T4\nIN:\n2 3\n-2 -4 -6\n1 2 3\nOUT:\nRow 0 Average: -4\nRow 1 Average: 2\nColumn 0 Average: 0\nColumn 1 Average: -1\nColumn 2 Average: -1\n# T5\nIN:\n3 2\n10 20\n20 30\n30 40\nOUT:\nRow 0 Average: 15\nRow 1 Average: 25\nRow 2 Average: 35\nColumn 0 Average: 20\nColumn 1 Average: 30\n```\n**Concepts Practiced:** Row and column traversal, integer division, accumulators, rectangular matrices."
+        },
+        {
+          "id": "21.5",
+          "number": 5,
+          "title": "A5. Main and Secondary Diagonal Sums",
+          "difficulty": "Easy",
+          "description": "Read an `N × N` square matrix. Calculate the sum of its main diagonal and secondary diagonal.\n\nThe main diagonal runs from the top-left to the bottom-right. The secondary diagonal runs from the top-right to the bottom-left. For an odd-sized matrix, the center element belongs to both diagonal sums.",
+          "inputFormat": "- First line: integer `N`.\n- Next `N` lines: `N` space-separated integers per line.",
+          "outputFormat": "Main Diagonal: X\nSecondary Diagonal: Y",
+          "constraints": "- `1 ≤ N ≤ 100`\n- `-10,000 ≤ element ≤ 10,000`",
+          "sampleInput": "3\n1 2 3\n4 5 6\n7 8 9",
+          "sampleOutput": "Main Diagonal: 15\nSecondary Diagonal: 15",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "Test 1",
+              "input": "3\n1 2 3\n4 5 6\n7 8 9",
+              "expectedOutput": "Main Diagonal: 15\nSecondary Diagonal: 15"
+            },
+            {
+              "number": 2,
+              "label": "Test 2",
+              "input": "1\n8",
+              "expectedOutput": "Main Diagonal: 8\nSecondary Diagonal: 8"
+            },
+            {
+              "number": 3,
+              "label": "Test 3",
+              "input": "2\n1 2\n3 4",
+              "expectedOutput": "Main Diagonal: 5\nSecondary Diagonal: 5"
+            },
+            {
+              "number": 4,
+              "label": "Test 4",
+              "input": "3\n-1 0 2\n4 5 6\n7 8 -9",
+              "expectedOutput": "Main Diagonal: -5\nSecondary Diagonal: 14"
+            },
+            {
+              "number": 5,
+              "label": "Test 5",
+              "input": "4\n1 0 0 2\n0 3 4 0\n0 5 6 0\n7 0 0 8",
+              "expectedOutput": "Main Diagonal: 18\nSecondary Diagonal: 18"
+            }
+          ],
+          "concepts": "Square matrices, diagonal indexing, `arr[i][i]`, `arr[i][N - 1 - i]`.",
+          "sourceMarkdown": "**Difficulty:** Easy\n\n**Description:** Read an `N × N` square matrix. Calculate the sum of its main diagonal and secondary diagonal.\n\nThe main diagonal runs from the top-left to the bottom-right. The secondary diagonal runs from the top-right to the bottom-left. For an odd-sized matrix, the center element belongs to both diagonal sums.\n\n**Input Format:** - First line: integer `N`.\n- Next `N` lines: `N` space-separated integers per line.\n\n**Output Format:** Main Diagonal: X\nSecondary Diagonal: Y\n\n**Constraints:**\n\n- `1 ≤ N ≤ 100`\n- `-10,000 ≤ element ≤ 10,000`\n\n**Sample Input**\n```\n3\n1 2 3\n4 5 6\n7 8 9\n```\n**Sample Output**\n```\nMain Diagonal: 15\nSecondary Diagonal: 15\n```\n\n**Test Cases**\n```\n# T1\nIN:\n3\n1 2 3\n4 5 6\n7 8 9\nOUT:\nMain Diagonal: 15\nSecondary Diagonal: 15\n# T2\nIN:\n1\n8\nOUT:\nMain Diagonal: 8\nSecondary Diagonal: 8\n# T3\nIN:\n2\n1 2\n3 4\nOUT:\nMain Diagonal: 5\nSecondary Diagonal: 5\n# T4\nIN:\n3\n-1 0 2\n4 5 6\n7 8 -9\nOUT:\nMain Diagonal: -5\nSecondary Diagonal: 14\n# T5\nIN:\n4\n1 0 0 2\n0 3 4 0\n0 5 6 0\n7 0 0 8\nOUT:\nMain Diagonal: 18\nSecondary Diagonal: 18\n```\n**Concepts Practiced:** Square matrices, diagonal indexing, `arr[i][i]`, `arr[i][N - 1 - i]`."
+        },
+        {
+          "id": "21.6",
+          "number": 6,
+          "title": "A6. Find the Largest Element and Its Position",
+          "difficulty": "Easy",
+          "description": "Read an `R × C` matrix. Find the largest value and print its zero-based row and column position. If the largest value appears more than once, print the position of its first occurrence in row-major order.",
+          "inputFormat": "- First line: `R C`.\n- Next `R` lines: `C` space-separated integers per line.",
+          "outputFormat": "Maximum: value\nPosition: [row][column]",
+          "constraints": "- `1 ≤ R, C ≤ 100`\n- `-1,000,000 ≤ element ≤ 1,000,000`",
+          "sampleInput": "2 3\n4 9 2\n7 9 1",
+          "sampleOutput": "Maximum: 9\nPosition: [0][1]",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "Test 1",
+              "input": "2 3\n4 9 2\n7 9 1",
+              "expectedOutput": "Maximum: 9\nPosition: [0][1]"
+            },
+            {
+              "number": 2,
+              "label": "Test 2",
+              "input": "1 1\n-5",
+              "expectedOutput": "Maximum: -5\nPosition: [0][0]"
+            },
+            {
+              "number": 3,
+              "label": "Test 3",
+              "input": "2 2\n-8 -3\n-4 -9",
+              "expectedOutput": "Maximum: -3\nPosition: [0][1]"
+            },
+            {
+              "number": 4,
+              "label": "Test 4",
+              "input": "3 2\n5 5\n5 5\n5 5",
+              "expectedOutput": "Maximum: 5\nPosition: [0][0]"
+            },
+            {
+              "number": 5,
+              "label": "Test 5",
+              "input": "3 3\n1 2 3\n4 15 6\n7 8 9",
+              "expectedOutput": "Maximum: 15\nPosition: [1][1]"
+            }
+          ],
+          "concepts": "Searching, maximum tracking, row-major traversal, position tracking.",
+          "sourceMarkdown": "**Difficulty:** Easy\n\n**Description:** Read an `R × C` matrix. Find the largest value and print its zero-based row and column position. If the largest value appears more than once, print the position of its first occurrence in row-major order.\n\n**Input Format:** - First line: `R C`.\n- Next `R` lines: `C` space-separated integers per line.\n\n**Output Format:** Maximum: value\nPosition: [row][column]\n\n**Constraints:**\n\n- `1 ≤ R, C ≤ 100`\n- `-1,000,000 ≤ element ≤ 1,000,000`\n\n**Sample Input**\n```\n2 3\n4 9 2\n7 9 1\n```\n**Sample Output**\n```\nMaximum: 9\nPosition: [0][1]\n```\n\n**Test Cases**\n```\n# T1\nIN:\n2 3\n4 9 2\n7 9 1\nOUT:\nMaximum: 9\nPosition: [0][1]\n# T2\nIN:\n1 1\n-5\nOUT:\nMaximum: -5\nPosition: [0][0]\n# T3\nIN:\n2 2\n-8 -3\n-4 -9\nOUT:\nMaximum: -3\nPosition: [0][1]\n# T4\nIN:\n3 2\n5 5\n5 5\n5 5\nOUT:\nMaximum: 5\nPosition: [0][0]\n# T5\nIN:\n3 3\n1 2 3\n4 15 6\n7 8 9\nOUT:\nMaximum: 15\nPosition: [1][1]\n```\n**Concepts Practiced:** Searching, maximum tracking, row-major traversal, position tracking."
+        },
+        {
+          "id": "21.7",
+          "number": 7,
+          "title": "A7. Count Target Occurrences",
+          "difficulty": "Medium",
+          "description": "Read an `R × C` matrix and a target integer `T`. Count how many times `T` appears in the matrix.",
+          "inputFormat": "- First line: `R C`.\n- Next `R` lines: `C` space-separated integers per line.\n- Last line: target integer `T`.",
+          "outputFormat": "Print `Occurrences: X`.",
+          "constraints": "- `1 ≤ R, C ≤ 100`\n- `-10,000 ≤ element, T ≤ 10,000`",
+          "sampleInput": "3 3\n5 2 5\n1 5 3\n5 4 2\n5",
+          "sampleOutput": "Occurrences: 4",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "Test 1",
+              "input": "3 3\n5 2 5\n1 5 3\n5 4 2\n5",
+              "expectedOutput": "Occurrences: 4"
+            },
+            {
+              "number": 2,
+              "label": "Test 2",
+              "input": "2 2\n1 2\n3 4\n9",
+              "expectedOutput": "Occurrences: 0"
+            },
+            {
+              "number": 3,
+              "label": "Test 3",
+              "input": "1 4\n7 7 7 7\n7",
+              "expectedOutput": "Occurrences: 4"
+            },
+            {
+              "number": 4,
+              "label": "Test 4",
+              "input": "2 3\n-1 0 -1\n2 -1 3\n-1",
+              "expectedOutput": "Occurrences: 3"
+            },
+            {
+              "number": 5,
+              "label": "Test 5",
+              "input": "3 1\n0\n1\n0\n0",
+              "expectedOutput": "Occurrences: 2"
+            }
+          ],
+          "concepts": "Nested loops, equality comparison, counters, target searching.",
+          "sourceMarkdown": "**Difficulty:** Medium\n\n**Description:** Read an `R × C` matrix and a target integer `T`. Count how many times `T` appears in the matrix.\n\n**Input Format:** - First line: `R C`.\n- Next `R` lines: `C` space-separated integers per line.\n- Last line: target integer `T`.\n\n**Output Format:** Print `Occurrences: X`.\n\n**Constraints:**\n\n- `1 ≤ R, C ≤ 100`\n- `-10,000 ≤ element, T ≤ 10,000`\n\n**Sample Input**\n```\n3 3\n5 2 5\n1 5 3\n5 4 2\n5\n```\n**Sample Output**\n```\nOccurrences: 4\n```\n\n**Test Cases**\n```\n# T1\nIN:\n3 3\n5 2 5\n1 5 3\n5 4 2\n5\nOUT:\nOccurrences: 4\n# T2\nIN:\n2 2\n1 2\n3 4\n9\nOUT:\nOccurrences: 0\n# T3\nIN:\n1 4\n7 7 7 7\n7\nOUT:\nOccurrences: 4\n# T4\nIN:\n2 3\n-1 0 -1\n2 -1 3\n-1\nOUT:\nOccurrences: 3\n# T5\nIN:\n3 1\n0\n1\n0\n0\nOUT:\nOccurrences: 2\n```\n**Concepts Practiced:** Nested loops, equality comparison, counters, target searching."
+        },
+        {
+          "id": "21.8",
+          "number": 8,
+          "title": "A8. Matrix Transpose",
+          "difficulty": "Medium",
+          "description": "Read an `R × C` matrix and print its transpose. The transpose changes the matrix dimensions to `C × R`; element at original position `[i][j]` appears at transposed position `[j][i]`.",
+          "inputFormat": "- First line: `R C`.\n- Next `R` lines: `C` space-separated integers per line.",
+          "outputFormat": "Print the transposed matrix, one row per line, with single spaces between values and no trailing spaces.",
+          "constraints": "- `1 ≤ R, C ≤ 100`\n- `-10,000 ≤ element ≤ 10,000`",
+          "sampleInput": "2 3\n1 2 3\n4 5 6",
+          "sampleOutput": "1 4\n2 5\n3 6",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "Test 1",
+              "input": "2 3\n1 2 3\n4 5 6",
+              "expectedOutput": "1 4\n2 5\n3 6"
+            },
+            {
+              "number": 2,
+              "label": "Test 2",
+              "input": "1 3\n7 8 9",
+              "expectedOutput": "7\n8\n9"
+            },
+            {
+              "number": 3,
+              "label": "Test 3",
+              "input": "3 1\n2\n4\n6",
+              "expectedOutput": "2 4 6"
+            },
+            {
+              "number": 4,
+              "label": "Test 4",
+              "input": "2 2\n-1 0\n5 3",
+              "expectedOutput": "-1 5\n0 3"
+            },
+            {
+              "number": 5,
+              "label": "Test 5",
+              "input": "3 2\n1 2\n3 4\n5 6",
+              "expectedOutput": "1 3 5\n2 4 6"
+            }
+          ],
+          "concepts": "Rectangular arrays, swapped indices, output formatting, nested loops.",
+          "sourceMarkdown": "**Difficulty:** Medium\n\n**Description:** Read an `R × C` matrix and print its transpose. The transpose changes the matrix dimensions to `C × R`; element at original position `[i][j]` appears at transposed position `[j][i]`.\n\n**Input Format:** - First line: `R C`.\n- Next `R` lines: `C` space-separated integers per line.\n\n**Output Format:** Print the transposed matrix, one row per line, with single spaces between values and no trailing spaces.\n\n**Constraints:**\n\n- `1 ≤ R, C ≤ 100`\n- `-10,000 ≤ element ≤ 10,000`\n\n**Sample Input**\n```\n2 3\n1 2 3\n4 5 6\n```\n**Sample Output**\n```\n1 4\n2 5\n3 6\n```\n\n**Test Cases**\n```\n# T1\nIN:\n2 3\n1 2 3\n4 5 6\nOUT:\n1 4\n2 5\n3 6\n# T2\nIN:\n1 3\n7 8 9\nOUT:\n7\n8\n9\n# T3\nIN:\n3 1\n2\n4\n6\nOUT:\n2 4 6\n# T4\nIN:\n2 2\n-1 0\n5 3\nOUT:\n-1 5\n0 3\n# T5\nIN:\n3 2\n1 2\n3 4\n5 6\nOUT:\n1 3 5\n2 4 6\n```\n**Concepts Practiced:** Rectangular arrays, swapped indices, output formatting, nested loops."
+        },
+        {
+          "id": "21.9",
+          "number": 9,
+          "title": "A9. Matrix Addition",
+          "difficulty": "Medium",
+          "description": "Read two matrices with the same dimensions `R × C`. Add corresponding elements and print the resulting matrix.",
+          "inputFormat": "- First line: `R C`.\n- Next `R` lines: first matrix.\n- Next `R` lines: second matrix.\n- Each matrix row contains `C` space-separated integers.",
+          "outputFormat": "Print the resulting matrix, one row per line, with single spaces between values and no trailing spaces.",
+          "constraints": "- `1 ≤ R, C ≤ 100`\n- `-10,000 ≤ element ≤ 10,000`",
+          "sampleInput": "2 2\n1 2\n3 4\n5 6\n7 8",
+          "sampleOutput": "6 8\n10 12",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "Test 1",
+              "input": "2 2\n1 2\n3 4\n5 6\n7 8",
+              "expectedOutput": "6 8\n10 12"
+            },
+            {
+              "number": 2,
+              "label": "Test 2",
+              "input": "1 1\n-3\n8",
+              "expectedOutput": "5"
+            },
+            {
+              "number": 3,
+              "label": "Test 3",
+              "input": "2 3\n1 0 -1\n2 3 4\n-1 5 1\n0 -3 6",
+              "expectedOutput": "0 5 0\n2 0 10"
+            },
+            {
+              "number": 4,
+              "label": "Test 4",
+              "input": "3 1\n1\n2\n3\n4\n5\n6",
+              "expectedOutput": "5\n7\n9"
+            },
+            {
+              "number": 5,
+              "label": "Test 5",
+              "input": "1 4\n10000 -10000 7 0\n-10000 10000 -7 1",
+              "expectedOutput": "0 0 0 1"
+            }
+          ],
+          "concepts": "Multiple 2D arrays, corresponding element access, matrix arithmetic.",
+          "sourceMarkdown": "**Difficulty:** Medium\n\n**Description:** Read two matrices with the same dimensions `R × C`. Add corresponding elements and print the resulting matrix.\n\n**Input Format:** - First line: `R C`.\n- Next `R` lines: first matrix.\n- Next `R` lines: second matrix.\n- Each matrix row contains `C` space-separated integers.\n\n**Output Format:** Print the resulting matrix, one row per line, with single spaces between values and no trailing spaces.\n\n**Constraints:**\n\n- `1 ≤ R, C ≤ 100`\n- `-10,000 ≤ element ≤ 10,000`\n\n**Sample Input**\n```\n2 2\n1 2\n3 4\n5 6\n7 8\n```\n**Sample Output**\n```\n6 8\n10 12\n```\n\n**Test Cases**\n```\n# T1\nIN:\n2 2\n1 2\n3 4\n5 6\n7 8\nOUT:\n6 8\n10 12\n# T2\nIN:\n1 1\n-3\n8\nOUT:\n5\n# T3\nIN:\n2 3\n1 0 -1\n2 3 4\n-1 5 1\n0 -3 6\nOUT:\n0 5 0\n2 0 10\n# T4\nIN:\n3 1\n1\n2\n3\n4\n5\n6\nOUT:\n5\n7\n9\n# T5\nIN:\n1 4\n10000 -10000 7 0\n-10000 10000 -7 1\nOUT:\n0 0 0 1\n```\n**Concepts Practiced:** Multiple 2D arrays, corresponding element access, matrix arithmetic."
+        },
+        {
+          "id": "21.10",
+          "number": 10,
+          "title": "A10. Matrix Multiplication",
+          "difficulty": "Hard",
+          "description": "Read two matrices, `A` with dimensions `R × K` and `B` with dimensions `K × C`. Calculate their product `P = A × B`.\n\nEach result element is calculated by multiplying a row of `A` by a column of `B` and adding the products.",
+          "inputFormat": "- First line: `R K C`.\n- Next `R` lines: matrix A, each with `K` integers.\n- Next `K` lines: matrix B, each with `C` integers.",
+          "outputFormat": "Print the resulting `R × C` matrix, one row per line, with single spaces between values and no trailing spaces.",
+          "constraints": "- `1 ≤ R, K, C ≤ 30`\n- `-100 ≤ element ≤ 100`",
+          "sampleInput": "2 3 2\n1 2 3\n4 5 6\n7 8\n9 10\n11 12",
+          "sampleOutput": "58 64\n139 154",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "Test 1",
+              "input": "2 3 2\n1 2 3\n4 5 6\n7 8\n9 10\n11 12",
+              "expectedOutput": "58 64\n139 154"
+            },
+            {
+              "number": 2,
+              "label": "Test 2",
+              "input": "1 1 1\n5\n4",
+              "expectedOutput": "20"
+            },
+            {
+              "number": 3,
+              "label": "Test 3",
+              "input": "2 2 2\n1 0\n0 1\n3 4\n5 6",
+              "expectedOutput": "3 4\n5 6"
+            },
+            {
+              "number": 4,
+              "label": "Test 4",
+              "input": "2 2 3\n1 2\n3 4\n1 2 3\n4 5 6",
+              "expectedOutput": "9 12 15\n19 26 33"
+            },
+            {
+              "number": 5,
+              "label": "Test 5",
+              "input": "2 2 1\n1 -1\n2 3\n4\n-2",
+              "expectedOutput": "6\n2"
+            }
+          ],
+          "concepts": "Three nested loops, compatible matrix dimensions, multiplication and accumulation.",
+          "sourceMarkdown": "**Difficulty:** Hard\n\n**Description:** Read two matrices, `A` with dimensions `R × K` and `B` with dimensions `K × C`. Calculate their product `P = A × B`.\n\nEach result element is calculated by multiplying a row of `A` by a column of `B` and adding the products.\n\n**Input Format:** - First line: `R K C`.\n- Next `R` lines: matrix A, each with `K` integers.\n- Next `K` lines: matrix B, each with `C` integers.\n\n**Output Format:** Print the resulting `R × C` matrix, one row per line, with single spaces between values and no trailing spaces.\n\n**Constraints:**\n\n- `1 ≤ R, K, C ≤ 30`\n- `-100 ≤ element ≤ 100`\n\n**Sample Input**\n```\n2 3 2\n1 2 3\n4 5 6\n7 8\n9 10\n11 12\n```\n**Sample Output**\n```\n58 64\n139 154\n```\n\n**Test Cases**\n```\n# T1\nIN:\n2 3 2\n1 2 3\n4 5 6\n7 8\n9 10\n11 12\nOUT:\n58 64\n139 154\n# T2\nIN:\n1 1 1\n5\n4\nOUT:\n20\n# T3\nIN:\n2 2 2\n1 0\n0 1\n3 4\n5 6\nOUT:\n3 4\n5 6\n# T4\nIN:\n2 2 3\n1 2\n3 4\n1 2 3\n4 5 6\nOUT:\n9 12 15\n19 26 33\n# T5\nIN:\n2 2 1\n1 -1\n2 3\n4\n-2\nOUT:\n6\n2\n```\n**Concepts Practiced:** Three nested loops, compatible matrix dimensions, multiplication and accumulation."
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "title": "Object-Oriented Programming",
+      "description": "Classes, constructors, encapsulation, inheritance, interfaces, and object composition.",
+      "problems": [
+        {
+          "id": "22.1",
+          "number": 1,
+          "title": "B1. Student Record",
+          "difficulty": "Easy",
+          "description": "Create a `Student` class with a name and three integer grades. The class must provide a method that calculates the student's average grade.\n\nRead the student's name and three grades. Create a `Student` object and display the name and average. The average is printed with exactly two digits after the decimal point.",
+          "inputFormat": "- First line: student name (one word).\n- Second line: three space-separated integer grades.",
+          "outputFormat": "Student: name\nAverage: xx.xx",
+          "constraints": "- `1 ≤ name length ≤ 30`\n- `0 ≤ grade ≤ 100`",
+          "sampleInput": "Mika\n90 85 95",
+          "sampleOutput": "Student: Mika\nAverage: 90.00",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "Test 1",
+              "input": "Mika\n90 85 95",
+              "expectedOutput": "Student: Mika\nAverage: 90.00"
+            },
+            {
+              "number": 2,
+              "label": "Test 2",
+              "input": "Leo\n70 70 70",
+              "expectedOutput": "Student: Leo\nAverage: 70.00"
+            },
+            {
+              "number": 3,
+              "label": "Test 3",
+              "input": "Ana\n100 99 98",
+              "expectedOutput": "Student: Ana\nAverage: 99.00"
+            },
+            {
+              "number": 4,
+              "label": "Test 4",
+              "input": "Noah\n0 50 100",
+              "expectedOutput": "Student: Noah\nAverage: 50.00"
+            },
+            {
+              "number": 5,
+              "label": "Test 5",
+              "input": "Kai\n81 82 83",
+              "expectedOutput": "Student: Kai\nAverage: 82.00"
+            }
+          ],
+          "concepts": "Class definition, object creation, fields, methods, average calculation, formatted output.",
+          "sourceMarkdown": "**Difficulty:** Easy\n\n**Description:** Create a `Student` class with a name and three integer grades. The class must provide a method that calculates the student's average grade.\n\nRead the student's name and three grades. Create a `Student` object and display the name and average. The average is printed with exactly two digits after the decimal point.\n\n**Input Format:** - First line: student name (one word).\n- Second line: three space-separated integer grades.\n\n**Output Format:** Student: name\nAverage: xx.xx\n\n**Constraints:**\n\n- `1 ≤ name length ≤ 30`\n- `0 ≤ grade ≤ 100`\n\n**Sample Input**\n```\nMika\n90 85 95\n```\n**Sample Output**\n```\nStudent: Mika\nAverage: 90.00\n```\n\n**Test Cases**\n```\n# T1\nIN:\nMika\n90 85 95\nOUT:\nStudent: Mika\nAverage: 90.00\n# T2\nIN:\nLeo\n70 70 70\nOUT:\nStudent: Leo\nAverage: 70.00\n# T3\nIN:\nAna\n100 99 98\nOUT:\nStudent: Ana\nAverage: 99.00\n# T4\nIN:\nNoah\n0 50 100\nOUT:\nStudent: Noah\nAverage: 50.00\n# T5\nIN:\nKai\n81 82 83\nOUT:\nStudent: Kai\nAverage: 82.00\n```\n**Concepts Practiced:** Class definition, object creation, fields, methods, average calculation, formatted output."
+        },
+        {
+          "id": "22.2",
+          "number": 2,
+          "title": "B2. Rectangle Calculator",
+          "difficulty": "Easy",
+          "description": "Create a `Rectangle` class with `width` and `height`. Provide methods to calculate its area and perimeter.\n\nRead width and height, create a rectangle object, and print its area and perimeter.",
+          "inputFormat": "One line containing two positive integers: width and height.",
+          "outputFormat": "Area: X\nPerimeter: Y",
+          "constraints": "- `1 ≤ width, height ≤ 10,000`",
+          "sampleInput": "5 3",
+          "sampleOutput": "Area: 15\nPerimeter: 16",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "Test 1",
+              "input": "5 3",
+              "expectedOutput": "Area: 15\nPerimeter: 16"
+            },
+            {
+              "number": 2,
+              "label": "Test 2",
+              "input": "1 1",
+              "expectedOutput": "Area: 1\nPerimeter: 4"
+            },
+            {
+              "number": 3,
+              "label": "Test 3",
+              "input": "10 2",
+              "expectedOutput": "Area: 20\nPerimeter: 24"
+            },
+            {
+              "number": 4,
+              "label": "Test 4",
+              "input": "7 7",
+              "expectedOutput": "Area: 49\nPerimeter: 28"
+            },
+            {
+              "number": 5,
+              "label": "Test 5",
+              "input": "100 25",
+              "expectedOutput": "Area: 2500\nPerimeter: 250"
+            }
+          ],
+          "concepts": "Classes, constructors, object state, instance methods, arithmetic.",
+          "sourceMarkdown": "**Difficulty:** Easy\n\n**Description:** Create a `Rectangle` class with `width` and `height`. Provide methods to calculate its area and perimeter.\n\nRead width and height, create a rectangle object, and print its area and perimeter.\n\n**Input Format:** One line containing two positive integers: width and height.\n\n**Output Format:** Area: X\nPerimeter: Y\n\n**Constraints:**\n\n- `1 ≤ width, height ≤ 10,000`\n\n**Sample Input**\n```\n5 3\n```\n**Sample Output**\n```\nArea: 15\nPerimeter: 16\n```\n\n**Test Cases**\n```\n# T1\nIN:\n5 3\nOUT:\nArea: 15\nPerimeter: 16\n# T2\nIN:\n1 1\nOUT:\nArea: 1\nPerimeter: 4\n# T3\nIN:\n10 2\nOUT:\nArea: 20\nPerimeter: 24\n# T4\nIN:\n7 7\nOUT:\nArea: 49\nPerimeter: 28\n# T5\nIN:\n100 25\nOUT:\nArea: 2500\nPerimeter: 250\n```\n**Concepts Practiced:** Classes, constructors, object state, instance methods, arithmetic."
+        },
+        {
+          "id": "22.3",
+          "number": 3,
+          "title": "B3. Bank Account",
+          "difficulty": "Easy",
+          "description": "Create a `BankAccount` class with an account holder name and a balance. It must support deposit and withdrawal operations.\n\nA deposit adds to the balance. A withdrawal is successful only if the withdrawal amount is positive and does not exceed the current balance. If a withdrawal is invalid, the balance remains unchanged.\n\nRead the account holder, initial balance, deposit amount, and withdrawal amount. Perform the operations in that order.",
+          "inputFormat": "- First line: account holder name (one word).\n- Second line: initial balance.\n- Third line: deposit amount.\n- Fourth line: withdrawal amount.",
+          "outputFormat": "Account: name\nBalance: X\nWithdrawal: SUCCESS\nIf the withdrawal fails, print `Withdrawal: FAILED`.",
+          "constraints": "- `1 ≤ name length ≤ 30`\n- `0 ≤ initial balance ≤ 1,000,000`\n- `0 ≤ deposit amount ≤ 1,000,000`\n- `0 ≤ withdrawal amount ≤ 1,000,000`",
+          "sampleInput": "Rina\n1000\n500\n300",
+          "sampleOutput": "Account: Rina\nBalance: 1200\nWithdrawal: SUCCESS",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "Test 1",
+              "input": "Rina\n1000\n500\n300",
+              "expectedOutput": "Account: Rina\nBalance: 1200\nWithdrawal: SUCCESS"
+            },
+            {
+              "number": 2,
+              "label": "Test 2",
+              "input": "Ben\n100\n0\n100",
+              "expectedOutput": "Account: Ben\nBalance: 0\nWithdrawal: SUCCESS"
+            },
+            {
+              "number": 3,
+              "label": "Test 3",
+              "input": "Mia\n200\n50\n300",
+              "expectedOutput": "Account: Mia\nBalance: 250\nWithdrawal: FAILED"
+            },
+            {
+              "number": 4,
+              "label": "Test 4",
+              "input": "Eli\n0\n100\n1",
+              "expectedOutput": "Account: Eli\nBalance: 99\nWithdrawal: SUCCESS"
+            },
+            {
+              "number": 5,
+              "label": "Test 5",
+              "input": "Tess\n500\n200\n200",
+              "expectedOutput": "Account: Tess\nBalance: 500\nWithdrawal: SUCCESS"
+            }
+          ],
+          "concepts": "Encapsulation, object state, methods that modify state, validation, conditional logic.",
+          "sourceMarkdown": "**Difficulty:** Easy\n\n**Description:** Create a `BankAccount` class with an account holder name and a balance. It must support deposit and withdrawal operations.\n\nA deposit adds to the balance. A withdrawal is successful only if the withdrawal amount is positive and does not exceed the current balance. If a withdrawal is invalid, the balance remains unchanged.\n\nRead the account holder, initial balance, deposit amount, and withdrawal amount. Perform the operations in that order.\n\n**Input Format:** - First line: account holder name (one word).\n- Second line: initial balance.\n- Third line: deposit amount.\n- Fourth line: withdrawal amount.\n\n**Output Format:** Account: name\nBalance: X\nWithdrawal: SUCCESS\nIf the withdrawal fails, print `Withdrawal: FAILED`.\n\n**Constraints:**\n\n- `1 ≤ name length ≤ 30`\n- `0 ≤ initial balance ≤ 1,000,000`\n- `0 ≤ deposit amount ≤ 1,000,000`\n- `0 ≤ withdrawal amount ≤ 1,000,000`\n\n**Sample Input**\n```\nRina\n1000\n500\n300\n```\n**Sample Output**\n```\nAccount: Rina\nBalance: 1200\nWithdrawal: SUCCESS\n```\n\n**Test Cases**\n```\n# T1\nIN:\nRina\n1000\n500\n300\nOUT:\nAccount: Rina\nBalance: 1200\nWithdrawal: SUCCESS\n# T2\nIN:\nBen\n100\n0\n100\nOUT:\nAccount: Ben\nBalance: 0\nWithdrawal: SUCCESS\n# T3\nIN:\nMia\n200\n50\n300\nOUT:\nAccount: Mia\nBalance: 250\nWithdrawal: FAILED\n# T4\nIN:\nEli\n0\n100\n1\nOUT:\nAccount: Eli\nBalance: 99\nWithdrawal: SUCCESS\n# T5\nIN:\nTess\n500\n200\n200\nOUT:\nAccount: Tess\nBalance: 500\nWithdrawal: SUCCESS\n```\n**Concepts Practiced:** Encapsulation, object state, methods that modify state, validation, conditional logic."
+        },
+        {
+          "id": "22.4",
+          "number": 4,
+          "title": "B4. Product Inventory Item",
+          "difficulty": "Medium",
+          "description": "Create a `Product` class with a product name, unit price, and stock quantity. It must provide methods to calculate the total inventory value and sell a requested quantity.\n\nA sale succeeds only when the requested quantity is positive and no greater than the available stock. A failed sale does not change the stock.\n\nRead the product name, price, initial stock, and requested sale quantity. Print the sale status, remaining stock, and inventory value after the attempted sale.",
+          "inputFormat": "- First line: product name (one word).\n- Second line: unit price and initial stock quantity.\n- Third line: requested sale quantity.",
+          "outputFormat": "Product: name\nSale: SUCCESS\nStock: X\nInventory Value: Y\nUse `Sale: FAILED` for an unsuccessful sale.",
+          "constraints": "- `1 ≤ name length ≤ 30`\n- `0 ≤ unit price ≤ 1,000,000`\n- `0 ≤ initial stock ≤ 100,000`\n- `0 ≤ requested quantity ≤ 100,000`",
+          "sampleInput": "Notebook\n50 10\n3",
+          "sampleOutput": "Product: Notebook\nSale: SUCCESS\nStock: 7\nInventory Value: 350",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "Test 1",
+              "input": "Notebook\n50 10\n3",
+              "expectedOutput": "Product: Notebook\nSale: SUCCESS\nStock: 7\nInventory Value: 350"
+            },
+            {
+              "number": 2,
+              "label": "Test 2",
+              "input": "Pen\n10 5\n5",
+              "expectedOutput": "Product: Pen\nSale: SUCCESS\nStock: 0\nInventory Value: 0"
+            },
+            {
+              "number": 3,
+              "label": "Test 3",
+              "input": "Bag\n500 2\n3",
+              "expectedOutput": "Product: Bag\nSale: FAILED\nStock: 2\nInventory Value: 1000"
+            },
+            {
+              "number": 4,
+              "label": "Test 4",
+              "input": "Eraser\n5 0\n1",
+              "expectedOutput": "Product: Eraser\nSale: FAILED\nStock: 0\nInventory Value: 0"
+            },
+            {
+              "number": 5,
+              "label": "Test 5",
+              "input": "Paper\n2 100\n0",
+              "expectedOutput": "Product: Paper\nSale: FAILED\nStock: 100\nInventory Value: 200"
+            }
+          ],
+          "concepts": "Classes, encapsulation, state changes, methods, validation, object modeling.",
+          "sourceMarkdown": "**Difficulty:** Medium\n\n**Description:** Create a `Product` class with a product name, unit price, and stock quantity. It must provide methods to calculate the total inventory value and sell a requested quantity.\n\nA sale succeeds only when the requested quantity is positive and no greater than the available stock. A failed sale does not change the stock.\n\nRead the product name, price, initial stock, and requested sale quantity. Print the sale status, remaining stock, and inventory value after the attempted sale.\n\n**Input Format:** - First line: product name (one word).\n- Second line: unit price and initial stock quantity.\n- Third line: requested sale quantity.\n\n**Output Format:** Product: name\nSale: SUCCESS\nStock: X\nInventory Value: Y\nUse `Sale: FAILED` for an unsuccessful sale.\n\n**Constraints:**\n\n- `1 ≤ name length ≤ 30`\n- `0 ≤ unit price ≤ 1,000,000`\n- `0 ≤ initial stock ≤ 100,000`\n- `0 ≤ requested quantity ≤ 100,000`\n\n**Sample Input**\n```\nNotebook\n50 10\n3\n```\n**Sample Output**\n```\nProduct: Notebook\nSale: SUCCESS\nStock: 7\nInventory Value: 350\n```\n\n**Test Cases**\n```\n# T1\nIN:\nNotebook\n50 10\n3\nOUT:\nProduct: Notebook\nSale: SUCCESS\nStock: 7\nInventory Value: 350\n# T2\nIN:\nPen\n10 5\n5\nOUT:\nProduct: Pen\nSale: SUCCESS\nStock: 0\nInventory Value: 0\n# T3\nIN:\nBag\n500 2\n3\nOUT:\nProduct: Bag\nSale: FAILED\nStock: 2\nInventory Value: 1000\n# T4\nIN:\nEraser\n5 0\n1\nOUT:\nProduct: Eraser\nSale: FAILED\nStock: 0\nInventory Value: 0\n# T5\nIN:\nPaper\n2 100\n0\nOUT:\nProduct: Paper\nSale: FAILED\nStock: 100\nInventory Value: 200\n```\n**Concepts Practiced:** Classes, encapsulation, state changes, methods, validation, object modeling."
+        },
+        {
+          "id": "22.5",
+          "number": 5,
+          "title": "B5. Shape Area Using Inheritance",
+          "difficulty": "Medium",
+          "description": "Create a base class `Shape` with an area method. Create two derived classes, `Rectangle` and `Circle`, that provide their own area calculations.\n\nThe input specifies which shape to create:\n- `R width height` for a rectangle.\n- `C radius` for a circle.\n\nUse `3.14` as the value of pi. Print the area with exactly two digits after the decimal point.",
+          "inputFormat": "One line:\n- `R width height`, or\n- `C radius`.",
+          "outputFormat": "Area: xx.xx",
+          "constraints": "- `1 ≤ width, height, radius ≤ 10,000`",
+          "sampleInput": "R 5 3",
+          "sampleOutput": "Area: 15.00",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "Test 1",
+              "input": "R 5 3",
+              "expectedOutput": "Area: 15.00"
+            },
+            {
+              "number": 2,
+              "label": "Test 2",
+              "input": "C 2",
+              "expectedOutput": "Area: 12.56"
+            },
+            {
+              "number": 3,
+              "label": "Test 3",
+              "input": "R 1 9",
+              "expectedOutput": "Area: 9.00"
+            },
+            {
+              "number": 4,
+              "label": "Test 4",
+              "input": "C 10",
+              "expectedOutput": "Area: 314.00"
+            },
+            {
+              "number": 5,
+              "label": "Test 5",
+              "input": "R 12 12",
+              "expectedOutput": "Area: 144.00"
+            }
+          ],
+          "concepts": "Inheritance, base and derived classes, method overriding, polymorphism, floating-point calculations.",
+          "sourceMarkdown": "**Difficulty:** Medium\n\n**Description:** Create a base class `Shape` with an area method. Create two derived classes, `Rectangle` and `Circle`, that provide their own area calculations.\n\nThe input specifies which shape to create:\n- `R width height` for a rectangle.\n- `C radius` for a circle.\n\nUse `3.14` as the value of pi. Print the area with exactly two digits after the decimal point.\n\n**Input Format:** One line:\n- `R width height`, or\n- `C radius`.\n\n**Output Format:** Area: xx.xx\n\n**Constraints:**\n\n- `1 ≤ width, height, radius ≤ 10,000`\n\n**Sample Input**\n```\nR 5 3\n```\n**Sample Output**\n```\nArea: 15.00\n```\n\n**Test Cases**\n```\n# T1\nIN:\nR 5 3\nOUT:\nArea: 15.00\n# T2\nIN:\nC 2\nOUT:\nArea: 12.56\n# T3\nIN:\nR 1 9\nOUT:\nArea: 9.00\n# T4\nIN:\nC 10\nOUT:\nArea: 314.00\n# T5\nIN:\nR 12 12\nOUT:\nArea: 144.00\n```\n**Concepts Practiced:** Inheritance, base and derived classes, method overriding, polymorphism, floating-point calculations."
+        },
+        {
+          "id": "22.6",
+          "number": 6,
+          "title": "B6. Employee Salary Calculator",
+          "difficulty": "Medium",
+          "description": "Create a base class `Employee` with a name and monthly base salary. Create a derived class `FullTimeEmployee` that adds a fixed monthly allowance.\n\nThe employee's total monthly salary is the base salary plus the allowance. Use an overridden method to calculate the total salary.",
+          "inputFormat": "- First line: employee name (one word).\n- Second line: base salary and allowance.",
+          "outputFormat": "Employee: name\nTotal Salary: X",
+          "constraints": "- `1 ≤ name length ≤ 30`\n- `0 ≤ base salary, allowance ≤ 1,000,000`",
+          "sampleInput": "Alex\n25000 5000",
+          "sampleOutput": "Employee: Alex\nTotal Salary: 30000",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "Test 1",
+              "input": "Alex\n25000 5000",
+              "expectedOutput": "Employee: Alex\nTotal Salary: 30000"
+            },
+            {
+              "number": 2,
+              "label": "Test 2",
+              "input": "Bea\n18000 0",
+              "expectedOutput": "Employee: Bea\nTotal Salary: 18000"
+            },
+            {
+              "number": 3,
+              "label": "Test 3",
+              "input": "Carlo\n0 2500",
+              "expectedOutput": "Employee: Carlo\nTotal Salary: 2500"
+            },
+            {
+              "number": 4,
+              "label": "Test 4",
+              "input": "Dana\n30000 7500",
+              "expectedOutput": "Employee: Dana\nTotal Salary: 37500"
+            },
+            {
+              "number": 5,
+              "label": "Test 5",
+              "input": "Evan\n99999 1",
+              "expectedOutput": "Employee: Evan\nTotal Salary: 100000"
+            }
+          ],
+          "concepts": "Inheritance, constructor chaining, method overriding, encapsulated state.",
+          "sourceMarkdown": "**Difficulty:** Medium\n\n**Description:** Create a base class `Employee` with a name and monthly base salary. Create a derived class `FullTimeEmployee` that adds a fixed monthly allowance.\n\nThe employee's total monthly salary is the base salary plus the allowance. Use an overridden method to calculate the total salary.\n\n**Input Format:** - First line: employee name (one word).\n- Second line: base salary and allowance.\n\n**Output Format:** Employee: name\nTotal Salary: X\n\n**Constraints:**\n\n- `1 ≤ name length ≤ 30`\n- `0 ≤ base salary, allowance ≤ 1,000,000`\n\n**Sample Input**\n```\nAlex\n25000 5000\n```\n**Sample Output**\n```\nEmployee: Alex\nTotal Salary: 30000\n```\n\n**Test Cases**\n```\n# T1\nIN:\nAlex\n25000 5000\nOUT:\nEmployee: Alex\nTotal Salary: 30000\n# T2\nIN:\nBea\n18000 0\nOUT:\nEmployee: Bea\nTotal Salary: 18000\n# T3\nIN:\nCarlo\n0 2500\nOUT:\nEmployee: Carlo\nTotal Salary: 2500\n# T4\nIN:\nDana\n30000 7500\nOUT:\nEmployee: Dana\nTotal Salary: 37500\n# T5\nIN:\nEvan\n99999 1\nOUT:\nEmployee: Evan\nTotal Salary: 100000\n```\n**Concepts Practiced:** Inheritance, constructor chaining, method overriding, encapsulated state."
+        },
+        {
+          "id": "22.7",
+          "number": 7,
+          "title": "B7. Payment Method Interface",
+          "difficulty": "Hard",
+          "description": "Define a `PaymentMethod` interface with a method that processes a payment amount and returns whether the payment succeeds.\n\nImplement two payment types:\n- `CashPayment`: accepts a payment when the amount is positive and does not exceed the available cash.\n- `CardPayment`: accepts a payment when the amount is positive and does not exceed the card limit.\n\nRead the payment type, available amount or card limit, and requested payment amount. Create the corresponding payment object and process the payment.",
+          "inputFormat": "One line containing:\n- payment type (`C` for cash or `D` for card),\n- available cash or card limit,\n- payment amount.",
+          "outputFormat": "Print `Payment: APPROVED` or `Payment: DECLINED`.",
+          "constraints": "- `0 ≤ available amount, limit, payment amount ≤ 1,000,000`",
+          "sampleInput": "C 500 300",
+          "sampleOutput": "Payment: APPROVED",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "Test 1",
+              "input": "C 500 300",
+              "expectedOutput": "Payment: APPROVED"
+            },
+            {
+              "number": 2,
+              "label": "Test 2",
+              "input": "C 100 150",
+              "expectedOutput": "Payment: DECLINED"
+            },
+            {
+              "number": 3,
+              "label": "Test 3",
+              "input": "D 1000 1000",
+              "expectedOutput": "Payment: APPROVED"
+            },
+            {
+              "number": 4,
+              "label": "Test 4",
+              "input": "D 1000 0",
+              "expectedOutput": "Payment: DECLINED"
+            },
+            {
+              "number": 5,
+              "label": "Test 5",
+              "input": "C 0 1",
+              "expectedOutput": "Payment: DECLINED"
+            }
+          ],
+          "concepts": "Interfaces, interface implementation, polymorphism, object behavior, validation.",
+          "sourceMarkdown": "**Difficulty:** Hard\n\n**Description:** Define a `PaymentMethod` interface with a method that processes a payment amount and returns whether the payment succeeds.\n\nImplement two payment types:\n- `CashPayment`: accepts a payment when the amount is positive and does not exceed the available cash.\n- `CardPayment`: accepts a payment when the amount is positive and does not exceed the card limit.\n\nRead the payment type, available amount or card limit, and requested payment amount. Create the corresponding payment object and process the payment.\n\n**Input Format:** One line containing:\n- payment type (`C` for cash or `D` for card),\n- available cash or card limit,\n- payment amount.\n\n**Output Format:** Print `Payment: APPROVED` or `Payment: DECLINED`.\n\n**Constraints:**\n\n- `0 ≤ available amount, limit, payment amount ≤ 1,000,000`\n\n**Sample Input**\n```\nC 500 300\n```\n**Sample Output**\n```\nPayment: APPROVED\n```\n\n**Test Cases**\n```\n# T1\nIN:\nC 500 300\nOUT:\nPayment: APPROVED\n# T2\nIN:\nC 100 150\nOUT:\nPayment: DECLINED\n# T3\nIN:\nD 1000 1000\nOUT:\nPayment: APPROVED\n# T4\nIN:\nD 1000 0\nOUT:\nPayment: DECLINED\n# T5\nIN:\nC 0 1\nOUT:\nPayment: DECLINED\n```\n**Concepts Practiced:** Interfaces, interface implementation, polymorphism, object behavior, validation."
+        },
+        {
+          "id": "22.8",
+          "number": 8,
+          "title": "B8. Library Book Borrowing",
+          "difficulty": "Hard",
+          "description": "Create a `Book` class with a title, author, and availability status. A newly created book is available.\n\nImplement methods to borrow and return the book:\n- Borrowing an available book succeeds and makes it unavailable.\n- Borrowing an unavailable book fails.\n- Returning a borrowed book succeeds and makes it available.\n- Returning an already available book fails.\n\nRead the book title, author, and a sequence of operation commands. Process every command in order.",
+          "inputFormat": "- First line: title (one word).\n- Second line: author (one word).\n- Third line: integer `Q`, the number of operations.\n- Next `Q` lines: either `BORROW` or `RETURN`.",
+          "outputFormat": "Print the title and author, followed by one result per operation:\nBook: title\nAuthor: author\nBORROW: SUCCESS\nRETURN: FAILED\nStatus: AVAILABLE\nThe final status is `AVAILABLE` or `BORROWED`.",
+          "constraints": "- `1 ≤ title length, author length ≤ 30`\n- `1 ≤ Q ≤ 100`\n- Commands are exactly `BORROW` or `RETURN`.",
+          "sampleInput": "Dune\nHerbert\n4\nBORROW\nBORROW\nRETURN\nRETURN",
+          "sampleOutput": "Book: Dune\nAuthor: Herbert\nBORROW: SUCCESS\nBORROW: FAILED\nRETURN: SUCCESS\nRETURN: FAILED\nStatus: AVAILABLE",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "Test 1",
+              "input": "Dune\nHerbert\n4\nBORROW\nBORROW\nRETURN\nRETURN",
+              "expectedOutput": "Book: Dune\nAuthor: Herbert\nBORROW: SUCCESS\nBORROW: FAILED\nRETURN: SUCCESS\nRETURN: FAILED\nStatus: AVAILABLE"
+            },
+            {
+              "number": 2,
+              "label": "Test 2",
+              "input": "CleanCode\nMartin\n1\nBORROW",
+              "expectedOutput": "Book: CleanCode\nAuthor: Martin\nBORROW: SUCCESS\nStatus: BORROWED"
+            },
+            {
+              "number": 3,
+              "label": "Test 3",
+              "input": "Algorithms\nCormen\n3\nRETURN\nBORROW\nRETURN",
+              "expectedOutput": "Book: Algorithms\nAuthor: Cormen\nRETURN: FAILED\nBORROW: SUCCESS\nRETURN: SUCCESS\nStatus: AVAILABLE"
+            },
+            {
+              "number": 4,
+              "label": "Test 4",
+              "input": "Patterns\nGamma\n5\nBORROW\nRETURN\nBORROW\nRETURN\nBORROW",
+              "expectedOutput": "Book: Patterns\nAuthor: Gamma\nBORROW: SUCCESS\nRETURN: SUCCESS\nBORROW: SUCCESS\nRETURN: SUCCESS\nBORROW: SUCCESS\nStatus: BORROWED"
+            },
+            {
+              "number": 5,
+              "label": "Test 5",
+              "input": "Basics\nAda\n2\nBORROW\nBORROW",
+              "expectedOutput": "Book: Basics\nAuthor: Ada\nBORROW: SUCCESS\nBORROW: FAILED\nStatus: BORROWED"
+            }
+          ],
+          "concepts": "Classes, encapsulation, object state, methods, repeated operations, state transitions.",
+          "sourceMarkdown": "**Difficulty:** Hard\n\n**Description:** Create a `Book` class with a title, author, and availability status. A newly created book is available.\n\nImplement methods to borrow and return the book:\n- Borrowing an available book succeeds and makes it unavailable.\n- Borrowing an unavailable book fails.\n- Returning a borrowed book succeeds and makes it available.\n- Returning an already available book fails.\n\nRead the book title, author, and a sequence of operation commands. Process every command in order.\n\n**Input Format:** - First line: title (one word).\n- Second line: author (one word).\n- Third line: integer `Q`, the number of operations.\n- Next `Q` lines: either `BORROW` or `RETURN`.\n\n**Output Format:** Print the title and author, followed by one result per operation:\nBook: title\nAuthor: author\nBORROW: SUCCESS\nRETURN: FAILED\nStatus: AVAILABLE\nThe final status is `AVAILABLE` or `BORROWED`.\n\n**Constraints:**\n\n- `1 ≤ title length, author length ≤ 30`\n- `1 ≤ Q ≤ 100`\n- Commands are exactly `BORROW` or `RETURN`.\n\n**Sample Input**\n```\nDune\nHerbert\n4\nBORROW\nBORROW\nRETURN\nRETURN\n```\n**Sample Output**\n```\nBook: Dune\nAuthor: Herbert\nBORROW: SUCCESS\nBORROW: FAILED\nRETURN: SUCCESS\nRETURN: FAILED\nStatus: AVAILABLE\n```\n\n**Test Cases**\n```\n# T1\nIN:\nDune\nHerbert\n4\nBORROW\nBORROW\nRETURN\nRETURN\nOUT:\nBook: Dune\nAuthor: Herbert\nBORROW: SUCCESS\nBORROW: FAILED\nRETURN: SUCCESS\nRETURN: FAILED\nStatus: AVAILABLE\n# T2\nIN:\nCleanCode\nMartin\n1\nBORROW\nOUT:\nBook: CleanCode\nAuthor: Martin\nBORROW: SUCCESS\nStatus: BORROWED\n# T3\nIN:\nAlgorithms\nCormen\n3\nRETURN\nBORROW\nRETURN\nOUT:\nBook: Algorithms\nAuthor: Cormen\nRETURN: FAILED\nBORROW: SUCCESS\nRETURN: SUCCESS\nStatus: AVAILABLE\n# T4\nIN:\nPatterns\nGamma\n5\nBORROW\nRETURN\nBORROW\nRETURN\nBORROW\nOUT:\nBook: Patterns\nAuthor: Gamma\nBORROW: SUCCESS\nRETURN: SUCCESS\nBORROW: SUCCESS\nRETURN: SUCCESS\nBORROW: SUCCESS\nStatus: BORROWED\n# T5\nIN:\nBasics\nAda\n2\nBORROW\nBORROW\nOUT:\nBook: Basics\nAuthor: Ada\nBORROW: SUCCESS\nBORROW: FAILED\nStatus: BORROWED\n```\n**Concepts Practiced:** Classes, encapsulation, object state, methods, repeated operations, state transitions."
+        },
+        {
+          "id": "22.9",
+          "number": 9,
+          "title": "B9. Shopping Cart",
+          "difficulty": "Hard",
+          "description": "Create a `CartItem` class with a product name, unit price, and quantity. It must provide a method to calculate the item's subtotal.\n\nCreate a `ShoppingCart` class that stores cart items and can calculate the total cost of all items. Read a list of items, create objects, add them to the cart, and print each subtotal followed by the cart total.",
+          "inputFormat": "- First line: integer `N`, the number of cart items.\n- Next `N` lines: product name, unit price, and quantity.",
+          "outputFormat": "For each item, print `name: subtotal`. Then print `Total: amount`.",
+          "constraints": "- `1 ≤ N ≤ 100`\n- `1 ≤ product name length ≤ 30`\n- `0 ≤ unit price ≤ 1,000,000`\n- `0 ≤ quantity ≤ 1,000`",
+          "sampleInput": "3\nPen 10 2\nNotebook 50 3\nBag 500 1",
+          "sampleOutput": "Pen: 20\nNotebook: 150\nBag: 500\nTotal: 670",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "Test 1",
+              "input": "3\nPen 10 2\nNotebook 50 3\nBag 500 1",
+              "expectedOutput": "Pen: 20\nNotebook: 150\nBag: 500\nTotal: 670"
+            },
+            {
+              "number": 2,
+              "label": "Test 2",
+              "input": "1\nPencil 5 4",
+              "expectedOutput": "Pencil: 20\nTotal: 20"
+            },
+            {
+              "number": 3,
+              "label": "Test 3",
+              "input": "2\nCable 100 0\nMouse 250 2",
+              "expectedOutput": "Cable: 0\nMouse: 500\nTotal: 500"
+            },
+            {
+              "number": 4,
+              "label": "Test 4",
+              "input": "3\nA 1 1\nB 2 2\nC 3 3",
+              "expectedOutput": "A: 1\nB: 4\nC: 9\nTotal: 14"
+            },
+            {
+              "number": 5,
+              "label": "Test 5",
+              "input": "2\nMonitor 5000 2\nKeyboard 1500 1",
+              "expectedOutput": "Monitor: 10000\nKeyboard: 1500\nTotal: 11500"
+            }
+          ],
+          "concepts": "Multiple classes, object composition, collections, instance methods, aggregation.",
+          "sourceMarkdown": "**Difficulty:** Hard\n\n**Description:** Create a `CartItem` class with a product name, unit price, and quantity. It must provide a method to calculate the item's subtotal.\n\nCreate a `ShoppingCart` class that stores cart items and can calculate the total cost of all items. Read a list of items, create objects, add them to the cart, and print each subtotal followed by the cart total.\n\n**Input Format:** - First line: integer `N`, the number of cart items.\n- Next `N` lines: product name, unit price, and quantity.\n\n**Output Format:** For each item, print `name: subtotal`. Then print `Total: amount`.\n\n**Constraints:**\n\n- `1 ≤ N ≤ 100`\n- `1 ≤ product name length ≤ 30`\n- `0 ≤ unit price ≤ 1,000,000`\n- `0 ≤ quantity ≤ 1,000`\n\n**Sample Input**\n```\n3\nPen 10 2\nNotebook 50 3\nBag 500 1\n```\n**Sample Output**\n```\nPen: 20\nNotebook: 150\nBag: 500\nTotal: 670\n```\n\n**Test Cases**\n```\n# T1\nIN:\n3\nPen 10 2\nNotebook 50 3\nBag 500 1\nOUT:\nPen: 20\nNotebook: 150\nBag: 500\nTotal: 670\n# T2\nIN:\n1\nPencil 5 4\nOUT:\nPencil: 20\nTotal: 20\n# T3\nIN:\n2\nCable 100 0\nMouse 250 2\nOUT:\nCable: 0\nMouse: 500\nTotal: 500\n# T4\nIN:\n3\nA 1 1\nB 2 2\nC 3 3\nOUT:\nA: 1\nB: 4\nC: 9\nTotal: 14\n# T5\nIN:\n2\nMonitor 5000 2\nKeyboard 1500 1\nOUT:\nMonitor: 10000\nKeyboard: 1500\nTotal: 11500\n```\n**Concepts Practiced:** Multiple classes, object composition, collections, instance methods, aggregation."
+        },
+        {
+          "id": "22.10",
+          "number": 10,
+          "title": "B10. Course Enrollment System",
+          "difficulty": "Hard",
+          "description": "Create a `Student` class and a `Course` class.\n\nA student has a name and can enroll in courses. A course has a course code, course title, and maximum capacity. The course tracks its current enrollment count.\n\nAn enrollment succeeds only if:\n- The course has available capacity.\n- The student is not already enrolled in that course.\n\nFor this exercise, each student is processed independently and the input contains one student and one course. Read a sequence of enrollment attempts for that student and course. Print the result of every attempt and the final enrollment count.",
+          "inputFormat": "- First line: student name (one word).\n- Second line: course code and course title (one word each).\n- Third line: maximum course capacity.\n- Fourth line: integer `Q`, the number of enrollment attempts.\n- Next `Q` lines: `ENROLL`.",
+          "outputFormat": "Student: name\nCourse: code title\nENROLL: SUCCESS\nENROLL: FAILED\nEnrolled: X/Y",
+          "constraints": "- `1 ≤ name, code, title length ≤ 30`\n- `1 ≤ capacity ≤ 100`\n- `1 ≤ Q ≤ 100`\n- The same student attempts to enroll repeatedly in the same course.",
+          "sampleInput": "Mika\nCS101 Programming\n2\n3\nENROLL\nENROLL\nENROLL",
+          "sampleOutput": "Student: Mika\nCourse: CS101 Programming\nENROLL: SUCCESS\nENROLL: FAILED\nENROLL: FAILED\nEnrolled: 1/2",
+          "testCases": [
+            {
+              "number": 1,
+              "label": "Test 1",
+              "input": "Mika\nCS101 Programming\n2\n3\nENROLL\nENROLL\nENROLL",
+              "expectedOutput": "Student: Mika\nCourse: CS101 Programming\nENROLL: SUCCESS\nENROLL: FAILED\nENROLL: FAILED\nEnrolled: 1/2"
+            },
+            {
+              "number": 2,
+              "label": "Test 2",
+              "input": "Leo\nIT102 Networks\n1\n1\nENROLL",
+              "expectedOutput": "Student: Leo\nCourse: IT102 Networks\nENROLL: SUCCESS\nEnrolled: 1/1"
+            },
+            {
+              "number": 3,
+              "label": "Test 3",
+              "input": "Ana\nCS201 DataStructures\n5\n2\nENROLL\nENROLL",
+              "expectedOutput": "Student: Ana\nCourse: CS201 DataStructures\nENROLL: SUCCESS\nENROLL: FAILED\nEnrolled: 1/5"
+            },
+            {
+              "number": 4,
+              "label": "Test 4",
+              "input": "Noah\nIT110 Database\n3\n1\nENROLL",
+              "expectedOutput": "Student: Noah\nCourse: IT110 Database\nENROLL: SUCCESS\nEnrolled: 1/3"
+            },
+            {
+              "number": 5,
+              "label": "Test 5",
+              "input": "Kai\nCS305 ArtificialIntelligence\n1\n2\nENROLL\nENROLL",
+              "expectedOutput": "Student: Kai\nCourse: CS305 ArtificialIntelligence\nENROLL: SUCCESS\nENROLL: FAILED\nEnrolled: 1/1"
+            }
+          ],
+          "concepts": "Multiple classes, object relationships, encapsulation, state validation, collections or enrollment tracking.",
+          "sourceMarkdown": "**Difficulty:** Hard\n\n**Description:** Create a `Student` class and a `Course` class.\n\nA student has a name and can enroll in courses. A course has a course code, course title, and maximum capacity. The course tracks its current enrollment count.\n\nAn enrollment succeeds only if:\n- The course has available capacity.\n- The student is not already enrolled in that course.\n\nFor this exercise, each student is processed independently and the input contains one student and one course. Read a sequence of enrollment attempts for that student and course. Print the result of every attempt and the final enrollment count.\n\n**Input Format:** - First line: student name (one word).\n- Second line: course code and course title (one word each).\n- Third line: maximum course capacity.\n- Fourth line: integer `Q`, the number of enrollment attempts.\n- Next `Q` lines: `ENROLL`.\n\n**Output Format:** Student: name\nCourse: code title\nENROLL: SUCCESS\nENROLL: FAILED\nEnrolled: X/Y\n\n**Constraints:**\n\n- `1 ≤ name, code, title length ≤ 30`\n- `1 ≤ capacity ≤ 100`\n- `1 ≤ Q ≤ 100`\n- The same student attempts to enroll repeatedly in the same course.\n\n**Sample Input**\n```\nMika\nCS101 Programming\n2\n3\nENROLL\nENROLL\nENROLL\n```\n**Sample Output**\n```\nStudent: Mika\nCourse: CS101 Programming\nENROLL: SUCCESS\nENROLL: FAILED\nENROLL: FAILED\nEnrolled: 1/2\n```\n\n**Test Cases**\n```\n# T1\nIN:\nMika\nCS101 Programming\n2\n3\nENROLL\nENROLL\nENROLL\nOUT:\nStudent: Mika\nCourse: CS101 Programming\nENROLL: SUCCESS\nENROLL: FAILED\nENROLL: FAILED\nEnrolled: 1/2\n# T2\nIN:\nLeo\nIT102 Networks\n1\n1\nENROLL\nOUT:\nStudent: Leo\nCourse: IT102 Networks\nENROLL: SUCCESS\nEnrolled: 1/1\n# T3\nIN:\nAna\nCS201 DataStructures\n5\n2\nENROLL\nENROLL\nOUT:\nStudent: Ana\nCourse: CS201 DataStructures\nENROLL: SUCCESS\nENROLL: FAILED\nEnrolled: 1/5\n# T4\nIN:\nNoah\nIT110 Database\n3\n1\nENROLL\nOUT:\nStudent: Noah\nCourse: IT110 Database\nENROLL: SUCCESS\nEnrolled: 1/3\n# T5\nIN:\nKai\nCS305 ArtificialIntelligence\n1\n2\nENROLL\nENROLL\nOUT:\nStudent: Kai\nCourse: CS305 ArtificialIntelligence\nENROLL: SUCCESS\nENROLL: FAILED\nEnrolled: 1/1\n```\n**Concepts Practiced:** Multiple classes, object relationships, encapsulation, state validation, collections or enrollment tracking."
         }
       ]
     }

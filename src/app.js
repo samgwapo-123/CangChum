@@ -221,7 +221,12 @@ function renderDashboard() {
   const lesson = lessons[state.next.lessonId - 1];
   const lessonState = lessonProgress(lesson);
   const firstProblem = lesson.problems.find((problem) => !problemState(problem.id).completed) || lesson.problems[0];
-  $('#next-card').innerHTML = `<div class="next-card__lesson"><span class="next-card__lesson-no">LESSON ${String(lesson.id).padStart(2, '0')}</span><span class="lesson-mini-progress">${lessonState.completed}/${lessonState.total} complete</span></div><div class="next-card__main"><span class="next-card__icon" aria-hidden="true">${String(lesson.id).padStart(2, '0')}</span><div><h3>${escapeHtml(lesson.title)}</h3><p>${escapeHtml(lesson.description)}</p><span class="next-card__problems">${lesson.problems.length} problems <span aria-hidden="true">·</span> 2 Easy <span aria-hidden="true">·</span> 2 Medium <span aria-hidden="true">·</span> 1 Hard</span></div></div><button class="btn btn--primary next-card__action" type="button" data-open-problem="${firstProblem.id}">Start lesson</button>`;
+  const lessonDifficulty = ['Easy', 'Medium', 'Hard']
+    .map((level) => [level, lesson.problems.filter((problem) => problem.difficulty === level).length])
+    .filter(([, count]) => count > 0)
+    .map(([level, count]) => `${count} ${level}`)
+    .join(' <span aria-hidden="true">·</span> ');
+  $('#next-card').innerHTML = `<div class="next-card__lesson"><span class="next-card__lesson-no">LESSON ${String(lesson.id).padStart(2, '0')}</span><span class="lesson-mini-progress">${lessonState.completed}/${lessonState.total} complete</span></div><div class="next-card__main"><span class="next-card__icon" aria-hidden="true">${String(lesson.id).padStart(2, '0')}</span><div><h3>${escapeHtml(lesson.title)}</h3><p>${escapeHtml(lesson.description)}</p><span class="next-card__problems">${lesson.problems.length} problems <span aria-hidden="true">·</span> ${lessonDifficulty}</span></div></div><button class="btn btn--primary next-card__action" type="button" data-open-problem="${firstProblem.id}">Start lesson</button>`;
   const activity = progress.activity.slice(0, 5);
   $('#activity-count').textContent = activity.length ? `${progress.activity.length} ${progress.activity.length === 1 ? 'attempt' : 'attempts'}` : 'No attempts yet';
   $('#activity-list').innerHTML = activity.length ? activity.map((entry) => {
